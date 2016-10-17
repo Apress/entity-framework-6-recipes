@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Recipe6.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <EntityContainer Name="Recipe6StoreContainer"/>
+        <Function Name="GetAllMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Apress.EF6Recipes.StoredProcedures.Recipe6" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" >
+        <EntityContainer Name="Recipe6Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Media" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe6.Media" />
+          <FunctionImport Name="GetAllMedia" EntitySet="Media" ReturnType="Collection(Apress.EF6Recipes.StoredProcedures.Recipe6.Media)" />
+        </EntityContainer>
+        <EntityType Name="Media">
+          <Key>
+            <PropertyRef Name="MediaId" />
+          </Key>
+          <Property Type="Int32" Name="MediaId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Magazine" BaseType="Apress.EF6Recipes.StoredProcedures.Recipe6.Media">
+          <Property Type="DateTime" Name="PublicationDate" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DVD" BaseType="Apress.EF6Recipes.StoredProcedures.Recipe6.Media">
+          <Property Type="String" Name="PlayTime" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Recipe6" />
+        <Alias Key="Target" Value="Recipe6.Store" />
+        <EntityContainerMapping CdmEntityContainer="Recipe6Context" StorageEntityContainer="Recipe6StoreContainer">
+			<FunctionImportMapping FunctionImportName="GetAllMedia" FunctionName="Recipe6.Store.GetAllMedia">
+				<ResultMapping>
+					<EntityTypeMapping TypeName="EF6RecipesModel.Magazine">
+						<ScalarProperty ColumnName="PublicationDate" Name="PublicationDate"/>
+						<Condition ColumnName="MediaType" Value="Magazine"/>
+					</EntityTypeMapping>
+					<EntityTypeMapping TypeName="EF6RecipesModel.DVD">
+						<ScalarProperty ColumnName="PlayTime" Name="PlayTime"/>
+						<Condition ColumnName="MediaType" Value="DVD"/>
+					</EntityTypeMapping>
+				</ResultMapping>
+			</FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="Chapter10" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

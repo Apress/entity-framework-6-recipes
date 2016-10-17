@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Event" EntityType="EFRecipesModel.Store.Event" store:Type="Tables" Schema="Chapter11" />
+    <EntitySet Name="Sponsor" EntityType="EFRecipesModel.Store.Sponsor" store:Type="Tables" Schema="Chapter11" />
+    <EntitySet Name="SponsorType" EntityType="EFRecipesModel.Store.SponsorType" store:Type="Tables" Schema="Chapter11" />
+    <AssociationSet Name="FK_Event_Sponsor" Association="EFRecipesModel.Store.FK_Event_Sponsor">
+      <End Role="Sponsor" EntitySet="Sponsor" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sponsor_SponsorType" Association="EFRecipesModel.Store.FK_Sponsor_SponsorType">
+      <End Role="SponsorType" EntitySet="SponsorType" />
+      <End Role="Sponsor" EntitySet="Sponsor" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="SponsorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sponsor">
+    <Key>
+      <PropertyRef Name="SponsorId" />
+    </Key>
+    <Property Name="SponsorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="SponsorTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SponsorType">
+    <Key>
+      <PropertyRef Name="SponsorTypeId" />
+    </Key>
+    <Property Name="SponsorTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_Event_Sponsor">
+    <End Role="Sponsor" Type="EFRecipesModel.Store.Sponsor" Multiplicity="1" />
+    <End Role="Event" Type="EFRecipesModel.Store.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sponsor">
+        <PropertyRef Name="SponsorId" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="SponsorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sponsor_SponsorType">
+    <End Role="SponsorType" Type="EFRecipesModel.Store.SponsorType" Multiplicity="1" />
+    <End Role="Sponsor" Type="EFRecipesModel.Store.Sponsor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SponsorType">
+        <PropertyRef Name="SponsorTypeId" />
+      </Principal>
+      <Dependent Role="Sponsor">
+        <PropertyRef Name="SponsorTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

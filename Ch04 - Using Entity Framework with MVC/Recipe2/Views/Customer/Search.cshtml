@@ -1,0 +1,61 @@
+﻿@model EntityFrameworkRecipe2.ViewModels.CustomerVM
+
+@{
+    Layout = null;
+}
+
+@{
+    ViewBag.Title = "Customer";
+    WebGrid grid = new WebGrid(canPage:false,canSort:false);
+	grid.Bind(Model.Customers, 
+              autoSortAndPage: false
+    ); 
+}
+
+@using (Html.BeginForm())
+{
+<table>
+	<tr>
+		<td>
+			Name
+		</td>	
+		<td>
+			@Html.TextBoxFor(model => model.Name)
+		</td>
+	</tr>
+	<tr>
+		<td>
+			City
+		</td>
+		<td>
+			@Html.TextBoxFor(model => model.City)
+		</td>
+	</tr>
+	<tr>
+		<td>
+			State
+		</td>
+		<td>
+			@Html.TextBoxFor(model => model.State)
+		</td>
+	</tr>
+	<tr>			
+		<td colspan="2">
+			<input type="submit" id="search" title="Search" value="Search" />
+		</td>
+	</tr>
+</table>
+<div id="searchResults">
+		<!-- placeHolder for search results -->
+		@grid.GetHtml(
+			fillEmptyRows: true,
+			alternatingRowStyle: "alternate-row",
+			headerStyle: "grid-header",
+			footerStyle: "grid-footer",
+			columns: new [] {
+				grid.Column("Name"),
+				grid.Column("City"),
+				grid.Column("State")
+		})
+</div>
+}

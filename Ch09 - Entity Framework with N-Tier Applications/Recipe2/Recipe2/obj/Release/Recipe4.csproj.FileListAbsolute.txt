@@ -1,0 +1,6 @@
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4\bin\Release\Recipe4.dll.config
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4\bin\Release\Recipe4.dll
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4\bin\Release\Recipe4.pdb
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4\obj\Release\ResolveAssemblyReference.cache
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4\obj\Release\Recipe4.dll
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4\obj\Release\Recipe4.pdb

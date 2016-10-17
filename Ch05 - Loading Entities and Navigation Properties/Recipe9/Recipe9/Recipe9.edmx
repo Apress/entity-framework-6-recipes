@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EFRecipesModelStoreContainer">
+          <EntitySet Name="ExecutiveSuite" EntityType="EFRecipesModel.Store.ExecutiveSuite" store:Type="Tables" Schema="Chapter5" />
+          <EntitySet Name="Hotel" EntityType="EFRecipesModel.Store.Hotel" store:Type="Tables" Schema="Chapter5" />
+          <EntitySet Name="Reservation" EntityType="EFRecipesModel.Store.Reservation" store:Type="Tables" Schema="Chapter5" />
+          <EntitySet Name="Room" EntityType="EFRecipesModel.Store.Room" store:Type="Tables" Schema="Chapter5" />
+          <AssociationSet Name="FK_ExecutiveSuite_Room" Association="EFRecipesModel.Store.FK_ExecutiveSuite_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="ExecutiveSuite" EntitySet="ExecutiveSuite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservation_Room" Association="EFRecipesModel.Store.FK_Reservation_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_Hotel" Association="EFRecipesModel.Store.FK_Room_Hotel">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ExecutiveSuite">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hotel">
+          <Key>
+            <PropertyRef Name="HotelId" />
+          </Key>
+          <Property Name="HotelId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ReservationId" />
+          </Key>
+          <Property Name="ReservationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
+          <Property Name="ContactName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="RoomId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Rate" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="HotelId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ExecutiveSuite_Room">
+          <End Role="Room" Type="EFRecipesModel.Store.Room" Multiplicity="1" />
+          <End Role="ExecutiveSuite" Type="EFRecipesModel.Store.ExecutiveSuite" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="ExecutiveSuite">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservation_Room">
+          <End Role="Room" Type="EFRecipesModel.Store.Room" Multiplicity="1" />
+          <End Role="Reservation" Type="EFRecipesModel.Store.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_Hotel">
+          <End Role="Hotel" Type="EFRecipesModel.Store.Hotel" Multiplicity="1" />
+          <End Role="Room" Type="EFRecipesModel.Store.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EFRecipesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EFRecipesEntities">
+          <EntitySet Name="Hotels" EntityType="EFRecipesModel.Hotel" />
+          <EntitySet Name="Reservations" EntityType="EFRecipesModel.Reservation" />
+          <EntitySet Name="Rooms" EntityType="EFRecipesModel.Room" />
+          <AssociationSet Name="FK_Room_Hotel" Association="EFRecipesModel.FK_Room_Hotel">
+            <End Role="Hotel" EntitySet="Hotels" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservation_Room" Association="EFRecipesModel.FK_Reservation_Room">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="Reservation" EntitySet="Reservations" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ExecutiveSuite" BaseType="EFRecipesModel.Room">
+        </EntityType>
+        <EntityType Name="Hotel">
+          <Key>
+            <PropertyRef Name="HotelId" />
+          </Key>
+          <Property Name="HotelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Rooms" Relationship="EFRecipesModel.FK_Room_Hotel" FromRole="Hotel" ToRole="Room" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ReservationId" />
+          </Key>
+          <Property Name="ReservationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" />
+          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="RoomId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Room" Relationship="EFRecipesModel.FK_Reservation_Room" FromRole="Reservation" ToRole="Room" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rate" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="HotelId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hotel" Relationship="EFRecipesModel.FK_Room_Hotel" FromRole="Room" ToRole="Hotel" />
+          <NavigationProperty Name="Reservations" Relationship="EFRecipesModel.FK_Reservation_Room" FromRole="Room" ToRole="Reservation" />
+        </EntityType>
+        <Association Name="FK_Room_Hotel">
+          <End Role="Hotel" Type="EFRecipesModel.Hotel" Multiplicity="1" />
+          <End Role="Room" Type="EFRecipesModel.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservation_Room">
+          <End Role="Room" Type="EFRecipesModel.Room" Multiplicity="1" />
+          <End Role="Reservation" Type="EFRecipesModel.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EFRecipesModelStoreContainer" CdmEntityContainer="EFRecipesEntities">
+          <EntitySetMapping Name="Hotels"><EntityTypeMapping TypeName="EFRecipesModel.Hotel"><MappingFragment StoreEntitySet="Hotel">
+            <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Reservations"><EntityTypeMapping TypeName="EFRecipesModel.Reservation"><MappingFragment StoreEntitySet="Reservation">
+            <ScalarProperty Name="ReservationId" ColumnName="ReservationId" />
+            <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+            <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+            <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+            <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="IsTypeOf(EFRecipesModel.Room)">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" /></MappingFragment></EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(EFRecipesModel.ExecutiveSuite)">
+              <MappingFragment StoreEntitySet="ExecutiveSuite">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Recipe6">
+        <EntityTypeShape EntityType="EFRecipesModel.ExecutiveSuite" Width="1.5" PointX="3" PointY="4.625" Height="1.0187792968749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.Hotel" Width="1.5" PointX="5.25" PointY="1.625" Height="1.5956835937500005" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.Reservation" Width="1.5" PointX="5.25" PointY="3.5" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.Room" Width="1.5" PointX="3" PointY="2.125" Height="2.1725878906250005" IsExpanded="true" />
+        <AssociationConnector Association="EFRecipesModel.FK_Room_Hotel" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="2.6728417968750002" />
+          <ConnectorPoint PointX="4.5" PointY="2.6728417968750002" /></AssociationConnector>
+        <AssociationConnector Association="EFRecipesModel.FK_Reservation_Room" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="3.8026432291666663" />
+          <ConnectorPoint PointX="5.25" PointY="3.8026432291666663" /></AssociationConnector>
+        <InheritanceConnector EntityType="EFRecipesModel.ExecutiveSuite">
+          <ConnectorPoint PointX="3.75" PointY="4.1052864583333326" />
+          <ConnectorPoint PointX="3.75" PointY="4.625" /></InheritanceConnector></Diagram></Diagrams>
+  </Designer>
+</edmx:Edmx>

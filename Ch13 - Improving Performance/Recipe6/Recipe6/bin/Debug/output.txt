@@ -1,0 +1,24 @@
+Not Compiled: 4206
+Not Compiled: 3359
+Not Compiled: 2970
+Not Compiled: 2955
+Not Compiled: 2899
+Not Compiled: 3002
+Not Compiled: 2900
+Not Compiled: 3042
+Not Compiled: 2897
+Not Compiled: 2900
+Average ticks without compiling: 3113
+
+Compiled: 4305
+Compiled: 511
+Compiled: 447
+Compiled: 444
+Compiled: 461
+Compiled: 471
+Compiled: 477
+Compiled: 443
+Compiled: 449
+Compiled: 438
+Average ticks with compiling: 844
+Press <enter> to continue...

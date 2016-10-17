@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Club" EntityType="EFRecipesModel.Store.Club" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Event" EntityType="EFRecipesModel.Store.Event" store:Type="Tables" Schema="Chapter5" />
+    <AssociationSet Name="FK_Event_Club" Association="EFRecipesModel.Store.FK_Event_Club">
+      <End Role="Club" EntitySet="Club" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Club">
+    <Key>
+      <PropertyRef Name="ClubId" />
+    </Key>
+    <Property Name="ClubId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="City" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EventName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="EventDate" Type="date" Nullable="false" />
+    <Property Name="ClubId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Event_Club">
+    <End Role="Club" Type="EFRecipesModel.Store.Club" Multiplicity="1" />
+    <End Role="Event" Type="EFRecipesModel.Store.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Club">
+        <PropertyRef Name="ClubId" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="ClubId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

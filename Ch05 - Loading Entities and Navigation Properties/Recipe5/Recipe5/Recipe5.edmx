@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EFRecipesModelStoreContainer">
+          <EntitySet Name="Course" EntityType="EFRecipesModel.Store.Course" store:Type="Tables" Schema="Chapter5" />
+          <EntitySet Name="Instructor" EntityType="EFRecipesModel.Store.Instructor" store:Type="Tables" Schema="Chapter5" />
+          <EntitySet Name="Section" EntityType="EFRecipesModel.Store.Section" store:Type="Tables" Schema="Chapter5" />
+          <EntitySet Name="SectionStudent" EntityType="EFRecipesModel.Store.SectionStudent" store:Type="Tables" Schema="Chapter5" />
+          <EntitySet Name="Student" EntityType="EFRecipesModel.Store.Student" store:Type="Tables" Schema="Chapter5" />
+          <AssociationSet Name="FK_Section_Course" Association="EFRecipesModel.Store.FK_Section_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Section" EntitySet="Section" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Section_Instructor" Association="EFRecipesModel.Store.FK_Section_Instructor">
+            <End Role="Instructor" EntitySet="Instructor" />
+            <End Role="Section" EntitySet="Section" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SectionStudent_Section" Association="EFRecipesModel.Store.FK_SectionStudent_Section">
+            <End Role="Section" EntitySet="Section" />
+            <End Role="SectionStudent" EntitySet="SectionStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SectionStudent_Student" Association="EFRecipesModel.Store.FK_SectionStudent_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="SectionStudent" EntitySet="SectionStudent" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseId" />
+          </Key>
+          <Property Name="CourseId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Instructor">
+          <Key>
+            <PropertyRef Name="InstructorId" />
+          </Key>
+          <Property Name="InstructorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="SectionId" />
+          </Key>
+          <Property Name="SectionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstructorId" Type="int" Nullable="false" />
+          <Property Name="CourseId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SectionStudent">
+          <Key>
+            <PropertyRef Name="SectionId" />
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="SectionId" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Section_Course">
+          <End Role="Course" Type="EFRecipesModel.Store.Course" Multiplicity="1" />
+          <End Role="Section" Type="EFRecipesModel.Store.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseId" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Section_Instructor">
+          <End Role="Instructor" Type="EFRecipesModel.Store.Instructor" Multiplicity="1" />
+          <End Role="Section" Type="EFRecipesModel.Store.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instructor">
+              <PropertyRef Name="InstructorId" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="InstructorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SectionStudent_Section">
+          <End Role="Section" Type="EFRecipesModel.Store.Section" Multiplicity="1" />
+          <End Role="SectionStudent" Type="EFRecipesModel.Store.SectionStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Section">
+              <PropertyRef Name="SectionId" />
+            </Principal>
+            <Dependent Role="SectionStudent">
+              <PropertyRef Name="SectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SectionStudent_Student">
+          <End Role="Student" Type="EFRecipesModel.Store.Student" Multiplicity="1" />
+          <End Role="SectionStudent" Type="EFRecipesModel.Store.SectionStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="SectionStudent">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EFRecipesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EFRecipesEntities">
+          <EntitySet Name="Courses" EntityType="EFRecipesModel.Course" />
+          <EntitySet Name="Instructors" EntityType="EFRecipesModel.Instructor" />
+          <EntitySet Name="Sections" EntityType="EFRecipesModel.Section" />
+          <EntitySet Name="Students" EntityType="EFRecipesModel.Student" />
+          <AssociationSet Name="FK_Section_Course" Association="EFRecipesModel.FK_Section_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Section" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Section_Instructor" Association="EFRecipesModel.FK_Section_Instructor">
+            <End Role="Instructor" EntitySet="Instructors" />
+            <End Role="Section" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="SectionStudent" Association="EFRecipesModel.SectionStudent">
+            <End Role="Section" EntitySet="Sections" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseId" />
+          </Key>
+          <Property Name="CourseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Sections" Relationship="EFRecipesModel.FK_Section_Course" FromRole="Course" ToRole="Section" />
+        </EntityType>
+        <EntityType Name="Instructor">
+          <Key>
+            <PropertyRef Name="InstructorId" />
+          </Key>
+          <Property Name="InstructorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Sections" Relationship="EFRecipesModel.FK_Section_Instructor" FromRole="Instructor" ToRole="Section" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="SectionId" />
+          </Key>
+          <Property Name="SectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstructorId" Type="Int32" Nullable="false" />
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="EFRecipesModel.FK_Section_Course" FromRole="Section" ToRole="Course" />
+          <NavigationProperty Name="Instructor" Relationship="EFRecipesModel.FK_Section_Instructor" FromRole="Section" ToRole="Instructor" />
+          <NavigationProperty Name="Students" Relationship="EFRecipesModel.SectionStudent" FromRole="Section" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Sections" Relationship="EFRecipesModel.SectionStudent" FromRole="Student" ToRole="Section" />
+        </EntityType>
+        <Association Name="FK_Section_Course">
+          <End Role="Course" Type="EFRecipesModel.Course" Multiplicity="1" />
+          <End Role="Section" Type="EFRecipesModel.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseId" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Section_Instructor">
+          <End Role="Instructor" Type="EFRecipesModel.Instructor" Multiplicity="1" />
+          <End Role="Section" Type="EFRecipesModel.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instructor">
+              <PropertyRef Name="InstructorId" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="InstructorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SectionStudent">
+          <End Role="Section" Type="EFRecipesModel.Section" Multiplicity="*" />
+          <End Role="Student" Type="EFRecipesModel.Student" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EFRecipesModelStoreContainer" CdmEntityContainer="EFRecipesEntities">
+          <EntitySetMapping Name="Courses"><EntityTypeMapping TypeName="EFRecipesModel.Course"><MappingFragment StoreEntitySet="Course">
+            <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Instructors"><EntityTypeMapping TypeName="EFRecipesModel.Instructor"><MappingFragment StoreEntitySet="Instructor">
+            <ScalarProperty Name="InstructorId" ColumnName="InstructorId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Sections"><EntityTypeMapping TypeName="EFRecipesModel.Section"><MappingFragment StoreEntitySet="Section">
+            <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+            <ScalarProperty Name="InstructorId" ColumnName="InstructorId" />
+            <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Students"><EntityTypeMapping TypeName="EFRecipesModel.Student"><MappingFragment StoreEntitySet="Student">
+            <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="SectionStudent" TypeName="EFRecipesModel.SectionStudent" StoreEntitySet="SectionStudent">
+            <EndProperty Name="Section">
+              <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+            </EndProperty>
+            <EndProperty Name="Student">
+              <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Recipe5">
+        <EntityTypeShape EntityType="EFRecipesModel.Course" Width="1.5" PointX="0.75" PointY="1.25" Height="1.5956835937500002" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.Instructor" Width="1.5" PointX="3" PointY="3.625" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.Section" Width="1.5" PointX="3" PointY="0.875" Height="2.1725878906250005" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.Student" Width="1.5" PointX="5.25" PointY="1.25" Height="1.5956835937500002" IsExpanded="true" />
+        <AssociationConnector Association="EFRecipesModel.FK_Section_Course" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.0478417968750002" />
+          <ConnectorPoint PointX="3" PointY="2.0478417968750002" /></AssociationConnector>
+        <AssociationConnector Association="EFRecipesModel.FK_Section_Instructor" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="3.625" />
+          <ConnectorPoint PointX="3.75" PointY="3.0475878906250005" />
+          </AssociationConnector>
+        <AssociationConnector Association="EFRecipesModel.SectionStudent" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.0478417968750002" />
+          <ConnectorPoint PointX="5.25" PointY="2.0478417968750002" /></AssociationConnector></Diagram></Diagrams>
+  </Designer>
+</edmx:Edmx>

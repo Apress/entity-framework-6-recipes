@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Speaker" EntityType="EFRecipesModel.Store.Speaker" store:Type="Tables" Schema="Chapter8" />
+    <EntitySet Name="SpeakerTalk" EntityType="EFRecipesModel.Store.SpeakerTalk" store:Type="Tables" Schema="Chapter8" />
+    <EntitySet Name="Talk" EntityType="EFRecipesModel.Store.Talk" store:Type="Tables" Schema="Chapter8" />
+    <AssociationSet Name="FK_SpeakerTalk_Speaker" Association="EFRecipesModel.Store.FK_SpeakerTalk_Speaker">
+      <End Role="Speaker" EntitySet="Speaker" />
+      <End Role="SpeakerTalk" EntitySet="SpeakerTalk" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeakerTalk_Talk" Association="EFRecipesModel.Store.FK_SpeakerTalk_Talk">
+      <End Role="Talk" EntitySet="Talk" />
+      <End Role="SpeakerTalk" EntitySet="SpeakerTalk" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Speaker">
+    <Key>
+      <PropertyRef Name="SpeakerId" />
+    </Key>
+    <Property Name="SpeakerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="SpeakerTalk">
+    <Key>
+      <PropertyRef Name="SpeakerId" />
+      <PropertyRef Name="TalkId" />
+    </Key>
+    <Property Name="SpeakerId" Type="int" Nullable="false" />
+    <Property Name="TalkId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Talk">
+    <Key>
+      <PropertyRef Name="TalkId" />
+    </Key>
+    <Property Name="TalkId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="RevisedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_SpeakerTalk_Speaker">
+    <End Role="Speaker" Type="EFRecipesModel.Store.Speaker" Multiplicity="1" />
+    <End Role="SpeakerTalk" Type="EFRecipesModel.Store.SpeakerTalk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speaker">
+        <PropertyRef Name="SpeakerId" />
+      </Principal>
+      <Dependent Role="SpeakerTalk">
+        <PropertyRef Name="SpeakerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeakerTalk_Talk">
+    <End Role="Talk" Type="EFRecipesModel.Store.Talk" Multiplicity="1" />
+    <End Role="SpeakerTalk" Type="EFRecipesModel.Store.SpeakerTalk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Talk">
+        <PropertyRef Name="TalkId" />
+      </Principal>
+      <Dependent Role="SpeakerTalk">
+        <PropertyRef Name="TalkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

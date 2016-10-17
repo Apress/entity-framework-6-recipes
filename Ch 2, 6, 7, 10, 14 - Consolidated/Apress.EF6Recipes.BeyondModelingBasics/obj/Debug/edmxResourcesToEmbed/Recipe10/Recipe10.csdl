@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe10" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Recipe10Context" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="WebOrders" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.WebOrder" />
+    <FunctionImport Name="DeleteOrder">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertOrder" ReturnType="Collection(Decimal)">
+      <Parameter Name="CustomerName" Mode="In" Type="String" />
+      <Parameter Name="OrderDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateOrder">
+      <Parameter Name="CustomerName" Mode="In" Type="String" />
+      <Parameter Name="OrderDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="WebOrder">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe10.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesStoredProceduresRecipe10StoreContainer">
+    <EntitySet Name="Product" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.Product" store:Type="Tables" Schema="Chapter10" />
+  </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ProductType" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Publisher" Type="varchar" MaxLength="50" />
+    <Property Name="Rating" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="DeleteBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="ProductId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteDVD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="ProductId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="Publisher" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="InsertDVD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="Rating" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="Publisher" Type="varchar" Mode="In" />
+    <Parameter Name="ProductId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdateDVD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="Rating" Type="varchar" Mode="In" />
+    <Parameter Name="ProductId" Type="int" Mode="In" />
+  </Function>
+</Schema>

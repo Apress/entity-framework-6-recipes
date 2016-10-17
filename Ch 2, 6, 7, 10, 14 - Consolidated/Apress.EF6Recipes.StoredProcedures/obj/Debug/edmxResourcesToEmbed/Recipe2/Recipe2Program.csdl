@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Recipe2Program" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Rentals" EntityType="EFRecipesModel.Rental" />
+    <EntitySet Name="Vehicles" EntityType="EFRecipesModel.Vehicle" />
+    <AssociationSet Name="FK_Rental_Vehicle" Association="EFRecipesModel.FK_Rental_Vehicle">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="Rental" EntitySet="Rentals" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Rental">
+    <Key>
+      <PropertyRef Name="RentalId" />
+    </Key>
+    <Property Name="RentalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RentalDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Payment" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="VehicleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Vehicle" Relationship="EFRecipesModel.FK_Rental_Vehicle" FromRole="Rental" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Name="VehicleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Model" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Manufacturer" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Rentals" Relationship="EFRecipesModel.FK_Rental_Vehicle" FromRole="Vehicle" ToRole="Rental" />
+  </EntityType>
+  <Association Name="FK_Rental_Vehicle">
+    <End Role="Vehicle" Type="EFRecipesModel.Vehicle" Multiplicity="1" />
+    <End Role="Rental" Type="EFRecipesModel.Rental" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleId" />
+      </Principal>
+      <Dependent Role="Rental">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

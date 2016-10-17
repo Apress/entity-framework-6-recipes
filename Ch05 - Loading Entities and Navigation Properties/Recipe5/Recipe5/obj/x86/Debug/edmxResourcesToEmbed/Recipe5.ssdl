@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Course" EntityType="EFRecipesModel.Store.Course" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Instructor" EntityType="EFRecipesModel.Store.Instructor" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Section" EntityType="EFRecipesModel.Store.Section" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="SectionStudent" EntityType="EFRecipesModel.Store.SectionStudent" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Student" EntityType="EFRecipesModel.Store.Student" store:Type="Tables" Schema="Chapter5" />
+    <AssociationSet Name="FK_Section_Course" Association="EFRecipesModel.Store.FK_Section_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Section" EntitySet="Section" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Section_Instructor" Association="EFRecipesModel.Store.FK_Section_Instructor">
+      <End Role="Instructor" EntitySet="Instructor" />
+      <End Role="Section" EntitySet="Section" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SectionStudent_Section" Association="EFRecipesModel.Store.FK_SectionStudent_Section">
+      <End Role="Section" EntitySet="Section" />
+      <End Role="SectionStudent" EntitySet="SectionStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SectionStudent_Student" Association="EFRecipesModel.Store.FK_SectionStudent_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="SectionStudent" EntitySet="SectionStudent" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Instructor">
+    <Key>
+      <PropertyRef Name="InstructorId" />
+    </Key>
+    <Property Name="InstructorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Section">
+    <Key>
+      <PropertyRef Name="SectionId" />
+    </Key>
+    <Property Name="SectionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="InstructorId" Type="int" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SectionStudent">
+    <Key>
+      <PropertyRef Name="SectionId" />
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="SectionId" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Section_Course">
+    <End Role="Course" Type="EFRecipesModel.Store.Course" Multiplicity="1" />
+    <End Role="Section" Type="EFRecipesModel.Store.Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="Section">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Section_Instructor">
+    <End Role="Instructor" Type="EFRecipesModel.Store.Instructor" Multiplicity="1" />
+    <End Role="Section" Type="EFRecipesModel.Store.Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="InstructorId" />
+      </Principal>
+      <Dependent Role="Section">
+        <PropertyRef Name="InstructorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SectionStudent_Section">
+    <End Role="Section" Type="EFRecipesModel.Store.Section" Multiplicity="1" />
+    <End Role="SectionStudent" Type="EFRecipesModel.Store.SectionStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="SectionId" />
+      </Principal>
+      <Dependent Role="SectionStudent">
+        <PropertyRef Name="SectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SectionStudent_Student">
+    <End Role="Student" Type="EFRecipesModel.Store.Student" Multiplicity="1" />
+    <End Role="SectionStudent" Type="EFRecipesModel.Store.SectionStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="SectionStudent">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

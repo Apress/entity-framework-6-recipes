@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Product" EntityType="EFRecipesModel.Store.Product" store:Type="Tables" Schema="Chapter3" />
+    <EntitySet Name="TopSelling" EntityType="EFRecipesModel.Store.TopSelling" store:Type="Tables" Schema="Chapter3" />
+    <AssociationSet Name="FK__TopSellin__Produ__251C81ED" Association="EFRecipesModel.Store.FK__TopSellin__Produ__251C81ED">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="TopSelling" EntitySet="TopSelling" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TopSelling">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Rating" Type="int" />
+  </EntityType>
+  <Association Name="FK__TopSellin__Produ__251C81ED">
+    <End Role="Product" Type="EFRecipesModel.Store.Product" Multiplicity="1" />
+    <End Role="TopSelling" Type="EFRecipesModel.Store.TopSelling" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="TopSelling">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

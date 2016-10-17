@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EFRecipesModelStoreContainer" CdmEntityContainer="EFRecipesEntities">
+    <EntitySetMapping Name="MovieRentals">
+      <EntityTypeMapping TypeName="EFRecipesModel.MovieRental">
+        <MappingFragment StoreEntitySet="MovieRental">
+          <ScalarProperty Name="RentalId" ColumnName="RentalId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="RentalDate" ColumnName="RentalDate" />
+          <ScalarProperty Name="ReturnedDate" ColumnName="ReturnedDate" />
+          <ScalarProperty Name="LateFees" ColumnName="LateFees" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

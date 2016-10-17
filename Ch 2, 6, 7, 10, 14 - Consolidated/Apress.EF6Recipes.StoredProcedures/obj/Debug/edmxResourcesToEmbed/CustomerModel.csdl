@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EF6Recipes" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="EF6RecipesContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="EF6Recipes.Customer" />
+    <FunctionImport Name="GetCustomers" EntitySet="Customers" ReturnType="Collection(EF6Recipes.Customer)">
+      <Parameter Name="Company" Mode="In" Type="String" />
+      <Parameter Name="ContactTitle" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Members" EntityType="EF6Recipes.Member" />
+    <EntitySet Name="Messages" EntityType="EF6Recipes.Message" />
+    <AssociationSet Name="FK__Message__MemberI__1367E606" Association="EF6Recipes.FK__Message__MemberI__1367E606">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <FunctionImport Name="MembersWithTheMostMessages" EntitySet="Members" ReturnType="Collection(EF6Recipes.Member)">
+      <Parameter Name="datesent" Type="DateTime" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Company" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ContactTitle" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <ComplexType Name="GetCustomers_Result">
+    <Property Type="Int32" Name="CustomerId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Company" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactTitle" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Type="Int32" Name="MemberId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Messages" Relationship="EF6Recipes.FK__Message__MemberI__1367E606" FromRole="Member" ToRole="Message" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Type="Int32" Name="MessageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="MemberId" Nullable="false" />
+    <Property Type="DateTime" Name="DateSent" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Subject" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MessageBody" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Member" Relationship="EF6Recipes.FK__Message__MemberI__1367E606" FromRole="Message" ToRole="Member" />
+  </EntityType>
+  <Association Name="FK__Message__MemberI__1367E606">
+    <End Type="EF6Recipes.Member" Role="Member" Multiplicity="1" />
+    <End Type="EF6Recipes.Message" Role="Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

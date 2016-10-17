@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Accident" EntityType="EFRecipesModel.Store.Accident" store:Type="Tables" Schema="Chapter3" />
+    <EntitySet Name="Worker" EntityType="EFRecipesModel.Store.Worker" store:Type="Tables" Schema="Chapter3" />
+    <AssociationSet Name="FK__Accident__Worker__1C873BEC" Association="EFRecipesModel.Store.FK__Accident__Worker__1C873BEC">
+      <End Role="Worker" EntitySet="Worker" />
+      <End Role="Accident" EntitySet="Accident" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Accident">
+    <Key>
+      <PropertyRef Name="AccidentID" />
+    </Key>
+    <Property Name="AccidentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="Severity" Type="int" />
+    <Property Name="WorkerID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="WorkerID" />
+    </Key>
+    <Property Name="WorkerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__Accident__Worker__1C873BEC">
+    <End Role="Worker" Type="EFRecipesModel.Store.Worker" Multiplicity="1" />
+    <End Role="Accident" Type="EFRecipesModel.Store.Accident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="WorkerID" />
+      </Principal>
+      <Dependent Role="Accident">
+        <PropertyRef Name="WorkerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EF6RecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EF6RecipesContext" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Products" EntityType="EF6RecipesModel.Product" />
+    <FunctionImport Name="DeleteAgent">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="TimeStamp" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="InsertAgent" ReturnType="Collection(Binary)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateAgent" ReturnType="Collection(Binary)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="String" />
+      <Parameter Name="TimeStamp" Mode="In" Type="Binary" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Type="Int32" Name="ProductId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="UnitPrice" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Binary" Name="TimeStamp" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel2.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModel2StoreContainer">
+    <EntitySet Name="ForumPost" EntityType="EFRecipesModel2.Store.ForumPost" store:Type="Tables" Schema="Chapter14" />
+  </EntityContainer>
+  <EntityType Name="ForumPost">
+    <Key>
+      <PropertyRef Name="PostingId" />
+    </Key>
+    <Property Name="PostingId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Post" Type="varchar" Nullable="false" />
+    <Property Name="ForumUser" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="TimeStamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+</Schema>

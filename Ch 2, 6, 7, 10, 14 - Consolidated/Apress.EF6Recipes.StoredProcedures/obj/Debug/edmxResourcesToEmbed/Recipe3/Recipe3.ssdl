@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe3.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesStoredProceduresRecipe3StoreContainer">
+    <EntitySet Name="ATMMachine" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe3.Store.ATMMachine" store:Type="Tables" Schema="Chapter10" />
+    <EntitySet Name="ATMWithdrawal" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe3.Store.ATMWithdrawal" store:Type="Tables" Schema="Chapter10" />
+    <AssociationSet Name="FK_ATMWithdrawal_ATMMachine" Association="Apress.EF6Recipes.StoredProcedures.Recipe3.Store.FK_ATMWithdrawal_ATMMachine">
+      <End Role="ATMMachine" EntitySet="ATMMachine" />
+      <End Role="ATMWithdrawal" EntitySet="ATMWithdrawal" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ATMMachine">
+    <Key>
+      <PropertyRef Name="ATMId" />
+    </Key>
+    <Property Name="ATMId" Type="int" Nullable="false" StoreGeneratedPattern="None" />
+    <Property Name="Location" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ATMWithdrawal">
+    <Key>
+      <PropertyRef Name="WithdrawalId" />
+    </Key>
+    <Property Name="WithdrawalId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="ATMId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ATMWithdrawal_ATMMachine">
+    <End Role="ATMMachine" Type="Apress.EF6Recipes.StoredProcedures.Recipe3.Store.ATMMachine" Multiplicity="1" />
+    <End Role="ATMWithdrawal" Type="Apress.EF6Recipes.StoredProcedures.Recipe3.Store.ATMWithdrawal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ATMMachine">
+        <PropertyRef Name="ATMId" />
+      </Principal>
+      <Dependent Role="ATMWithdrawal">
+        <PropertyRef Name="ATMId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetWithdrawals" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="ATMId" Type="int" Mode="In" />
+    <Parameter Name="WithdrawalDate" Type="datetime" Mode="In" />
+  </Function>
+</Schema>

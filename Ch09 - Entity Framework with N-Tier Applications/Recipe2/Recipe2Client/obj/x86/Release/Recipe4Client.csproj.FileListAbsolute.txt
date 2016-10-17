@@ -1,0 +1,8 @@
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4Client\bin\Release\Recipe4Client.exe.config
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4Client\bin\Release\Recipe4Client.exe
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4Client\bin\Release\Recipe4Client.pdb
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4Client\bin\Release\Recipe4.dll
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4Client\bin\Release\Recipe4.pdb
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4Client\obj\x86\Release\ResolveAssemblyReference.cache
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4Client\obj\x86\Release\Recipe4Client.exe
+H:\Book Work\Code\Chapter9\Recipe4\Recipe4Client\obj\x86\Release\Recipe4Client.pdb

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EFRecipesModelStoreContainer" CdmEntityContainer="EFRecipesEntities">
+    <EntitySetMapping Name="Media">
+      <EntityTypeMapping TypeName="IsTypeOf(EFRecipesModel.Medium)">
+        <MappingFragment StoreEntitySet="Media">
+          <ScalarProperty Name="MediaId" ColumnName="MediaId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(EFRecipesModel.Article)">
+        <MappingFragment StoreEntitySet="Media">
+          <ScalarProperty Name="MediaId" ColumnName="MediaId" />
+          <Condition ColumnName="MediaType" Value="1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(EFRecipesModel.Video)">
+        <MappingFragment StoreEntitySet="Media">
+          <ScalarProperty Name="MediaId" ColumnName="MediaId" />
+          <Condition ColumnName="MediaType" Value="2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(EFRecipesModel.Picture)">
+        <MappingFragment StoreEntitySet="Media">
+          <ScalarProperty Name="MediaId" ColumnName="MediaId" />
+          <Condition ColumnName="MediaType" Value="3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

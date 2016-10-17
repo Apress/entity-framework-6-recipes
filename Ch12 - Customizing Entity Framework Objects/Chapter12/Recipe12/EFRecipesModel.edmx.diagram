@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="692d7c50dcfd4b8fa19ff2df8547a691" Name="Diagram1" DisplayType="true">
+        <EntityTypeShape EntityType="EFRecipesModel.Customer" Width="1.75" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.SalesOrder" Width="2" PointX="3.5" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="EFRecipesModel.FK_SalesOrder_Customer" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

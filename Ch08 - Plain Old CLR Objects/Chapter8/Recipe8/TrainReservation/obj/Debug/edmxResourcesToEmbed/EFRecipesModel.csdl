@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Reservations" EntityType="EFRecipesModel.Reservation" />
+    <EntitySet Name="Schedules" EntityType="EFRecipesModel.Schedule" />
+    <EntitySet Name="Trains" EntityType="EFRecipesModel.Train" />
+    <AssociationSet Name="FK_Reservation_Schedule" Association="EFRecipesModel.FK_Reservation_Schedule">
+      <End Role="Schedule" EntitySet="Schedules" />
+      <End Role="Reservation" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schedule_Train" Association="EFRecipesModel.FK_Schedule_Train">
+      <End Role="Train" EntitySet="Trains" />
+      <End Role="Schedule" EntitySet="Schedules" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="ReservationId" />
+    </Key>
+    <Property Name="ReservationId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ScheduleId" Type="Int32" Nullable="false" />
+    <Property Name="Passenger" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Schedule" Relationship="EFRecipesModel.FK_Reservation_Schedule" FromRole="Reservation" ToRole="Schedule" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleId" />
+    </Key>
+    <Property Name="ScheduleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TrainId" Type="Int32" Nullable="false" />
+    <Property Name="ArrivalDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DepartureDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LeavesFrom" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ArrivesAt" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Reservations" Relationship="EFRecipesModel.FK_Reservation_Schedule" FromRole="Schedule" ToRole="Reservation" />
+    <NavigationProperty Name="Train" Relationship="EFRecipesModel.FK_Schedule_Train" FromRole="Schedule" ToRole="Train" />
+  </EntityType>
+  <EntityType Name="Train">
+    <Key>
+      <PropertyRef Name="TrainId" />
+    </Key>
+    <Property Name="TrainId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TrainName" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Schedules" Relationship="EFRecipesModel.FK_Schedule_Train" FromRole="Train" ToRole="Schedule" />
+  </EntityType>
+  <Association Name="FK_Reservation_Schedule">
+    <End Role="Schedule" Type="EFRecipesModel.Schedule" Multiplicity="1" />
+    <End Role="Reservation" Type="EFRecipesModel.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="ScheduleId" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="ScheduleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schedule_Train">
+    <End Role="Train" Type="EFRecipesModel.Train" Multiplicity="1" />
+    <End Role="Schedule" Type="EFRecipesModel.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Train">
+        <PropertyRef Name="TrainId" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="TrainId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

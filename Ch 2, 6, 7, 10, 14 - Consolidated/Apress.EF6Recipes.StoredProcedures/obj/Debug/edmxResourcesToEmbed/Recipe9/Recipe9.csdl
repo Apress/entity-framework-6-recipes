@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe9" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Recipe9Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Authors" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe9.Author" />
+    <EntitySet Name="Books" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe9.Book" />
+    <AssociationSet Name="AuthorBook" Association="Apress.EF6Recipes.StoredProcedures.Recipe9.AuthorBook">
+      <End Role="Author" EntitySet="Authors" />
+      <End Role="Book" EntitySet="Books" />
+    </AssociationSet>
+    <FunctionImport Name="DeleteAuthorBook">
+      <Parameter Name="AuthorId" Mode="In" Type="Int32" />
+      <Parameter Name="BookId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertAuthorBook">
+      <Parameter Name="AuthorId" Mode="In" Type="Int32" />
+      <Parameter Name="BookId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+    </Key>
+    <Property Name="AuthorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Books" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe9.AuthorBook" FromRole="Author" ToRole="Book" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="ISBN" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Authors" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe9.AuthorBook" FromRole="Book" ToRole="Author" />
+  </EntityType>
+  <Association Name="AuthorBook">
+    <End Role="Author" Type="Apress.EF6Recipes.StoredProcedures.Recipe9.Author" Multiplicity="*" />
+    <End Role="Book" Type="Apress.EF6Recipes.StoredProcedures.Recipe9.Book" Multiplicity="*" />
+  </Association>
+</Schema>

@@ -1,0 +1,13 @@
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe7\bin\Debug\FunctionsEFRecipe7.exe.config
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe7\bin\Debug\FunctionsEFRecipe7.exe
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe7\bin\Debug\FunctionsEFRecipe7.pdb
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe7\obj\Debug\FunctionsEFRecipe7.exe
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe7\obj\Debug\FunctionsEFRecipe7.pdb
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe7\bin\Debug\EntityFramework.dll
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe7\bin\Debug\EntityFramework.SqlServer.dll
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe7\bin\Debug\EntityFramework.xml
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe7\bin\Debug\EntityFramework.SqlServer.xml
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe7\obj\Debug\FunctionsEFRecipe7.csprojResolveAssemblyReference.cache
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\FunctionsEFRecipe7\bin\Debug\FunctionsEFRecipe7.exe.config
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\FunctionsEFRecipe7\obj\Debug\FunctionsEFRecipe7.exe
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\FunctionsEFRecipe7\obj\Debug\FunctionsEFRecipe7.pdb

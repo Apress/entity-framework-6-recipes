@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Apress.EF6Recipes.StoredProcedures.Recipe2" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="Recipe2Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Vehicles" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe2.Vehicle" />
+    <EntitySet Name="Rentals" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe2.Rental" />
+    <AssociationSet Name="VehicleRental" Association="Apress.EF6Recipes.StoredProcedures.Recipe2.VehicleRental">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="Rental" EntitySet="Rentals" />
+    </AssociationSet>
+    <FunctionImport Name="GetVehiclesWithRentals" EntitySet="Vehicles" ReturnType="Collection(Apress.EF6Recipes.StoredProcedures.Recipe2.Vehicle)">
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+      <Parameter Name="TotalRentals" Mode="InOut" Type="Int32" />
+      <Parameter Name="TotalPayments" Mode="InOut" Type="Decimal" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Type="Int32" Name="VehicleId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Model" Nullable="false" />
+    <Property Type="String" Name="Manufacturer" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <NavigationProperty Name="Rentals" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe2.VehicleRental" FromRole="Vehicle" ToRole="Rental" />
+  </EntityType>
+  <EntityType Name="Rental">
+    <Key>
+      <PropertyRef Name="RentalId" />
+    </Key>
+    <Property Name="RentalId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Type="DateTime" Name="RentalDate" Nullable="false" />
+    <Property Type="Decimal" Name="Payment" Nullable="false" />
+    <Property Type="Int32" Name="VehicleId" Nullable="false" />
+    <NavigationProperty Name="Vehicle" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe2.VehicleRental" FromRole="Rental" ToRole="Vehicle" />
+  </EntityType>
+  <Association Name="VehicleRental">
+    <End Type="Apress.EF6Recipes.StoredProcedures.Recipe2.Vehicle" Role="Vehicle" Multiplicity="1" />
+    <End Type="Apress.EF6Recipes.StoredProcedures.Recipe2.Rental" Role="Rental" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleId" />
+      </Principal>
+      <Dependent Role="Rental">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GetVehiclesWithRentals_Result">
+    <Property Type="Int32" Name="VehicleId" Nullable="false" />
+    <Property Type="String" Name="Model" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Manufacturer" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ApressEF6RecipesBeyondModelingBasicsRecipe11StoreContainer">
+          <EntitySet Name="Member" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.Member" store:Type="Tables" Schema="Chapter6" />
+        </EntityContainer>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="100" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <Function Name="DeleteMember" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+          <Parameter Name="MemberId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertMember" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Phone" Type="varchar" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateMember" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Phone" Type="varchar" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
+          <Parameter Name="MemberId" Type="int" Mode="In" />
+        </Function>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe11" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Recipe11Context" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Members" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Member" />
+          <FunctionImport Name="DeleteMember">
+            <Parameter Name="MemberId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertMember" ReturnType="Collection(Decimal)">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateMember">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="MemberId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Member" Abstract="true">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Age" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Teen" BaseType="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Member" />
+        <EntityType Name="Adult" BaseType="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Member" />
+        <EntityType Name="Senior" BaseType="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Member" />
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesBeyondModelingBasicsRecipe11StoreContainer" CdmEntityContainer="Recipe11Context">
+          <FunctionImportMapping FunctionImportName="DeleteMember" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.DeleteMember" />
+          <FunctionImportMapping FunctionImportName="InsertMember" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.InsertMember" />
+          <FunctionImportMapping FunctionImportName="UpdateMember" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.UpdateMember" />
+          <EntitySetMapping Name="Members">
+			  <QueryView>
+				  select value
+				  case
+				  when m.Age &lt; 20 then
+				  Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Teen(m.MemberId,m.Name,m.Phone,m.Age)
+				  when m.Age between 20 and 55 then
+				  Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Adult(m.MemberId,m.Name,m.Phone,m.Age)
+				  when m.Age > 55 then
+				  Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Senior(m.MemberId,m.Name,m.Phone,m.Age)
+				  end
+				  from ApressEF6RecipesBeyondModelingBasicsRecipe11StoreContainer.Member as m
+			  </QueryView>
+
+			  <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Teen">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.InsertMember">
+                  <ScalarProperty Name="Age" ParameterName="Age" />
+                  <ScalarProperty Name="Phone" ParameterName="Phone" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                  <ResultBinding Name="MemberId" ColumnName="MemberId" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.UpdateMember">
+                  <ScalarProperty Name="MemberId" ParameterName="MemberId" Version="Current" />
+                  <ScalarProperty Name="Age" ParameterName="Age" Version="Current" />
+                  <ScalarProperty Name="Phone" ParameterName="Phone" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.DeleteMember">
+                  <ScalarProperty Name="MemberId" ParameterName="MemberId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Adult">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.InsertMember">
+                  <ScalarProperty Name="Age" ParameterName="Age" />
+                  <ScalarProperty Name="Phone" ParameterName="Phone" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                  <ResultBinding Name="MemberId" ColumnName="MemberId" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.UpdateMember">
+                  <ScalarProperty Name="MemberId" ParameterName="MemberId" Version="Current" />
+                  <ScalarProperty Name="Age" ParameterName="Age" Version="Current" />
+                  <ScalarProperty Name="Phone" ParameterName="Phone" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.DeleteMember">
+                  <ScalarProperty Name="MemberId" ParameterName="MemberId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Senior">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.InsertMember">
+                  <ScalarProperty Name="Age" ParameterName="Age" />
+                  <ScalarProperty Name="Phone" ParameterName="Phone" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                  <ResultBinding Name="MemberId" ColumnName="MemberId" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.UpdateMember">
+                  <ScalarProperty Name="MemberId" ParameterName="MemberId" Version="Current" />
+                  <ScalarProperty Name="Age" ParameterName="Age" Version="Current" />
+                  <ScalarProperty Name="Phone" ParameterName="Phone" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.DeleteMember">
+                  <ScalarProperty Name="MemberId" ParameterName="MemberId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="Chapter6" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

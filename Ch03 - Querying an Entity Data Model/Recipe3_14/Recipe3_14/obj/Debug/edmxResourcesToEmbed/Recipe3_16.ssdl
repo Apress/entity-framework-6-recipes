@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Associate" EntityType="EFRecipesModel.Store.Associate" store:Type="Tables" Schema="Chapter3" />
+    <EntitySet Name="AssociateSalary" EntityType="EFRecipesModel.Store.AssociateSalary" store:Type="Tables" Schema="Chapter3" />
+    <AssociationSet Name="FK__Associate__Assoc__53D770D6" Association="EFRecipesModel.Store.FK__Associate__Assoc__53D770D6">
+      <End Role="Associate" EntitySet="Associate" />
+      <End Role="AssociateSalary" EntitySet="AssociateSalary" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Associate">
+    <Key>
+      <PropertyRef Name="AssociateID" />
+    </Key>
+    <Property Name="AssociateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AssociateSalary">
+    <Key>
+      <PropertyRef Name="SalaryID" />
+    </Key>
+    <Property Name="SalaryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AssociateID" Type="int" Nullable="false" />
+    <Property Name="Salary" Type="decimal" />
+    <Property Name="SalaryDate" Type="date" />
+  </EntityType>
+  <Association Name="FK__Associate__Assoc__53D770D6">
+    <End Role="Associate" Type="EFRecipesModel.Store.Associate" Multiplicity="1" />
+    <End Role="AssociateSalary" Type="EFRecipesModel.Store.AssociateSalary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associate">
+        <PropertyRef Name="AssociateID" />
+      </Principal>
+      <Dependent Role="AssociateSalary">
+        <PropertyRef Name="AssociateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

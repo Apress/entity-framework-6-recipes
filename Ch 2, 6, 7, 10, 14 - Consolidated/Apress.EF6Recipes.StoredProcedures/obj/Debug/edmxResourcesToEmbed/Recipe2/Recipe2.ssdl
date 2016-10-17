@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Recipe2.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="Recipe2StoreContainer" />
+  <Function Name="GetVehiclesWithRentals" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="date" Type="datetime" Mode="In" />
+    <Parameter Name="TotalRentals" Type="int" Mode="InOut" />
+    <Parameter Name="TotalPayments" Type="decimal" Mode="InOut" />
+  </Function>
+</Schema>

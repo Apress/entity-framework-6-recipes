@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Apress.EF6Recipes.StoredProcedures.Recipe7" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="Recipe7Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="People" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe7.Person" />
+    <FunctionImport Name="GetAllPeople" EntitySet="People" ReturnType="Collection(Apress.EF6Recipes.StoredProcedures.Recipe7.Person)" />
+  </EntityContainer>
+  <EntityType Name="Person" Abstract="false">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Type="Int32" Name="PersonId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Instructor" BaseType="Apress.EF6Recipes.StoredProcedures.Recipe7.Person">
+    <Property Type="Decimal" Name="Salary" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Student" BaseType="Apress.EF6Recipes.StoredProcedures.Recipe7.Person">
+    <Property Type="String" Name="Degree" Unicode="true" FixedLength="false" MaxLength="Max" />
+  </EntityType>
+</Schema>

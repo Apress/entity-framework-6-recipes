@@ -1,0 +1,13 @@
+Dr. Joan Meyers's appointments were lazy loaded.
+Dr. Joan Meyers has 2 appointment(s).
+Dr. Steven Mills was lazy loaded.
+Dr. Joan Meyers was already loaded.
+Dr. Joan Meyers was already loaded.
+There are 2 appointments for Dr. Joan Meyers
+Collection clear()'ed
+There are now 0 appointments for Dr. Joan Meyers
+Collection loaded()'ed
+There are now 0 appointments for Dr. Joan Meyers
+Collection loaded()'ed with MergeOPtion.OverwriteChanges
+There are now 2 appointments for Dr. Joan Meyers
+Press <enter> to continue...

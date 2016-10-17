@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EFRecipesModelStoreContainer" CdmEntityContainer="EFRecipesEntities">
+    <EntitySetMapping Name="Speakers">
+      <EntityTypeMapping TypeName="EFRecipesModel.Speaker">
+        <MappingFragment StoreEntitySet="Speaker">
+          <ScalarProperty Name="SpeakerId" ColumnName="SpeakerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Talks">
+      <EntityTypeMapping TypeName="EFRecipesModel.Talk">
+        <MappingFragment StoreEntitySet="Talk">
+          <ScalarProperty Name="TalkId" ColumnName="TalkId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="RevisedDate" ColumnName="RevisedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SpeakerTalk" TypeName="EFRecipesModel.SpeakerTalk" StoreEntitySet="SpeakerTalk">
+      <EndProperty Name="Speaker">
+        <ScalarProperty Name="SpeakerId" ColumnName="SpeakerId" />
+      </EndProperty>
+      <EndProperty Name="Talk">
+        <ScalarProperty Name="TalkId" ColumnName="TalkId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesBeyoneModelingBasicsRecipe1StoreContainer" CdmEntityContainer="Recipe1Context">
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizers">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Organizer">
+        <MappingFragment StoreEntitySet="Organizer">
+          <ScalarProperty Name="OrganizerId" ColumnName="OrganizerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EventOrganizer" TypeName="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.EventOrganizer" StoreEntitySet="EventOrganizer">
+      <EndProperty Name="Event">
+        <ScalarProperty Name="EventId" ColumnName="EventId" />
+      </EndProperty>
+      <EndProperty Name="Organizer">
+        <ScalarProperty Name="OrganizerId" ColumnName="OrganizerId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesBeyondModelingBasicsRecipe12StoreContainer" CdmEntityContainer="Recipe12Context">
+    <EntitySetMapping Name="Dealers">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Dealer">
+        <MappingFragment StoreEntitySet="Dealer">
+          <ScalarProperty Name="DealerId" ColumnName="DealerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.BeyondModelingBasics.Recipe12.BMW)">
+        <MappingFragment StoreEntitySet="BMW">
+          <ScalarProperty Name="CollisionAvoidance" ColumnName="CollisionAvoidance" />
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Toyota)">
+        <MappingFragment StoreEntitySet="Toyota">
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DealerCar" TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.DealerCar" StoreEntitySet="CarDealer">
+      <EndProperty Name="Car">
+        <ScalarProperty Name="CarId" ColumnName="CarId" />
+      </EndProperty>
+      <EndProperty Name="Dealer">
+        <ScalarProperty Name="DealerId" ColumnName="DealerId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

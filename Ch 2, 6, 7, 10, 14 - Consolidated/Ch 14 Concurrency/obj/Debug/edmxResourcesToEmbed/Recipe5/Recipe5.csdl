@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Apress.EF6Recipes.Concurrency.Recipe5" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Recipe5Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Apress.EF6Recipes.Concurrency.Recipe5.Account" />
+    <FunctionImport Name="DeleteAccount">
+      <Parameter Name="AccountNumber" Mode="In" Type="String" />
+      <Parameter Name="TimeStamp" Mode="In" Type="Binary" />
+      <Parameter Name="RowsAffected" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertAccount">
+      <Parameter Name="AccountNumber" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Balance" Mode="In" Type="Decimal" />
+      <Parameter Name="RowsAffected" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateAccount">
+      <Parameter Name="AccountNumber" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Balance" Mode="In" Type="Decimal" />
+      <Parameter Name="TimeStamp" Mode="In" Type="Binary" />
+      <Parameter Name="RowsAffected" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AccountNumber" />
+    </Key>
+    <Property Type="String" Name="AccountNumber" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="50" />
+    <Property Type="Decimal" Name="Balance" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="Binary" Name="TimeStamp" Nullable="false" MaxLength="8" />
+  </EntityType>
+</Schema>

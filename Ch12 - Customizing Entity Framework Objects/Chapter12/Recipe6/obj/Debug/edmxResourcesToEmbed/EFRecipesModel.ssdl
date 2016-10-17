@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Ingredient" EntityType="EFRecipesModel.Store.Ingredient" store:Type="Tables" Schema="Chapter12" />
+    <EntitySet Name="Recipe" EntityType="EFRecipesModel.Store.Recipe" store:Type="Tables" Schema="Chapter12" />
+    <EntitySet Name="Step" EntityType="EFRecipesModel.Store.Step" store:Type="Tables" Schema="Chapter12" />
+    <AssociationSet Name="FK_Ingredient_Recipe" Association="EFRecipesModel.Store.FK_Ingredient_Recipe">
+      <End Role="Recipe" EntitySet="Recipe" />
+      <End Role="Ingredient" EntitySet="Ingredient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Step_Recipe" Association="EFRecipesModel.Store.FK_Step_Recipe">
+      <End Role="Recipe" EntitySet="Recipe" />
+      <End Role="Step" EntitySet="Step" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="IngredientId" />
+    </Key>
+    <Property Name="IngredientId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="RecipeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="RecipeId" />
+    </Key>
+    <Property Name="RecipeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RecipeName" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Step">
+    <Key>
+      <PropertyRef Name="StepId" />
+    </Key>
+    <Property Name="StepId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="RecipeId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Ingredient_Recipe">
+    <End Role="Recipe" Type="EFRecipesModel.Store.Recipe" Multiplicity="1" />
+    <End Role="Ingredient" Type="EFRecipesModel.Store.Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipe">
+        <PropertyRef Name="RecipeId" />
+      </Principal>
+      <Dependent Role="Ingredient">
+        <PropertyRef Name="RecipeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Step_Recipe">
+    <End Role="Recipe" Type="EFRecipesModel.Store.Recipe" Multiplicity="1" />
+    <End Role="Step" Type="EFRecipesModel.Store.Step" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipe">
+        <PropertyRef Name="RecipeId" />
+      </Principal>
+      <Dependent Role="Step">
+        <PropertyRef Name="RecipeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

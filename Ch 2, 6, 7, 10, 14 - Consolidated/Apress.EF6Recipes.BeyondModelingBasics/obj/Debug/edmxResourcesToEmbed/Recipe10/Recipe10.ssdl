@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesBeyondModelingBasicsRecipe10StoreContainer">
+    <EntitySet Name="WebOrder" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.WebOrder" store:Type="Tables" Schema="Chapter6" />
+  </EntityContainer>
+  <EntityType Name="WebOrder">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="Amount" Type="money" />
+  </EntityType>
+  <Function Name="DeleteOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+    <Parameter Name="CustomerName" Type="varchar" Mode="In" />
+    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+    <Parameter Name="Amount" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="UpdateOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+    <Parameter Name="CustomerName" Type="varchar" Mode="In" />
+    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+    <Parameter Name="Amount" Type="decimal" Mode="In" />
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+  </Function>
+</Schema>

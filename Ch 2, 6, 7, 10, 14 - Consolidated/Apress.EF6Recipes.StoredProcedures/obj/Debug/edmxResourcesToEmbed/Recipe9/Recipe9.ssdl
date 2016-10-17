@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe9.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesStoredProceduresRecipe9StoreContainer">
+    <EntitySet Name="Author" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe9.Store.Author" store:Type="Tables" Schema="Chapter10" />
+    <EntitySet Name="AuthorBook" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe9.Store.AuthorBook" store:Type="Tables" Schema="Chapter10" />
+    <EntitySet Name="Book" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe9.Store.Book" store:Type="Tables" Schema="Chapter10" />
+    <AssociationSet Name="FK_AuthorBook_Author" Association="Apress.EF6Recipes.StoredProcedures.Recipe9.Store.FK_AuthorBook_Author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="AuthorBook" EntitySet="AuthorBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AuthorBook_Book" Association="Apress.EF6Recipes.StoredProcedures.Recipe9.Store.FK_AuthorBook_Book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="AuthorBook" EntitySet="AuthorBook" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+    </Key>
+    <Property Name="AuthorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AuthorBook">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="AuthorId" Type="int" Nullable="false" />
+    <Property Name="BookId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="ISBN" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_AuthorBook_Author">
+    <End Role="Author" Type="Apress.EF6Recipes.StoredProcedures.Recipe9.Store.Author" Multiplicity="1" />
+    <End Role="AuthorBook" Type="Apress.EF6Recipes.StoredProcedures.Recipe9.Store.AuthorBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="AuthorId" />
+      </Principal>
+      <Dependent Role="AuthorBook">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AuthorBook_Book">
+    <End Role="Book" Type="Apress.EF6Recipes.StoredProcedures.Recipe9.Store.Book" Multiplicity="1" />
+    <End Role="AuthorBook" Type="Apress.EF6Recipes.StoredProcedures.Recipe9.Store.AuthorBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="BookId" />
+      </Principal>
+      <Dependent Role="AuthorBook">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DeleteAuthorBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="AuthorId" Type="int" Mode="In" />
+    <Parameter Name="BookId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertAuthorBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="AuthorId" Type="int" Mode="In" />
+    <Parameter Name="BookId" Type="int" Mode="In" />
+  </Function>
+</Schema>

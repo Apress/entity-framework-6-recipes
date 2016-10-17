@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EFRecipesModelStoreContainer">
+          <EntitySet Name="Appointment" EntityType="EFRecipesModel.Store.Appointment" store:Type="Tables" Schema="Chapter5" />
+          <EntitySet Name="Doctor" EntityType="EFRecipesModel.Store.Doctor" store:Type="Tables" Schema="Chapter5" />
+          <EntitySet Name="Patient" EntityType="EFRecipesModel.Store.Patient" store:Type="Tables" Schema="Chapter5" />
+          <AssociationSet Name="FK_Appointment_Doctor" Association="EFRecipesModel.Store.FK_Appointment_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Patient" Association="EFRecipesModel.Store.FK_Appointment_Patient">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="AppointmentId" />
+          </Key>
+          <Property Name="AppointmentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Reason" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Fee" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="DoctorId" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="DoctorId" />
+          </Key>
+          <Property Name="DoctorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="PatientId" />
+          </Key>
+          <Property Name="PatientId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Appointment_Doctor">
+          <End Role="Doctor" Type="EFRecipesModel.Store.Doctor" Multiplicity="1" />
+          <End Role="Appointment" Type="EFRecipesModel.Store.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="DoctorId" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Patient">
+          <End Role="Patient" Type="EFRecipesModel.Store.Patient" Multiplicity="1" />
+          <End Role="Appointment" Type="EFRecipesModel.Store.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EFRecipesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EFRecipesEntities">
+          <EntitySet Name="Appointments" EntityType="EFRecipesModel.Appointment" />
+          <EntitySet Name="Doctors" EntityType="EFRecipesModel.Doctor" />
+          <EntitySet Name="Patients" EntityType="EFRecipesModel.Patient" />
+          <AssociationSet Name="FK_Appointment_Doctor" Association="EFRecipesModel.FK_Appointment_Doctor">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Patient" Association="EFRecipesModel.FK_Appointment_Patient">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="AppointmentId" />
+          </Key>
+          <Property Name="AppointmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Reason" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Fee" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="DoctorId" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Doctor" Relationship="EFRecipesModel.FK_Appointment_Doctor" FromRole="Appointment" ToRole="Doctor" />
+          <NavigationProperty Name="Patient" Relationship="EFRecipesModel.FK_Appointment_Patient" FromRole="Appointment" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="DoctorId" />
+          </Key>
+          <Property Name="DoctorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Appointments" Relationship="EFRecipesModel.FK_Appointment_Doctor" FromRole="Doctor" ToRole="Appointment" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="PatientId" />
+          </Key>
+          <Property Name="PatientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Appointments" Relationship="EFRecipesModel.FK_Appointment_Patient" FromRole="Patient" ToRole="Appointment" />
+        </EntityType>
+        <Association Name="FK_Appointment_Doctor">
+          <End Role="Doctor" Type="EFRecipesModel.Doctor" Multiplicity="1" />
+          <End Role="Appointment" Type="EFRecipesModel.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="DoctorId" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Patient">
+          <End Role="Patient" Type="EFRecipesModel.Patient" Multiplicity="1" />
+          <End Role="Appointment" Type="EFRecipesModel.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EFRecipesModelStoreContainer" CdmEntityContainer="EFRecipesEntities">
+          <EntitySetMapping Name="Appointments"><EntityTypeMapping TypeName="EFRecipesModel.Appointment"><MappingFragment StoreEntitySet="Appointment">
+            <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="Reason" ColumnName="Reason" />
+            <ScalarProperty Name="Fee" ColumnName="Fee" />
+            <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+            <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Doctors"><EntityTypeMapping TypeName="EFRecipesModel.Doctor"><MappingFragment StoreEntitySet="Doctor">
+            <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Patients"><EntityTypeMapping TypeName="EFRecipesModel.Patient"><MappingFragment StoreEntitySet="Patient">
+            <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Recipe9">
+        <EntityTypeShape EntityType="EFRecipesModel.Appointment" Width="1.5" PointX="3" PointY="1" Height="2.5571907552083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.Doctor" Width="1.5" PointX="0.75" PointY="1.375" Height="1.5956835937499998" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.Patient" Width="1.5" PointX="5.25" PointY="1.375" Height="1.5956835937499996" IsExpanded="true" />
+        <AssociationConnector Association="EFRecipesModel.FK_Appointment_Doctor" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.172841796875" />
+          <ConnectorPoint PointX="3" PointY="2.172841796875" /></AssociationConnector>
+        <AssociationConnector Association="EFRecipesModel.FK_Appointment_Patient" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="2.172841796875" />
+          <ConnectorPoint PointX="4.5" PointY="2.172841796875" />
+          </AssociationConnector></Diagram></Diagrams>
+  </Designer>
+</edmx:Edmx>

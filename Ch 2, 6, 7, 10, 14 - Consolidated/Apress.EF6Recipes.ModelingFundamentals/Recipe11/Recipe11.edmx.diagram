@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="204d8541aa8a4f968fe84f8c662a614f" Name="Diagram1">
+        <EntityTypeShape EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe11.Location" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe11.Park" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="Apress.EF6Recipes.ModelingFundamentals.Recipe11.FK_Park_Location_2" ManuallyRouted="false" />
+        <InheritanceConnector EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe11.Park" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyStoreModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MyStoreModelStoreContainer">
+    <EntitySet Name="App" EntityType="MyStoreModel.Store.App" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Category" EntityType="MyStoreModel.Store.Category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Developer" EntityType="MyStoreModel.Store.Developer" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_App_Category" Association="MyStoreModel.Store.FK_App_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="App" EntitySet="App" />
+    </AssociationSet>
+    <AssociationSet Name="FK_App_Developer" Association="MyStoreModel.Store.FK_App_Developer">
+      <End Role="Developer" EntitySet="Developer" />
+      <End Role="App" EntitySet="App" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="App">
+    <Key>
+      <PropertyRef Name="AppId" />
+    </Key>
+    <Property Name="AppId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="DeveloperId" Type="int" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Developer">
+    <Key>
+      <PropertyRef Name="DeveloperId" />
+    </Key>
+    <Property Name="DeveloperId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_App_Category">
+    <End Role="Category" Type="MyStoreModel.Store.Category" Multiplicity="1" />
+    <End Role="App" Type="MyStoreModel.Store.App" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="App">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_App_Developer">
+    <End Role="Developer" Type="MyStoreModel.Store.Developer" Multiplicity="1" />
+    <End Role="App" Type="MyStoreModel.Store.App" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Developer">
+        <PropertyRef Name="DeveloperId" />
+      </Principal>
+      <Dependent Role="App">
+        <PropertyRef Name="DeveloperId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

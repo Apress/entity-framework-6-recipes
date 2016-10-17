@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ApressEF6RecipesModelingFundamentalsRecipe4StoreContainer">
+          <EntitySet Name="Item" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.Item" store:Type="Tables" Schema="Chapter2" />
+          <EntitySet Name="Order" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.Order" store:Type="Tables" Schema="Chapter2" />
+          <EntitySet Name="OrderItem" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.OrderItem" store:Type="Tables" Schema="Chapter2" />
+          <AssociationSet Name="FK_OrderItem_Item" Association="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.FK_OrderItem_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Order" Association="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.FK_OrderItem_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="SKU" />
+          </Key>
+          <Property Name="SKU" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="Price" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="SKU" />
+          </Key>
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="SKU" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_OrderItem_Item">
+          <End Role="Item" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.Item" Multiplicity="1" />
+          <End Role="OrderItem" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="SKU" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="SKU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Order">
+          <End Role="Order" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.Order" Multiplicity="1" />
+          <End Role="OrderItem" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Apress.EF6Recipes.ModelingFundamentals.Recipe4" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Recipe4Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Items" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Item" />
+          <EntitySet Name="Orders" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Order" />
+          <EntitySet Name="OrderItems" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe4.OrderItem" />
+          <AssociationSet Name="FK_OrderItem_Item" Association="Apress.EF6Recipes.ModelingFundamentals.Recipe4.FK_OrderItem_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Order" Association="Apress.EF6Recipes.ModelingFundamentals.Recipe4.FK_OrderItem_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="SKU" />
+          </Key>
+          <Property Name="SKU" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="OrderItems" Relationship="Apress.EF6Recipes.ModelingFundamentals.Recipe4.FK_OrderItem_Item" FromRole="Item" ToRole="OrderItem" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" Nullable="false" />
+          <NavigationProperty Name="OrderItems" Relationship="Apress.EF6Recipes.ModelingFundamentals.Recipe4.FK_OrderItem_Order" FromRole="Order" ToRole="OrderItem" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="SKU" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="SKU" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Apress.EF6Recipes.ModelingFundamentals.Recipe4.FK_OrderItem_Item" FromRole="OrderItem" ToRole="Item" />
+          <NavigationProperty Name="Order" Relationship="Apress.EF6Recipes.ModelingFundamentals.Recipe4.FK_OrderItem_Order" FromRole="OrderItem" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_OrderItem_Item">
+          <End Role="Item" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Item" Multiplicity="1" />
+          <End Role="OrderItem" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe4.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="SKU" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="SKU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Order">
+          <End Role="Order" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Order" Multiplicity="1" />
+          <End Role="OrderItem" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe4.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesModelingFundamentalsRecipe4StoreContainer" CdmEntityContainer="Recipe4Context">
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItems">
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.ModelingFundamentals.Recipe4.OrderItem">
+              <MappingFragment StoreEntitySet="OrderItem">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="Chapter2" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

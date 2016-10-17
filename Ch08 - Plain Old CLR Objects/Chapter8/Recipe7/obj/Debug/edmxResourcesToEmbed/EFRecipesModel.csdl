@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Speakers" EntityType="EFRecipesModel.Speaker" />
+    <EntitySet Name="Talks" EntityType="EFRecipesModel.Talk" />
+    <AssociationSet Name="SpeakerTalk" Association="EFRecipesModel.SpeakerTalk">
+      <End Role="Speaker" EntitySet="Speakers" />
+      <End Role="Talk" EntitySet="Talks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Speaker">
+    <Key>
+      <PropertyRef Name="SpeakerId" />
+    </Key>
+    <Property Name="SpeakerId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Talks" Relationship="EFRecipesModel.SpeakerTalk" FromRole="Speaker" ToRole="Talk" />
+  </EntityType>
+  <EntityType Name="Talk">
+    <Key>
+      <PropertyRef Name="TalkId" />
+    </Key>
+    <Property Name="TalkId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RevisedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Speakers" Relationship="EFRecipesModel.SpeakerTalk" FromRole="Talk" ToRole="Speaker" />
+  </EntityType>
+  <Association Name="SpeakerTalk">
+    <End Role="Speaker" Type="EFRecipesModel.Speaker" Multiplicity="*" />
+    <End Role="Talk" Type="EFRecipesModel.Talk" Multiplicity="*" />
+  </Association>
+</Schema>

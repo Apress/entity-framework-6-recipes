@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EFRecipesModelStoreContainer">
+          <EntitySet Name="Rental" EntityType="EFRecipesModel.Store.Rental" store:Type="Tables" Schema="Chapter10" />
+          <EntitySet Name="Vehicle" EntityType="EFRecipesModel.Store.Vehicle" store:Type="Tables" Schema="Chapter10" />
+          <AssociationSet Name="FK_Rental_Vehicle" Association="EFRecipesModel.Store.FK_Rental_Vehicle">
+            <End Role="Vehicle" EntitySet="Vehicle" />
+            <End Role="Rental" EntitySet="Rental" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Rental">
+          <Key>
+            <PropertyRef Name="RentalId" />
+          </Key>
+          <Property Name="RentalId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RentalDate" Type="datetime" Nullable="false" />
+          <Property Name="Payment" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="VehicleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="VehicleId" />
+          </Key>
+          <Property Name="VehicleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Manufacturer" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Year" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Rental_Vehicle">
+          <End Role="Vehicle" Type="EFRecipesModel.Store.Vehicle" Multiplicity="1" />
+          <End Role="Rental" Type="EFRecipesModel.Store.Rental" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="VehicleId" />
+            </Principal>
+            <Dependent Role="Rental">
+              <PropertyRef Name="VehicleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetVehiclesWithRentals" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="TotalRentals" Type="int" Mode="InOut" />
+          <Parameter Name="TotalPayments" Type="decimal" Mode="InOut" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe2" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Recipe2Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Rentals" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe2.Rental" />
+          <EntitySet Name="Vehicles" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe2.Vehicle" />
+          <AssociationSet Name="FK_Rental_Vehicle" Association="Apress.EF6Recipes.StoredProcedures.Recipe2.FK_Rental_Vehicle">
+            <End Role="Vehicle" EntitySet="Vehicles" />
+            <End Role="Rental" EntitySet="Rentals" />
+          </AssociationSet>
+          <FunctionImport Name="GetVehiclesWithRentals" EntitySet="Vehicles" ReturnType="Collection(Apress.EF6Recipes.StoredProcedures.Recipe2.Vehicle)">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="TotalRentals" Mode="InOut" Type="Int32" />
+            <Parameter Name="TotalPayments" Mode="InOut" Type="Decimal" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Rental">
+          <Key>
+            <PropertyRef Name="RentalId" />
+          </Key>
+          <Property Name="RentalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RentalDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Payment" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="VehicleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Vehicle" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe2.FK_Rental_Vehicle" FromRole="Rental" ToRole="Vehicle" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="VehicleId" />
+          </Key>
+          <Property Name="VehicleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Manufacturer" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Rentals" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe2.FK_Rental_Vehicle" FromRole="Vehicle" ToRole="Rental" />
+        </EntityType>
+        <Association Name="FK_Rental_Vehicle">
+          <End Role="Vehicle" Type="Apress.EF6Recipes.StoredProcedures.Recipe2.Vehicle" Multiplicity="1" />
+          <End Role="Rental" Type="Apress.EF6Recipes.StoredProcedures.Recipe2.Rental" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="VehicleId" />
+            </Principal>
+            <Dependent Role="Rental">
+              <PropertyRef Name="VehicleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetVehiclesWithRentals_Result">
+          <Property Type="Int32" Name="VehicleId" Nullable="false" />
+          <Property Type="String" Name="Model" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Manufacturer" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Year" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EFRecipesModelStoreContainer" CdmEntityContainer="Recipe2Context">
+          <EntitySetMapping Name="Rentals">
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe2.Rental">
+              <MappingFragment StoreEntitySet="Rental">
+                <ScalarProperty Name="RentalId" ColumnName="RentalId" />
+                <ScalarProperty Name="RentalDate" ColumnName="RentalDate" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe2.Vehicle">
+              <MappingFragment StoreEntitySet="Vehicle">
+                <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetVehiclesWithRentals" FunctionName="EFRecipesModel.Store.GetVehiclesWithRentals" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="Chapter10" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

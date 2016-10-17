@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="da953c2924d8484a8a957f0900b727ee" Name="Diagram1" DisplayType="true">
+        <EntityTypeShape EntityType="EFRecipesModel.Customer" Width="1.75" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.Order" Width="1.75" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.OrderDetail" Width="1.875" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.Product" Width="1.875" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="EFRecipesModel.FK_Order_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="EFRecipesModel.FK_OrderDetail_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="EFRecipesModel.FK_OrderDetail_Product" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

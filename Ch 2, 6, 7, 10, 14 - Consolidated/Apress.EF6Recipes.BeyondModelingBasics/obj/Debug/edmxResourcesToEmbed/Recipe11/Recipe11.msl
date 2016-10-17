@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesBeyondModelingBasicsRecipe11StoreContainer" CdmEntityContainer="Recipe11Context">
+    <FunctionImportMapping FunctionImportName="DeleteMember" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.DeleteMember" />
+    <FunctionImportMapping FunctionImportName="InsertMember" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.InsertMember" />
+    <FunctionImportMapping FunctionImportName="UpdateMember" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.UpdateMember" />
+    <EntitySetMapping Name="Members">
+      <QueryView>
+				  select value
+				  case
+				  when m.Age &lt; 20 then
+				  Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Teen(m.MemberId,m.Name,m.Phone,m.Age)
+				  when m.Age between 20 and 55 then
+				  Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Adult(m.MemberId,m.Name,m.Phone,m.Age)
+				  when m.Age &gt; 55 then
+				  Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Senior(m.MemberId,m.Name,m.Phone,m.Age)
+				  end
+				  from ApressEF6RecipesBeyondModelingBasicsRecipe11StoreContainer.Member as m
+			  </QueryView>
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Teen">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.InsertMember">
+            <ScalarProperty Name="Age" ParameterName="Age" />
+            <ScalarProperty Name="Phone" ParameterName="Phone" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+            <ResultBinding Name="MemberId" ColumnName="MemberId" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.UpdateMember">
+            <ScalarProperty Name="MemberId" ParameterName="MemberId" Version="Current" />
+            <ScalarProperty Name="Age" ParameterName="Age" Version="Current" />
+            <ScalarProperty Name="Phone" ParameterName="Phone" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.DeleteMember">
+            <ScalarProperty Name="MemberId" ParameterName="MemberId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Adult">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.InsertMember">
+            <ScalarProperty Name="Age" ParameterName="Age" />
+            <ScalarProperty Name="Phone" ParameterName="Phone" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+            <ResultBinding Name="MemberId" ColumnName="MemberId" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.UpdateMember">
+            <ScalarProperty Name="MemberId" ParameterName="MemberId" Version="Current" />
+            <ScalarProperty Name="Age" ParameterName="Age" Version="Current" />
+            <ScalarProperty Name="Phone" ParameterName="Phone" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.DeleteMember">
+            <ScalarProperty Name="MemberId" ParameterName="MemberId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Senior">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.InsertMember">
+            <ScalarProperty Name="Age" ParameterName="Age" />
+            <ScalarProperty Name="Phone" ParameterName="Phone" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+            <ResultBinding Name="MemberId" ColumnName="MemberId" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.UpdateMember">
+            <ScalarProperty Name="MemberId" ParameterName="MemberId" Version="Current" />
+            <ScalarProperty Name="Age" ParameterName="Age" Version="Current" />
+            <ScalarProperty Name="Phone" ParameterName="Phone" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe11.Store.DeleteMember">
+            <ScalarProperty Name="MemberId" ParameterName="MemberId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

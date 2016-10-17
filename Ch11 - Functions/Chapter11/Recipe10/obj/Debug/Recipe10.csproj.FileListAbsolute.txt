@@ -1,0 +1,16 @@
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\Recipe10\bin\Debug\FunctionsEFRecipe10.exe.config
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\Recipe10\obj\Debug\FunctionsEFRecipe10.exe
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\Recipe10\obj\Debug\FunctionsEFRecipe10.pdb
+C:\Users\Nitin\Downloads\Chapter11\Recipe10\bin\Debug\FunctionsEFRecipe10.exe.config
+C:\Users\Nitin\Downloads\Chapter11\Recipe10\obj\Debug\FunctionsEFRecipe10.exe
+C:\Users\Nitin\Downloads\Chapter11\Recipe10\obj\Debug\FunctionsEFRecipe10.pdb
+C:\Users\NitinGupta\Downloads\Chapter11\Chapter11\Recipe10\bin\Debug\FunctionsEFRecipe10.exe.config
+C:\Users\NitinGupta\Downloads\Chapter11\Chapter11\Recipe10\obj\Debug\FunctionsEFRecipe10.exe
+C:\Users\NitinGupta\Downloads\Chapter11\Chapter11\Recipe10\obj\Debug\FunctionsEFRecipe10.pdb
+C:\Users\NitinGupta\Downloads\Chapter11\Chapter11\Recipe10\bin\Debug\FunctionsEFRecipe10.exe
+C:\Users\NitinGupta\Downloads\Chapter11\Chapter11\Recipe10\bin\Debug\FunctionsEFRecipe10.pdb
+C:\Users\NitinGupta\Downloads\Chapter11\Chapter11\Recipe10\bin\Debug\EntityFramework.dll
+C:\Users\NitinGupta\Downloads\Chapter11\Chapter11\Recipe10\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\NitinGupta\Downloads\Chapter11\Chapter11\Recipe10\bin\Debug\EntityFramework.xml
+C:\Users\NitinGupta\Downloads\Chapter11\Chapter11\Recipe10\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\NitinGupta\Downloads\Chapter11\Chapter11\Recipe10\obj\Debug\Recipe10.csprojResolveAssemblyReference.cache

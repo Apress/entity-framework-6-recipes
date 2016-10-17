@@ -1,0 +1,16 @@
+M:\Book Work\Code\Chapter5\Recipe12\Recipe12\bin\Debug\Recipe12.exe.config
+M:\Book Work\Code\Chapter5\Recipe12\Recipe12\bin\Debug\Recipe12.exe
+M:\Book Work\Code\Chapter5\Recipe12\Recipe12\bin\Debug\Recipe12.pdb
+M:\Book Work\Code\Chapter5\Recipe12\Recipe12\obj\x86\Debug\ResolveAssemblyReference.cache
+M:\Book Work\Code\Chapter5\Recipe12\Recipe12\obj\x86\Debug\Recipe12.exe
+M:\Book Work\Code\Chapter5\Recipe12\Recipe12\obj\x86\Debug\Recipe12.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe15\Recipe12\bin\Debug\Recipe12.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe15\Recipe12\bin\Debug\Recipe12.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe15\Recipe12\bin\Debug\Recipe12.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe15\Recipe12\obj\x86\Debug\Recipe12.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe15\Recipe12\obj\x86\Debug\Recipe12.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe15\Recipe12\obj\x86\Debug\Recipe12.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe15\Recipe12\bin\Debug\EntityFramework.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe15\Recipe12\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe15\Recipe12\bin\Debug\EntityFramework.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe15\Recipe12\bin\Debug\EntityFramework.SqlServer.xml

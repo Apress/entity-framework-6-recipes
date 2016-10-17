@@ -1,0 +1,30 @@
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\Apress.EF6Recipes.WorkingWithObjectServices.exe.config
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\Apress.EF6Recipes.WorkingWithObjectServices.exe
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\Apress.EF6Recipes.WorkingWithObjectServices.pdb
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\EntityFramework.dll
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\EntityFramework.xml
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\obj\Debug\Apress.EF6Recipes.WorkingWithObjectServices.csprojResolveAssemblyReference.cache
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\obj\Debug\Apress.EF6Recipes.WorkingWithObjectServices.exe
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\obj\Debug\Apress.EF6Recipes.WorkingWithObjectServices.pdb
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\Apress.EF6Recipes.WorkingWithObjectServices.exe.config
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\Apress.EF6Recipes.WorkingWithObjectServices.exe
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\Apress.EF6Recipes.WorkingWithObjectServices.pdb
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\EntityFramework.dll
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\EntityFramework.SqlServer.dll
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\EntityFramework.xml
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\EntityFramework.SqlServer.xml
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\obj\Debug\Apress.EF6Recipes.WorkingWithObjectServices.csprojResolveAssemblyReference.cache
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\obj\Debug\Apress.EF6Recipes.WorkingWithObjectServices.exe
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.WorkingWithObjectServices\obj\Debug\Apress.EF6Recipes.WorkingWithObjectServices.pdb
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\Apress.EF6Recipes.WorkingWithObjectServices.exe.config
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\Apress.EF6Recipes.WorkingWithObjectServices.exe
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\Apress.EF6Recipes.WorkingWithObjectServices.pdb
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\EntityFramework.dll
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\EntityFramework.xml
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.WorkingWithObjectServices\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.WorkingWithObjectServices\obj\Debug\Apress.EF6Recipes.WorkingWithObjectServices.csprojResolveAssemblyReference.cache
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.WorkingWithObjectServices\obj\Debug\Apress.EF6Recipes.WorkingWithObjectServices.exe
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.WorkingWithObjectServices\obj\Debug\Apress.EF6Recipes.WorkingWithObjectServices.pdb

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesBeyondModelingBasicsRecipe7StoreContainer" CdmEntityContainer="Recipe7Context">
+    <EntitySetMapping Name="Staffs">
+      <QueryView>
+					select value
+					case
+					when (i.StaffId is not null) then
+					Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Instructor(s.StaffId,s.Name,i.InstructorId,i.Salary)
+					when (p.StaffId is not null) then
+					Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Principal(s.StaffId,s.Name,p.PrincipalId,p.Salary,p.Bonus)
+					END
+					from ApressEF6RecipesBeyondModelingBasicsRecipe7StoreContainer.Staff as s
+					left join ApressEF6RecipesBeyondModelingBasicsRecipe7StoreContainer.Instructor as i
+					on s.StaffId = i.StaffId
+					left join ApressEF6RecipesBeyondModelingBasicsRecipe7StoreContainer.Principal as p
+					on s.StaffId = p.StaffId
+				</QueryView>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteInstructor" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.DeleteInstructor" />
+    <FunctionImportMapping FunctionImportName="DeletePrincipal" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.DeletePrincipal" />
+    <FunctionImportMapping FunctionImportName="InsertInstructor" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.InsertInstructor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.InsertInstructor_Result">
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+          <ScalarProperty Name="InstructorId" ColumnName="InstructorId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="InsertPrincipal" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.InsertPrincipal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.InsertPrincipal_Result">
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+          <ScalarProperty Name="PrincipalId" ColumnName="PrincipalId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateInstructor" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.UpdateInstructor" />
+    <FunctionImportMapping FunctionImportName="UpdatePrincipal" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.UpdatePrincipal" />
+  </EntityContainerMapping>
+</Mapping>

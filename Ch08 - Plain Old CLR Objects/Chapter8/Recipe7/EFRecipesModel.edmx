@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="EFRecipesModelStoreContainer">
+          <EntitySet Name="Speaker" EntityType="EFRecipesModel.Store.Speaker" store:Type="Tables" Schema="Chapter8" />
+          <EntitySet Name="SpeakerTalk" EntityType="EFRecipesModel.Store.SpeakerTalk" store:Type="Tables" Schema="Chapter8" />
+          <EntitySet Name="Talk" EntityType="EFRecipesModel.Store.Talk" store:Type="Tables" Schema="Chapter8" />
+          <AssociationSet Name="FK_SpeakerTalk_Speaker" Association="EFRecipesModel.Store.FK_SpeakerTalk_Speaker">
+            <End Role="Speaker" EntitySet="Speaker" />
+            <End Role="SpeakerTalk" EntitySet="SpeakerTalk" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpeakerTalk_Talk" Association="EFRecipesModel.Store.FK_SpeakerTalk_Talk">
+            <End Role="Talk" EntitySet="Talk" />
+            <End Role="SpeakerTalk" EntitySet="SpeakerTalk" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Speaker">
+          <Key>
+            <PropertyRef Name="SpeakerId" />
+          </Key>
+          <Property Name="SpeakerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="SpeakerTalk">
+          <Key>
+            <PropertyRef Name="SpeakerId" />
+            <PropertyRef Name="TalkId" />
+          </Key>
+          <Property Name="SpeakerId" Type="int" Nullable="false" />
+          <Property Name="TalkId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Talk">
+          <Key>
+            <PropertyRef Name="TalkId" />
+          </Key>
+          <Property Name="TalkId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="RevisedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_SpeakerTalk_Speaker">
+          <End Role="Speaker" Type="EFRecipesModel.Store.Speaker" Multiplicity="1" />
+          <End Role="SpeakerTalk" Type="EFRecipesModel.Store.SpeakerTalk" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speaker">
+              <PropertyRef Name="SpeakerId" />
+            </Principal>
+            <Dependent Role="SpeakerTalk">
+              <PropertyRef Name="SpeakerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpeakerTalk_Talk">
+          <End Role="Talk" Type="EFRecipesModel.Store.Talk" Multiplicity="1" />
+          <End Role="SpeakerTalk" Type="EFRecipesModel.Store.SpeakerTalk" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Talk">
+              <PropertyRef Name="TalkId" />
+            </Principal>
+            <Dependent Role="SpeakerTalk">
+              <PropertyRef Name="TalkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Speakers" EntityType="EFRecipesModel.Speaker" />
+          <EntitySet Name="Talks" EntityType="EFRecipesModel.Talk" />
+          <AssociationSet Name="SpeakerTalk" Association="EFRecipesModel.SpeakerTalk">
+            <End Role="Speaker" EntitySet="Speakers" />
+            <End Role="Talk" EntitySet="Talks" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Speaker">
+          <Key>
+            <PropertyRef Name="SpeakerId" />
+          </Key>
+          <Property Name="SpeakerId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Talks" Relationship="EFRecipesModel.SpeakerTalk" FromRole="Speaker" ToRole="Talk" />
+        </EntityType>
+        <EntityType Name="Talk">
+          <Key>
+            <PropertyRef Name="TalkId" />
+          </Key>
+          <Property Name="TalkId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RevisedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Speakers" Relationship="EFRecipesModel.SpeakerTalk" FromRole="Talk" ToRole="Speaker" />
+        </EntityType>
+        <Association Name="SpeakerTalk">
+          <End Role="Speaker" Type="EFRecipesModel.Speaker" Multiplicity="*" />
+          <End Role="Talk" Type="EFRecipesModel.Talk" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EFRecipesModelStoreContainer" CdmEntityContainer="EFRecipesEntities">
+          <EntitySetMapping Name="Speakers">
+            <EntityTypeMapping TypeName="EFRecipesModel.Speaker">
+              <MappingFragment StoreEntitySet="Speaker">
+                <ScalarProperty Name="SpeakerId" ColumnName="SpeakerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Talks">
+            <EntityTypeMapping TypeName="EFRecipesModel.Talk">
+              <MappingFragment StoreEntitySet="Talk">
+                <ScalarProperty Name="TalkId" ColumnName="TalkId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="RevisedDate" ColumnName="RevisedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="SpeakerTalk" TypeName="EFRecipesModel.SpeakerTalk" StoreEntitySet="SpeakerTalk">
+            <EndProperty Name="Speaker">
+              <ScalarProperty Name="SpeakerId" ColumnName="SpeakerId" />
+            </EndProperty>
+            <EndProperty Name="Talk">
+              <ScalarProperty Name="TalkId" ColumnName="TalkId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

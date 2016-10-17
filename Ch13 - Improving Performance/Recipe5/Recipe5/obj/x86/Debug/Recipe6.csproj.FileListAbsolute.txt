@@ -1,0 +1,19 @@
+H:\Book Work\Code\Chapter13\Recipe6\Recipe6\obj\x86\Debug\ResolveAssemblyReference.cache
+H:\Book Work\Code\Chapter13\Recipe6\Recipe6\bin\Debug\Recipe6.exe.config
+H:\Book Work\Code\Chapter13\Recipe6\Recipe6\bin\Debug\Recipe6.exe
+H:\Book Work\Code\Chapter13\Recipe6\Recipe6\bin\Debug\Recipe6.pdb
+H:\Book Work\Code\Chapter13\Recipe6\Recipe6\obj\x86\Debug\Recipe6.exe
+H:\Book Work\Code\Chapter13\Recipe6\Recipe6\obj\x86\Debug\Recipe6.pdb
+M:\Book Work\Code\Chapter13\Recipe6\Recipe6\bin\Debug\Recipe6.exe.config
+M:\Book Work\Code\Chapter13\Recipe6\Recipe6\obj\x86\Debug\Recipe6.exe
+M:\Book Work\Code\Chapter13\Recipe6\Recipe6\obj\x86\Debug\Recipe6.pdb
+C:\Users\robve_000\Documents\My Book\Current Files for Book\Chapter 13\UpdatedCode\Chapter13\Recipe6\Recipe6\bin\Debug\Recipe6.exe.config
+C:\Users\robve_000\Documents\My Book\Current Files for Book\Chapter 13\UpdatedCode\Chapter13\Recipe6\Recipe6\obj\x86\Debug\Recipe6.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\Current Files for Book\Chapter 13\UpdatedCode\Chapter13\Recipe6\Recipe6\bin\Debug\Recipe6.exe
+C:\Users\robve_000\Documents\My Book\Current Files for Book\Chapter 13\UpdatedCode\Chapter13\Recipe6\Recipe6\bin\Debug\Recipe6.pdb
+C:\Users\robve_000\Documents\My Book\Current Files for Book\Chapter 13\UpdatedCode\Chapter13\Recipe6\Recipe6\bin\Debug\EntityFramework.dll
+C:\Users\robve_000\Documents\My Book\Current Files for Book\Chapter 13\UpdatedCode\Chapter13\Recipe6\Recipe6\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\robve_000\Documents\My Book\Current Files for Book\Chapter 13\UpdatedCode\Chapter13\Recipe6\Recipe6\bin\Debug\EntityFramework.xml
+C:\Users\robve_000\Documents\My Book\Current Files for Book\Chapter 13\UpdatedCode\Chapter13\Recipe6\Recipe6\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\robve_000\Documents\My Book\Current Files for Book\Chapter 13\UpdatedCode\Chapter13\Recipe6\Recipe6\obj\x86\Debug\Recipe6.exe
+C:\Users\robve_000\Documents\My Book\Current Files for Book\Chapter 13\UpdatedCode\Chapter13\Recipe6\Recipe6\obj\x86\Debug\Recipe6.pdb

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesModelingFundamentalsRecipe9StoreContainer" CdmEntityContainer="Recipe9Context">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.ModelingFundamentals.Recipe9.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="AccountHolderId" ColumnName="AccountHolderId" />
+          <Condition ColumnName="DeletedOn" IsNull="true" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

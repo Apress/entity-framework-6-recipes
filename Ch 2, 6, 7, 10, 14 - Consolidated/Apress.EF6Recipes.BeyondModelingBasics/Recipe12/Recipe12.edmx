@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ApressEF6RecipesBeyondModelingBasicsRecipe12StoreContainer">
+          <EntitySet Name="BMW" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.BMW" store:Type="Tables" Schema="Chapter6" />
+          <EntitySet Name="CarDealer" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.CarDealer" store:Type="Tables" Schema="Chapter6" />
+          <EntitySet Name="Dealer" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.Dealer" store:Type="Tables" Schema="Chapter6" />
+          <EntitySet Name="Toyota" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.Toyota" store:Type="Tables" Schema="Chapter6" />
+          <AssociationSet Name="FK_CarDealer_Dealer_DealerId" Association="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.FK_CarDealer_Dealer_DealerId">
+            <End Role="Dealer" EntitySet="Dealer" />
+            <End Role="CarDealer" EntitySet="CarDealer" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BMW">
+          <Key>
+            <PropertyRef Name="CarId" />
+          </Key>
+          <Property Name="CarId" Type="int" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Color" Type="varchar" MaxLength="50" />
+          <Property Name="CollisionAvoidance" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarDealer">
+          <Key>
+            <PropertyRef Name="CarId" />
+          </Key>
+          <Property Name="CarId" Type="int" Nullable="false" />
+          <Property Name="DealerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dealer">
+          <Key>
+            <PropertyRef Name="DealerId" />
+          </Key>
+          <Property Name="DealerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Toyota">
+          <Key>
+            <PropertyRef Name="CarId" />
+          </Key>
+          <Property Name="CarId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="varchar" MaxLength="50" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Color" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_CarDealer_Dealer_DealerId">
+          <End Role="Dealer" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.Dealer" Multiplicity="1" />
+          <End Role="CarDealer" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.CarDealer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealer">
+              <PropertyRef Name="DealerId" />
+            </Principal>
+            <Dependent Role="CarDealer">
+              <PropertyRef Name="DealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe12" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Recipe12Context" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Dealers" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Dealer" />
+          <EntitySet Name="Cars" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Car" />
+          <AssociationSet Name="DealerCar" Association="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.DealerCar">
+            <End Role="Dealer" EntitySet="Dealers" />
+            <End Role="Car" EntitySet="Cars" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BMW" BaseType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Car">
+          <Property Name="CollisionAvoidance" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dealer">
+          <Key>
+            <PropertyRef Name="DealerId" />
+          </Key>
+          <Property Name="DealerId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Cars" Relationship="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.DealerCar" FromRole="Dealer" ToRole="Car" />
+        </EntityType>
+        <EntityType Name="Toyota" BaseType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Car">
+          </EntityType>
+        <EntityType Name="Car" Abstract="true" >
+          <Key>
+            <PropertyRef Name="CarId" />
+          </Key>
+          <Property Type="Int32" Name="CarId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Model" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Year" />
+          <Property Type="String" Name="Color" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Dealer" Relationship="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.DealerCar" FromRole="Car" ToRole="Dealer" />
+        </EntityType>
+        <Association Name="DealerCar">
+          <End Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Dealer" Role="Dealer" Multiplicity="1" />
+          <End Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Car" Role="Car" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesBeyondModelingBasicsRecipe12StoreContainer" CdmEntityContainer="Recipe12Context">
+          <EntitySetMapping Name="Dealers">
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Dealer">
+              <MappingFragment StoreEntitySet="Dealer">
+                <ScalarProperty Name="DealerId" ColumnName="DealerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+			<EntitySetMapping Name="Cars">
+				<EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.BeyondModelingBasics.Recipe12.BMW)">
+					<MappingFragment StoreEntitySet="BMW">
+						<ScalarProperty Name="CollisionAvoidance"
+										ColumnName="CollisionAvoidance" />
+						<ScalarProperty Name="CarId" ColumnName="CarId"/>
+						<ScalarProperty Name="Model" ColumnName="Model"/>
+						<ScalarProperty Name="Year" ColumnName="Year"/>
+						<ScalarProperty Name="Color" ColumnName="Color"/>
+					</MappingFragment>
+				</EntityTypeMapping>
+				<EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Toyota)">
+					<MappingFragment StoreEntitySet="Toyota">
+						<ScalarProperty Name="CarId" ColumnName="CarId"/>
+						<ScalarProperty Name="Model" ColumnName="Model"/>
+						<ScalarProperty Name="Year" ColumnName="Year"/>
+						<ScalarProperty Name="Color" ColumnName="Color"/>
+					</MappingFragment>
+				</EntityTypeMapping>
+			</EntitySetMapping>
+
+			<AssociationSetMapping Name="DealerCar" TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.DealerCar" StoreEntitySet="CarDealer">
+            <EndProperty Name="Car">
+              <ScalarProperty Name="CarId" ColumnName="CarId" />
+            </EndProperty>
+            <EndProperty Name="Dealer">
+              <ScalarProperty Name="DealerId" ColumnName="DealerId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="Chapter6" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

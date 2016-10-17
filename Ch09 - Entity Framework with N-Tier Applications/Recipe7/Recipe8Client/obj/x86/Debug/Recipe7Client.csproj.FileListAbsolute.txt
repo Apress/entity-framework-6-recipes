@@ -1,0 +1,11 @@
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8Client\bin\Debug\Recipe8Client.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8Client\bin\Debug\Recipe8Client.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8Client\bin\Debug\Recipe8Client.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8Client\obj\x86\Debug\Recipe7Client.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8Client\obj\x86\Debug\Recipe8Client.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8Client\obj\x86\Debug\Recipe8Client.pdb
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe7\Recipe8Client\bin\Debug\Recipe8Client.exe.config
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe7\Recipe8Client\bin\Debug\Recipe8Client.exe
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe7\Recipe8Client\bin\Debug\Recipe8Client.pdb
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe7\Recipe8Client\obj\x86\Debug\Recipe8Client.exe
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe7\Recipe8Client\obj\x86\Debug\Recipe8Client.pdb

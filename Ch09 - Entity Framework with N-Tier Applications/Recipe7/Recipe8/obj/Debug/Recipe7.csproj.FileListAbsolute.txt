@@ -1,0 +1,17 @@
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8\bin\Recipe8.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8\bin\Recipe8.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8\bin\EntityFramework.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8\bin\EntityFramework.SqlServer.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8\bin\EntityFramework.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8\bin\EntityFramework.SqlServer.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8\obj\Debug\Recipe7.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8\obj\Debug\Recipe8.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe7\Recipe8\obj\Debug\Recipe8.pdb
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe7\Recipe8\bin\Recipe8.dll
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe7\Recipe8\bin\Recipe8.pdb
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe7\Recipe8\bin\EntityFramework.dll
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe7\Recipe8\bin\EntityFramework.SqlServer.dll
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe7\Recipe8\bin\EntityFramework.xml
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe7\Recipe8\bin\EntityFramework.SqlServer.xml
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe7\Recipe8\obj\Debug\Recipe8.dll
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe7\Recipe8\obj\Debug\Recipe8.pdb

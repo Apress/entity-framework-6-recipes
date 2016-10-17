@@ -1,0 +1,7 @@
+Client: Karen Standfield
+	4/1/2010 for $29.95
+	4/4/2010 for $45.99
+	4/2/2010 for $49.95
+Client: Phil Marlowe
+	4/3/2010 for $102.95
+Press <enter> to continue...

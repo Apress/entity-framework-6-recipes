@@ -1,0 +1,6 @@
+M:\Book Work\Code\Chapter9\Recipe8\Recipe8Client\bin\Debug\Recipe8Client.exe.config
+M:\Book Work\Code\Chapter9\Recipe8\Recipe8Client\bin\Debug\Recipe8Client.exe
+M:\Book Work\Code\Chapter9\Recipe8\Recipe8Client\bin\Debug\Recipe8Client.pdb
+M:\Book Work\Code\Chapter9\Recipe8\Recipe8Client\obj\x86\Debug\ResolveAssemblyReference.cache
+M:\Book Work\Code\Chapter9\Recipe8\Recipe8Client\obj\x86\Debug\Recipe8Client.exe
+M:\Book Work\Code\Chapter9\Recipe8\Recipe8Client\obj\x86\Debug\Recipe8Client.pdb

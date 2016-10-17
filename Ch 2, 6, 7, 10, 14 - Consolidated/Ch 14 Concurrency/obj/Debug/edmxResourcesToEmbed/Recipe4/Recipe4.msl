@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="Recipe4" />
+  <Alias Key="Target" Value="Recipe4.Store" />
+  <EntityContainerMapping CdmEntityContainer="Recipe4Context" StorageEntityContainer="Recipe4TargetContainer" />
+</Mapping>

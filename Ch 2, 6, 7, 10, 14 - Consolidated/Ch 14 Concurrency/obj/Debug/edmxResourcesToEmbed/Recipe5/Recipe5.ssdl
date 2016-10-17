@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Recipe5.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Recipe5StoreContainer" />
+  <Function Name="DeleteAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter14">
+    <Parameter Name="AccountNumber" Type="varchar" Mode="In" />
+    <Parameter Name="TimeStamp" Type="timestamp" Mode="In" />
+    <Parameter Name="RowsAffected" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter14">
+    <Parameter Name="AccountNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Balance" Type="decimal" Mode="In" />
+    <Parameter Name="RowsAffected" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="UpdateAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter14">
+    <Parameter Name="AccountNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Balance" Type="decimal" Mode="In" />
+    <Parameter Name="TimeStamp" Type="timestamp" Mode="In" />
+    <Parameter Name="RowsAffected" Type="int" Mode="InOut" />
+  </Function>
+</Schema>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.ModelingFundamentals.Recipe3" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Recipe3Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Albums" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Album" />
+    <EntitySet Name="Artists" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Artist" />
+    <AssociationSet Name="LinkTable" Association="Apress.EF6Recipes.ModelingFundamentals.Recipe3.LinkTable">
+      <End Role="Album" EntitySet="Albums" />
+      <End Role="Artist" EntitySet="Artists" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="AlbumId" />
+    </Key>
+    <Property Name="AlbumId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlbumName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Artists" Relationship="Apress.EF6Recipes.ModelingFundamentals.Recipe3.LinkTable" FromRole="Album" ToRole="Artist" />
+  </EntityType>
+  <EntityType Name="Artist">
+    <Key>
+      <PropertyRef Name="ArtistId" />
+    </Key>
+    <Property Name="ArtistId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Albums" Relationship="Apress.EF6Recipes.ModelingFundamentals.Recipe3.LinkTable" FromRole="Artist" ToRole="Album" />
+  </EntityType>
+  <Association Name="LinkTable">
+    <End Role="Album" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Album" Multiplicity="*" />
+    <End Role="Artist" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Artist" Multiplicity="*" />
+  </Association>
+</Schema>

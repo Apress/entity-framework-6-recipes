@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Bid" EntityType="EFRecipesModel.Store.Bid" store:Type="Tables" Schema="Chapter3" />
+    <EntitySet Name="Job" EntityType="EFRecipesModel.Store.Job" store:Type="Tables" Schema="Chapter3" />
+    <AssociationSet Name="FK__Bid__JobID__6FB49575" Association="EFRecipesModel.Store.FK__Bid__JobID__6FB49575">
+      <End Role="Job" EntitySet="Job" />
+      <End Role="Bid" EntitySet="Bid" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Bid">
+    <Key>
+      <PropertyRef Name="BidID" />
+    </Key>
+    <Property Name="BidID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="JobID" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" />
+    <Property Name="Bidder" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="JobID" />
+    </Key>
+    <Property Name="JobID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="JobDetails" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK__Bid__JobID__6FB49575">
+    <End Role="Job" Type="EFRecipesModel.Store.Job" Multiplicity="1" />
+    <End Role="Bid" Type="EFRecipesModel.Store.Bid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="JobID" />
+      </Principal>
+      <Dependent Role="Bid">
+        <PropertyRef Name="JobID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

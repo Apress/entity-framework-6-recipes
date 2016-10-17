@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="EFRecipesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CDs" EntityType="EFRecipesModel.CD" />
+    <EntitySet Name="Tracks" EntityType="EFRecipesModel.Track" />
+    <AssociationSet Name="FK_Track_CD" Association="EFRecipesModel.FK_Track_CD">
+      <End Role="CD" EntitySet="CDs" />
+      <End Role="Track" EntitySet="Tracks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CD">
+    <Key>
+      <PropertyRef Name="CDId" />
+    </Key>
+    <Property Name="CDId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Tracks" Relationship="EFRecipesModel.FK_Track_CD" FromRole="CD" ToRole="Track" />
+  </EntityType>
+  <EntityType Name="Track">
+    <Key>
+      <PropertyRef Name="Title" />
+    </Key>
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Artist" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CDId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Track_CD">
+    <End Role="CD" Type="EFRecipesModel.CD" Multiplicity="1" />
+    <End Role="Track" Type="EFRecipesModel.Track" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CD">
+        <PropertyRef Name="CDId" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="CDId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

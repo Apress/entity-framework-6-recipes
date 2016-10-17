@@ -1,0 +1,5 @@
+The painting with accession number PN001
+	Name: Sunflowers
+	Artist: Rosemary Golden
+	Sale Price: $1,250.00
+Press <enter> to continue...

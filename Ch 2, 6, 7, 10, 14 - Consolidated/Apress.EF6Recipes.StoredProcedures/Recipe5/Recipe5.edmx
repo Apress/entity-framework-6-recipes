@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe5.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ApressEF6RecipesStoredProceduresRecipe5StoreContainer">
+          <EntitySet Name="Member" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe5.Store.Member" store:Type="Tables" Schema="Chapter10" />
+          <EntitySet Name="Message" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe5.Store.Message" store:Type="Tables" Schema="Chapter10" />
+          <AssociationSet Name="FK__Message__MemberI__1367E606" Association="Apress.EF6Recipes.StoredProcedures.Recipe5.Store.FK__Message__MemberI__1367E606">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MemberId" Type="int" Nullable="false" />
+          <Property Name="DateSent" Type="datetime" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="100" />
+          <Property Name="MessageBody" Type="text" />
+        </EntityType>
+        <Association Name="FK__Message__MemberI__1367E606">
+          <End Role="Member" Type="Apress.EF6Recipes.StoredProcedures.Recipe5.Store.Member" Multiplicity="1" />
+          <End Role="Message" Type="Apress.EF6Recipes.StoredProcedures.Recipe5.Store.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+		  <Function Name="MembersWithTheMostMessages" IsComposable="false">
+			  <CommandText>
+				  select m.*
+				  from chapter10.member m
+				  join
+				  (
+				  select msg.MemberId, count(msg.MessageId) as MessageCount
+				  from chapter10.message msg where datesent = @datesent
+				  group by msg.MemberId
+				  ) temp on m.MemberId = temp.MemberId
+				  order by temp.MessageCount desc
+			  </CommandText>
+			  <Parameter Name="datesent" Type="datetime" />
+		  </Function>
+
+	  </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe5" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Recipe5Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Members" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe5.Member" />
+          <EntitySet Name="Messages" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe5.Message" />
+          <AssociationSet Name="FK__Message__MemberI__1367E606" Association="Apress.EF6Recipes.StoredProcedures.Recipe5.FK__Message__MemberI__1367E606">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <FunctionImport Name="MembersWithTheMostMessages" EntitySet="Members" ReturnType="Collection(Apress.EF6Recipes.StoredProcedures.Recipe5.Member)">
+            <Parameter Name="datesent" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Messages" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe5.FK__Message__MemberI__1367E606" FromRole="Member" ToRole="Message" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
+          <Property Name="DateSent" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Subject" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="MessageBody" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Member" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe5.FK__Message__MemberI__1367E606" FromRole="Message" ToRole="Member" />
+        </EntityType>
+        <Association Name="FK__Message__MemberI__1367E606">
+          <End Role="Member" Type="Apress.EF6Recipes.StoredProcedures.Recipe5.Member" Multiplicity="1" />
+          <End Role="Message" Type="Apress.EF6Recipes.StoredProcedures.Recipe5.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesStoredProceduresRecipe5StoreContainer" CdmEntityContainer="Recipe5Context">
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe5.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe5.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="DateSent" ColumnName="DateSent" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="MessageBody" ColumnName="MessageBody" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="MembersWithTheMostMessages" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe5.Store.MembersWithTheMostMessages" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="Chapter10" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

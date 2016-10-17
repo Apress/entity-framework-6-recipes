@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ApressEF6RecipesBeyondModelingBasicsRecipe9StoreContainer">
+          <EntitySet Name="RefurbishedToy" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Store.RefurbishedToy" store:Type="Tables" Schema="Chapter6" />
+          <EntitySet Name="Toy" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Store.Toy" store:Type="Tables" Schema="Chapter6" />
+          <AssociationSet Name="FK_RefurbishedToy_Toy_ToyId" Association="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Store.FK_RefurbishedToy_Toy_ToyId">
+            <End Role="Toy" EntitySet="Toy" />
+            <End Role="RefurbishedToy" EntitySet="RefurbishedToy" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="RefurbishedToy">
+          <Key>
+            <PropertyRef Name="ToyId" />
+          </Key>
+          <Property Name="ToyId" Type="int" Nullable="false" />
+          <Property Name="Quality" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Toy">
+          <Key>
+            <PropertyRef Name="ToyId" />
+          </Key>
+          <Property Name="ToyId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Price" Type="money" />
+          <Property Name="ForDonationOnly" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_RefurbishedToy_Toy_ToyId">
+          <End Role="Toy" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Store.Toy" Multiplicity="1" />
+          <End Role="RefurbishedToy" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Store.RefurbishedToy" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Toy">
+              <PropertyRef Name="ToyId" />
+            </Principal>
+            <Dependent Role="RefurbishedToy">
+              <PropertyRef Name="ToyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe9" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Recipe9Context" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Toys" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Toy" />
+        </EntityContainer>
+        <EntityType Name="RefurbishedToy" BaseType="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Toy">
+          <Property Name="Quality" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Toy">
+          <Key>
+            <PropertyRef Name="ToyId" />
+          </Key>
+          <Property Name="ToyId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesBeyondModelingBasicsRecipe9StoreContainer" CdmEntityContainer="Recipe9Context">
+          <EntitySetMapping Name="Toys">
+            <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Toy)">
+              <MappingFragment StoreEntitySet="Toy">
+                <ScalarProperty Name="ToyId" ColumnName="ToyId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <Condition ColumnName="ForDonationOnly" Value="0" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.BeyondModelingBasics.Recipe9.RefurbishedToy)">
+              <MappingFragment StoreEntitySet="RefurbishedToy">
+                <ScalarProperty Name="Quality" ColumnName="Quality" />
+                <ScalarProperty Name="ToyId" ColumnName="ToyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

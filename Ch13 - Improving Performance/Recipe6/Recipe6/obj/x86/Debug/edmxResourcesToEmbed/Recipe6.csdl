@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Associate">
+    <Key>
+      <PropertyRef Name="AssociateId" />
+    </Key>
+    <Property Name="AssociateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Paychecks" Relationship="Self.FK_Pay_Associate" FromRole="Associate" ToRole="Paycheck" />
+  </EntityType>
+  <EntityType Name="Paycheck">
+    <Key>
+      <PropertyRef Name="PayCheckId" />
+    </Key>
+    <Property Name="PayCheckId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssociateId" Type="Int32" Nullable="false" />
+    <Property Name="PayDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Gross" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Associate" Relationship="Self.FK_Pay_Associate" FromRole="Paycheck" ToRole="Associate" />
+  </EntityType>
+  <Association Name="FK_Pay_Associate">
+    <End Role="Associate" Type="Self.Associate" Multiplicity="1" />
+    <End Role="Paycheck" Type="Self.Paycheck" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associate">
+        <PropertyRef Name="AssociateId" />
+      </Principal>
+      <Dependent Role="Paycheck">
+        <PropertyRef Name="AssociateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Recipe6" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Associates" EntityType="Self.Associate" />
+    <EntitySet Name="Paychecks" EntityType="Self.Paycheck" />
+    <AssociationSet Name="FK_Pay_Associate" Association="Self.FK_Pay_Associate">
+      <End Role="Associate" EntitySet="Associates" />
+      <End Role="Paycheck" EntitySet="Paychecks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

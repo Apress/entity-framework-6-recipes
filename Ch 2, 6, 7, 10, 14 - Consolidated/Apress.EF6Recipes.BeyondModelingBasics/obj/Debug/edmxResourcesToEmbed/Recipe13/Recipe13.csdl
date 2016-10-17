@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe13" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Recipe13Context" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Invoices" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe13.Invoice" />
+  </EntityContainer>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="InvoiceId" />
+    </Key>
+    <Property Name="InvoiceId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Description" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeletedInvoice" BaseType="Apress.EF6Recipes.BeyondModelingBasics.Recipe13.Invoice" />
+</Schema>

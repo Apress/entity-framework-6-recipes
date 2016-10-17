@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesModelingFundamentalsRecipe3StoreContainer">
+    <EntitySet Name="Album" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Store.Album" store:Type="Tables" Schema="Chapter2" />
+    <EntitySet Name="Artist" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Store.Artist" store:Type="Tables" Schema="Chapter2" />
+    <EntitySet Name="LinkTable" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Store.LinkTable" store:Type="Tables" Schema="Chapter2" />
+    <AssociationSet Name="FK_LinkTable_Album" Association="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Store.FK_LinkTable_Album">
+      <End Role="Album" EntitySet="Album" />
+      <End Role="LinkTable" EntitySet="LinkTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LinkTable_Artist" Association="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Store.FK_LinkTable_Artist">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="LinkTable" EntitySet="LinkTable" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="AlbumId" />
+    </Key>
+    <Property Name="AlbumId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AlbumName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Artist">
+    <Key>
+      <PropertyRef Name="ArtistId" />
+    </Key>
+    <Property Name="ArtistId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LinkTable">
+    <Key>
+      <PropertyRef Name="ArtistId" />
+      <PropertyRef Name="AlbumId" />
+    </Key>
+    <Property Name="ArtistId" Type="int" Nullable="false" />
+    <Property Name="AlbumId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_LinkTable_Album">
+    <End Role="Album" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Store.Album" Multiplicity="1" />
+    <End Role="LinkTable" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Store.LinkTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="AlbumId" />
+      </Principal>
+      <Dependent Role="LinkTable">
+        <PropertyRef Name="AlbumId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LinkTable_Artist">
+    <End Role="Artist" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Store.Artist" Multiplicity="1" />
+    <End Role="LinkTable" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Store.LinkTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ArtistId" />
+      </Principal>
+      <Dependent Role="LinkTable">
+        <PropertyRef Name="ArtistId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

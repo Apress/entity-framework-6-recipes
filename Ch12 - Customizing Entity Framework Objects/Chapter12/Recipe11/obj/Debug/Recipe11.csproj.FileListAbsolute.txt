@@ -1,0 +1,13 @@
+C:\Users\Nitin\Downloads\Chapter12\Recipe11\bin\Debug\CustomEFRecipe11.exe.config
+C:\Users\Nitin\Downloads\Chapter12\Recipe11\obj\Debug\CustomEFRecipe11.exe
+C:\Users\Nitin\Downloads\Chapter12\Recipe11\obj\Debug\CustomEFRecipe11.pdb
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe11\bin\Debug\CustomEFRecipe11.exe.config
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe11\obj\Debug\CustomEFRecipe11.exe
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe11\obj\Debug\CustomEFRecipe11.pdb
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe11\bin\Debug\CustomEFRecipe11.exe
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe11\bin\Debug\CustomEFRecipe11.pdb
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe11\bin\Debug\EntityFramework.dll
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe11\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe11\bin\Debug\EntityFramework.xml
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe11\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe11\obj\Debug\Recipe11.csprojResolveAssemblyReference.cache

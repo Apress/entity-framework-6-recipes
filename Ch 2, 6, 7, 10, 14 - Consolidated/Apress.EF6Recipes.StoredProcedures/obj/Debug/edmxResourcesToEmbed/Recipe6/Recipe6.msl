@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="Recipe6" />
+  <Alias Key="Target" Value="Recipe6.Store" />
+  <EntityContainerMapping CdmEntityContainer="Recipe6Context" StorageEntityContainer="Recipe6StoreContainer">
+    <FunctionImportMapping FunctionImportName="GetAllMedia" FunctionName="Recipe6.Store.GetAllMedia">
+      <ResultMapping>
+        <EntityTypeMapping TypeName="EF6RecipesModel.Magazine">
+          <ScalarProperty ColumnName="PublicationDate" Name="PublicationDate" />
+          <Condition ColumnName="MediaType" Value="Magazine" />
+        </EntityTypeMapping>
+        <EntityTypeMapping TypeName="EF6RecipesModel.DVD">
+          <ScalarProperty ColumnName="PlayTime" Name="PlayTime" />
+          <Condition ColumnName="MediaType" Value="DVD" />
+        </EntityTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

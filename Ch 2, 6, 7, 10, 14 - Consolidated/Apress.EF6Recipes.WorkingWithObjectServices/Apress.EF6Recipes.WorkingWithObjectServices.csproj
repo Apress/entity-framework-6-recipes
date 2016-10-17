@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FBA0D329-7F05-46C6-98F9-A2599E560ED5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Apress.EF6Recipes.WorkingWithObjectServices</RootNamespace>
+    <AssemblyName>Apress.EF6Recipes.WorkingWithObjectServices</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Recipe1\ConnectionStringManager.cs" />
+    <Compile Include="Recipe1\EF6Recipes.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EF6Recipes.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe1\EF6Recipes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EF6Recipes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe1\EF6Recipes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EF6Recipes.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe1\EF6RecipesContainer.cs" />
+    <Compile Include="Recipe1\Recipe1Program.cs" />
+    <Compile Include="Recipe4\Recipe4Program.cs" />
+    <Compile Include="Recipe5\ChangeTrackerExtensions.cs" />
+    <Compile Include="Recipe5\Recipe5Context.cs" />
+    <Compile Include="Recipe5\Recipe5Program.cs" />
+    <Compile Include="Recipe5\ServiceCall.cs" />
+    <Compile Include="Recipe5\Technician.cs" />
+    <Compile Include="Recipe7\Invoice.cs" />
+    <Compile Include="Recipe7\Recipe7Context.cs" />
+    <Compile Include="Recipe8\Employee.cs">
+      <DependentUpon>Recipe8.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe8\Recipe8.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe8.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe8\Recipe8.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe8.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe8\Recipe8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe8.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe8\Recipe8Program.cs" />
+    <Compile Include="Recipe8\Task.cs">
+      <DependentUpon>Recipe8.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe9\Account.cs" />
+    <Compile Include="Recipe9\Recipe9Context.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recipe2\ContextFactory.cs" />
+    <Compile Include="Recipe2\Customer.cs">
+      <DependentUpon>Recipe2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe2\EFRecipesEntities.cs" />
+    <Compile Include="Recipe2\Recipe2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe2\Recipe2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe2\Recipe2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe2.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe2\Recipe2Program.cs" />
+    <Compile Include="Recipe7\Recipe7Program.cs" />
+    <Compile Include="Recipe9\Recipe9Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Recipe1\EF6Recipes.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EF6Recipes.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <None Include="Recipe1\EF6Recipes.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EF6Recipes.edmx</DependentUpon>
+      <LastGenOutput>EF6Recipes.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Recipe1\EF6Recipes.edmx.diagram">
+      <DependentUpon>EF6Recipes.edmx</DependentUpon>
+    </None>
+    <None Include="Recipe1\EF6Recipes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EF6Recipes.edmx</DependentUpon>
+      <LastGenOutput>EF6Recipes.cs</LastGenOutput>
+    </None>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Recipe2\Recipe2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Recipe2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Recipe2\Recipe2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe2.edmx</DependentUpon>
+      <LastGenOutput>Recipe2.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Recipe2\Recipe2.edmx.diagram">
+      <DependentUpon>Recipe2.edmx</DependentUpon>
+    </None>
+    <None Include="Recipe2\Recipe2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe2.edmx</DependentUpon>
+      <LastGenOutput>Recipe2.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Recipe8\Recipe8.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Recipe8.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Recipe8\Recipe8.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe8.edmx</DependentUpon>
+      <LastGenOutput>Recipe8.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Recipe8\Recipe8.edmx.diagram">
+      <DependentUpon>Recipe8.edmx</DependentUpon>
+    </None>
+    <None Include="Recipe8\Recipe8.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe8.edmx</DependentUpon>
+      <LastGenOutput>Recipe8.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

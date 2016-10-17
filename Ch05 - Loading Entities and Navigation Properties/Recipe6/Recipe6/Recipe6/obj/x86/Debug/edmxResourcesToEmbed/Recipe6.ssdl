@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Foreman" EntityType="EFRecipesModel.Store.Foreman" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="JobSite" EntityType="EFRecipesModel.Store.JobSite" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Location" EntityType="EFRecipesModel.Store.Location" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Phone" EntityType="EFRecipesModel.Store.Phone" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Plumber" EntityType="EFRecipesModel.Store.Plumber" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Tradesman" EntityType="EFRecipesModel.Store.Tradesman" store:Type="Tables" Schema="Chapter5" />
+    <AssociationSet Name="FK_Foreman_JobSite" Association="EFRecipesModel.Store.FK_Foreman_JobSite">
+      <End Role="JobSite" EntitySet="JobSite" />
+      <End Role="Foreman" EntitySet="Foreman" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobSite_Location" Association="EFRecipesModel.Store.FK_JobSite_Location">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="JobSite" EntitySet="JobSite" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Location_Phone" Association="EFRecipesModel.Store.FK_Location_Phone">
+      <End Role="Phone" EntitySet="Phone" />
+      <End Role="Location" EntitySet="Location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Plumber_JobSite" Association="EFRecipesModel.Store.FK_Plumber_JobSite">
+      <End Role="JobSite" EntitySet="JobSite" />
+      <End Role="Plumber" EntitySet="Plumber" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Plumber_Tradesman" Association="EFRecipesModel.Store.FK_Plumber_Tradesman">
+      <End Role="Tradesman" EntitySet="Tradesman" />
+      <End Role="Plumber" EntitySet="Plumber" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Foreman">
+    <Key>
+      <PropertyRef Name="ForemanId" />
+    </Key>
+    <Property Name="ForemanId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LocationId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="JobSite">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" Nullable="false" />
+    <Property Name="JobSiteName" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Address" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="City" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="State" Type="varchar" Nullable="false" MaxLength="2" />
+    <Property Name="ZIPCode" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="PhoneId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Phone">
+    <Key>
+      <PropertyRef Name="PhoneId" />
+    </Key>
+    <Property Name="PhoneId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Plumber">
+    <Key>
+      <PropertyRef Name="TradesmanId" />
+    </Key>
+    <Property Name="TradesmanId" Type="int" Nullable="false" />
+    <Property Name="IsCertified" Type="bit" Nullable="false" />
+    <Property Name="LocationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tradesman">
+    <Key>
+      <PropertyRef Name="TradesmanId" />
+    </Key>
+    <Property Name="TradesmanId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="1024" />
+  </EntityType>
+  <Association Name="FK_Foreman_JobSite">
+    <End Role="JobSite" Type="EFRecipesModel.Store.JobSite" Multiplicity="1" />
+    <End Role="Foreman" Type="EFRecipesModel.Store.Foreman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobSite">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="Foreman">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobSite_Location">
+    <End Role="Location" Type="EFRecipesModel.Store.Location" Multiplicity="1" />
+    <End Role="JobSite" Type="EFRecipesModel.Store.JobSite" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="JobSite">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Location_Phone">
+    <End Role="Phone" Type="EFRecipesModel.Store.Phone" Multiplicity="1" />
+    <End Role="Location" Type="EFRecipesModel.Store.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phone">
+        <PropertyRef Name="PhoneId" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="PhoneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Plumber_JobSite">
+    <End Role="JobSite" Type="EFRecipesModel.Store.JobSite" Multiplicity="1" />
+    <End Role="Plumber" Type="EFRecipesModel.Store.Plumber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobSite">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="Plumber">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Plumber_Tradesman">
+    <End Role="Tradesman" Type="EFRecipesModel.Store.Tradesman" Multiplicity="1" />
+    <End Role="Plumber" Type="EFRecipesModel.Store.Plumber" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Tradesman">
+        <PropertyRef Name="TradesmanId" />
+      </Principal>
+      <Dependent Role="Plumber">
+        <PropertyRef Name="TradesmanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

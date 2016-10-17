@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Classes" EntityType="EFRecipesModel.Class" />
+    <EntitySet Name="Courses" EntityType="EFRecipesModel.Course" />
+    <EntitySet Name="Enrollments" EntityType="EFRecipesModel.Enrollment" />
+    <AssociationSet Name="FK_Class_Course" Association="EFRecipesModel.FK_Class_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Class" EntitySet="Classes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollment_Class" Association="EFRecipesModel.FK_Enrollment_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="ClassId" />
+    </Key>
+    <Property Name="ClassId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseId" Type="Int32" Nullable="false" />
+    <Property Name="Instructor" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Course" Relationship="EFRecipesModel.FK_Class_Course" FromRole="Class" ToRole="Course" />
+    <NavigationProperty Name="Enrollments" Relationship="EFRecipesModel.FK_Enrollment_Class" FromRole="Class" ToRole="Enrollment" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Classes" Relationship="EFRecipesModel.FK_Class_Course" FromRole="Course" ToRole="Class" />
+  </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="EnrollmentId" />
+    </Key>
+    <Property Name="EnrollmentId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassId" Type="Int32" Nullable="false" />
+    <Property Name="Student" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Class" Relationship="EFRecipesModel.FK_Enrollment_Class" FromRole="Enrollment" ToRole="Class" />
+  </EntityType>
+  <Association Name="FK_Class_Course">
+    <End Role="Course" Type="EFRecipesModel.Course" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Class" Type="EFRecipesModel.Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enrollment_Class">
+    <End Role="Class" Type="EFRecipesModel.Class" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Enrollment" Type="EFRecipesModel.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ClassId" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

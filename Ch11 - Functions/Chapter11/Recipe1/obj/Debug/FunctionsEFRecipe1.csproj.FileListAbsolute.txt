@@ -1,0 +1,10 @@
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe1\bin\Debug\FunctionsEFRecipe1.exe.config
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe1\bin\Debug\FunctionsEFRecipe1.exe
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe1\bin\Debug\FunctionsEFRecipe1.pdb
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe1\obj\Debug\FunctionsEFRecipe1.csprojResolveAssemblyReference.cache
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe1\obj\Debug\FunctionsEFRecipe1.exe
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe1\obj\Debug\FunctionsEFRecipe1.pdb
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe1\bin\Debug\EntityFramework.dll
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe1\bin\Debug\EntityFramework.SqlServer.dll
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe1\bin\Debug\EntityFramework.xml
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe1\bin\Debug\EntityFramework.SqlServer.xml

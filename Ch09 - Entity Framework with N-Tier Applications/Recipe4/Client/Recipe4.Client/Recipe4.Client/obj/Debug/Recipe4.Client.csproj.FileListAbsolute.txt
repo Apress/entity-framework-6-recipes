@@ -1,0 +1,20 @@
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\Recipe4.Client.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\Recipe4.Client.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\obj\Debug\Recipe4.Client.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\obj\Debug\Recipe4.Client.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\Recipe4.Client.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\obj\Debug\Recipe4.Client.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\Recipe4.Client.exe.config
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\obj\Debug\Recipe4.Client.exe
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\obj\Debug\Recipe4.Client.pdb
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\Recipe4.Client.exe
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\Recipe4.Client.pdb
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe4\Client\Recipe4.Client\Recipe4.Client\obj\Debug\Recipe4.Client.csprojResolveAssemblyReference.cache

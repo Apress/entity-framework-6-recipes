@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Medium">
+    <Key>
+      <PropertyRef Name="MediaId" />
+    </Key>
+    <Property Name="MediaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="EFRecipesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Media" EntityType="Self.Medium" />
+  </EntityContainer>
+  <EntityType Name="Article" BaseType="EFRecipesModel.Medium" />
+  <EntityType Name="Video" BaseType="EFRecipesModel.Medium" />
+  <EntityType Name="Picture" BaseType="EFRecipesModel.Medium" />
+</Schema>

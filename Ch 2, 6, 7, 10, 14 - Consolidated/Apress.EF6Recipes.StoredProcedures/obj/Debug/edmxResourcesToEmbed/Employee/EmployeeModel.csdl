@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EmployeeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="EmployeeModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="EmployeeModel.Employee" />
+  </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Name="Address" Type="EmployeeModel.EmployeeAddress" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="EmployeeAddress">
+    <Property Type="String" Name="Address" Nullable="false" />
+    <Property Type="String" Name="City" Nullable="false" />
+    <Property Type="String" Name="State" Nullable="false" />
+    <Property Type="String" Name="ZipCode" Nullable="false" />
+  </ComplexType>
+</Schema>

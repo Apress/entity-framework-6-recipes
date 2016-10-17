@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Class" EntityType="EFRecipesModel.Store.Class" store:Type="Tables" Schema="Chapter12" />
+    <EntitySet Name="Course" EntityType="EFRecipesModel.Store.Course" store:Type="Tables" Schema="Chapter12" />
+    <EntitySet Name="Enrollment" EntityType="EFRecipesModel.Store.Enrollment" store:Type="Tables" Schema="Chapter12" />
+    <AssociationSet Name="FK_Class_Course" Association="EFRecipesModel.Store.FK_Class_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Class" EntitySet="Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollment_Class" Association="EFRecipesModel.Store.FK_Enrollment_Class">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="Enrollment" EntitySet="Enrollment" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="ClassId" />
+    </Key>
+    <Property Name="ClassId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+    <Property Name="Instructor" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CourseName" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="EnrollmentId" />
+    </Key>
+    <Property Name="EnrollmentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ClassId" Type="int" Nullable="false" />
+    <Property Name="Student" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_Class_Course">
+    <End Role="Course" Type="EFRecipesModel.Store.Course" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Class" Type="EFRecipesModel.Store.Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enrollment_Class">
+    <End Role="Class" Type="EFRecipesModel.Store.Class" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Enrollment" Type="EFRecipesModel.Store.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ClassId" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

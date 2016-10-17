@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe10" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Recipe10Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Products" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe10.Product" />
+    <FunctionImport Name="DeleteBook">
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteDVD">
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertBook" ReturnType="Collection(Decimal)">
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="Publisher" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertDVD" ReturnType="Collection(Decimal)">
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="Rating" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateBook">
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="Publisher" Mode="In" Type="String" />
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateDVD">
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="Rating" Mode="In" Type="String" />
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Product" Abstract="true">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="DVD" BaseType="Apress.EF6Recipes.StoredProcedures.Recipe10.Product">
+    <Property Type="String" Name="Rating" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Book" BaseType="Apress.EF6Recipes.StoredProcedures.Recipe10.Product">
+    <Property Type="String" Name="Publisher" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

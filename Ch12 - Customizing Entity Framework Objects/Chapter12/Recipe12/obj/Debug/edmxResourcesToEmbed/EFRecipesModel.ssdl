@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="EFRecipesModel.Store.Customer" store:Type="Tables" Schema="Chapter12" />
+    <EntitySet Name="SalesOrder" EntityType="EFRecipesModel.Store.SalesOrder" store:Type="Tables" Schema="Chapter12" />
+    <AssociationSet Name="FK_SalesOrder_Customer" Association="EFRecipesModel.Store.FK_SalesOrder_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="SalesOrder" EntitySet="SalesOrder" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="SalesOrder">
+    <Key>
+      <PropertyRef Name="SalesOrderId" />
+    </Key>
+    <Property Name="SalesOrderId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="numeric" Nullable="false" Scale="2" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="OrderDate" Type="date" Nullable="false" />
+    <Property Name="ShippedDate" Type="date" />
+    <Property Name="Shipped" Type="bit" />
+    <Property Name="ShippingCharge" Type="numeric" Scale="2" />
+  </EntityType>
+  <Association Name="FK_SalesOrder_Customer">
+    <End Role="Customer" Type="EFRecipesModel.Store.Customer" Multiplicity="1" />
+    <End Role="SalesOrder" Type="EFRecipesModel.Store.SalesOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="SalesOrder">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

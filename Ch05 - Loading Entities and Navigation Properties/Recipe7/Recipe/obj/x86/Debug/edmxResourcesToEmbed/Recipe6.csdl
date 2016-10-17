@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="EFRecipesEntities">
+    <EntitySet Name="Clubs" EntityType="EFRecipesModel.Club" />
+    <EntitySet Name="Events" EntityType="EFRecipesModel.Event" />
+    <AssociationSet Name="FK_Event_Club" Association="EFRecipesModel.FK_Event_Club">
+      <End Role="Club" EntitySet="Clubs" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Club">
+    <Key>
+      <PropertyRef Name="ClubId" />
+    </Key>
+    <Property Name="ClubId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Events" Relationship="EFRecipesModel.FK_Event_Club" FromRole="Club" ToRole="Event" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="EventDate" Type="DateTime" Nullable="false" />
+    <Property Name="ClubId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Club" Relationship="EFRecipesModel.FK_Event_Club" FromRole="Event" ToRole="Club" />
+  </EntityType>
+  <Association Name="FK_Event_Club">
+    <End Role="Club" Type="EFRecipesModel.Club" Multiplicity="1" />
+    <End Role="Event" Type="EFRecipesModel.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Club">
+        <PropertyRef Name="ClubId" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="ClubId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

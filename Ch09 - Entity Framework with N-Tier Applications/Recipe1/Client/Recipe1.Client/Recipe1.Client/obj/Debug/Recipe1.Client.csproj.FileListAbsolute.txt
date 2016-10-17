@@ -1,0 +1,39 @@
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Recipe1.Client.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Recipe1.Client.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\obj\Debug\Recipe1.Client.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\obj\Debug\Recipe1.Client.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Recipe1.Client.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\obj\Debug\Recipe1.Client.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Recipe1.Client.exe.config
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\obj\Debug\Recipe1.Client.exe
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\obj\Debug\Recipe1.Client.pdb
+C:\Users\robvet\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Recipe1.Client.exe.config
+C:\Users\robvet\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\obj\Debug\Recipe1.Client.exe
+C:\Users\robvet\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\obj\Debug\Recipe1.Client.pdb
+C:\Users\robvet\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Recipe1.Client.exe
+C:\Users\robvet\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Recipe1.Client.pdb
+C:\Users\robvet\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\robvet\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\robvet\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\robvet\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\robvet\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\obj\Debug\Recipe1.Client.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\SkyDrive\Book\Current Files for Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Recipe1.Client.exe.config
+C:\Users\robve_000\SkyDrive\Book\Current Files for Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\obj\Debug\Recipe1.Client.exe
+C:\Users\robve_000\SkyDrive\Book\Current Files for Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\obj\Debug\Recipe1.Client.pdb
+C:\Users\robve_000\SkyDrive\Book\Current Files for Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Recipe1.Client.exe
+C:\Users\robve_000\SkyDrive\Book\Current Files for Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Recipe1.Client.pdb
+C:\Users\robve_000\SkyDrive\Book\Current Files for Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\robve_000\SkyDrive\Book\Current Files for Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\robve_000\SkyDrive\Book\Current Files for Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\robve_000\SkyDrive\Book\Current Files for Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Recipe1.Client.exe
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Recipe1.Client.pdb
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\robve_000\SkyDrive\Book\Chapter 9\Code\Final\Recipe1\Client\Recipe1.Client\Recipe1.Client\obj\Debug\Recipe1.Client.csprojResolveAssemblyReference.cache

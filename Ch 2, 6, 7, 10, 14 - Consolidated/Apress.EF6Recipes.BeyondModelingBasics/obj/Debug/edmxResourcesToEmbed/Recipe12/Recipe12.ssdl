@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesBeyondModelingBasicsRecipe12StoreContainer">
+    <EntitySet Name="BMW" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.BMW" store:Type="Tables" Schema="Chapter6" />
+    <EntitySet Name="CarDealer" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.CarDealer" store:Type="Tables" Schema="Chapter6" />
+    <EntitySet Name="Dealer" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.Dealer" store:Type="Tables" Schema="Chapter6" />
+    <EntitySet Name="Toyota" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.Toyota" store:Type="Tables" Schema="Chapter6" />
+    <AssociationSet Name="FK_CarDealer_Dealer_DealerId" Association="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.FK_CarDealer_Dealer_DealerId">
+      <End Role="Dealer" EntitySet="Dealer" />
+      <End Role="CarDealer" EntitySet="CarDealer" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BMW">
+    <Key>
+      <PropertyRef Name="CarId" />
+    </Key>
+    <Property Name="CarId" Type="int" Nullable="false" />
+    <Property Name="Model" Type="varchar" MaxLength="50" />
+    <Property Name="Year" Type="int" />
+    <Property Name="Color" Type="varchar" MaxLength="50" />
+    <Property Name="CollisionAvoidance" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarDealer">
+    <Key>
+      <PropertyRef Name="CarId" />
+    </Key>
+    <Property Name="CarId" Type="int" Nullable="false" />
+    <Property Name="DealerId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dealer">
+    <Key>
+      <PropertyRef Name="DealerId" />
+    </Key>
+    <Property Name="DealerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Toyota">
+    <Key>
+      <PropertyRef Name="CarId" />
+    </Key>
+    <Property Name="CarId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Model" Type="varchar" MaxLength="50" />
+    <Property Name="Year" Type="int" />
+    <Property Name="Color" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_CarDealer_Dealer_DealerId">
+    <End Role="Dealer" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.Dealer" Multiplicity="1" />
+    <End Role="CarDealer" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Store.CarDealer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dealer">
+        <PropertyRef Name="DealerId" />
+      </Principal>
+      <Dependent Role="CarDealer">
+        <PropertyRef Name="DealerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

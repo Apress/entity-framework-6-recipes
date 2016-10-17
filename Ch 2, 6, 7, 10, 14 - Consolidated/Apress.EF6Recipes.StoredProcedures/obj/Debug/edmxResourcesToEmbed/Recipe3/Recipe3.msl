@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesStoredProceduresRecipe3StoreContainer" CdmEntityContainer="Recipe3Context">
+    <EntitySetMapping Name="ATMMachines">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe3.ATMMachine">
+        <MappingFragment StoreEntitySet="ATMMachine">
+          <ScalarProperty Name="ATMId" ColumnName="ATMId" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ATMWithdrawals">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe3.ATMWithdrawal">
+        <MappingFragment StoreEntitySet="ATMWithdrawal">
+          <ScalarProperty Name="WithdrawalId" ColumnName="WithdrawalId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ATMId" ColumnName="ATMId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetWithdrawals" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe3.Store.GetWithdrawals" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,4 @@
+Order Number: 6
+Order Date: 3/12/2010
+Order Total: $85.65
+Press <enter> to continue...

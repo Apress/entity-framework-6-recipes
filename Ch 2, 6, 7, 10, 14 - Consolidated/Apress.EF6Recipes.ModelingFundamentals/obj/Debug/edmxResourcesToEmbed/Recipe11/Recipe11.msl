@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesModelingFundamentalsRecipe11StoreContainer" CdmEntityContainer="Recipe11Context">
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.ModelingFundamentals.Recipe11.Location)">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="ZIPCode" ColumnName="ZIPCode" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.ModelingFundamentals.Recipe11.Park)">
+        <MappingFragment StoreEntitySet="Park">
+          <ScalarProperty Name="LocationId" ColumnName="ParkId" />
+          <ScalarProperty Name="OfficeLocationId" ColumnName="OfficeLocationId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

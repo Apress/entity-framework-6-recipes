@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="EFRecipesModelStoreContainer">
+          <EntitySet Name="Reservation" EntityType="EFRecipesModel.Store.Reservation" store:Type="Tables" Schema="Chapter8" />
+          <EntitySet Name="Schedule" EntityType="EFRecipesModel.Store.Schedule" store:Type="Tables" Schema="Chapter8" />
+          <EntitySet Name="Train" EntityType="EFRecipesModel.Store.Train" store:Type="Tables" Schema="Chapter8" />
+          <AssociationSet Name="FK_Reservation_Schedule" Association="EFRecipesModel.Store.FK_Reservation_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Train" Association="EFRecipesModel.Store.FK_Schedule_Train">
+            <End Role="Train" EntitySet="Train" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ReservationId" />
+          </Key>
+          <Property Name="ReservationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduleId" Type="int" Nullable="false" />
+          <Property Name="Passenger" Type="nvarchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TrainId" Type="int" Nullable="false" />
+          <Property Name="ArrivalDate" Type="datetime" Nullable="false" />
+          <Property Name="DepartureDate" Type="datetime" Nullable="false" />
+          <Property Name="LeavesFrom" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ArrivesAt" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Train">
+          <Key>
+            <PropertyRef Name="TrainId" />
+          </Key>
+          <Property Name="TrainId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TrainName" Type="nvarchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_Reservation_Schedule">
+          <End Role="Schedule" Type="EFRecipesModel.Store.Schedule" Multiplicity="1" />
+          <End Role="Reservation" Type="EFRecipesModel.Store.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="ScheduleId" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ScheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Train">
+          <End Role="Train" Type="EFRecipesModel.Store.Train" Multiplicity="1" />
+          <End Role="Schedule" Type="EFRecipesModel.Store.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Train">
+              <PropertyRef Name="TrainId" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="TrainId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Reservations" EntityType="EFRecipesModel.Reservation" />
+          <EntitySet Name="Schedules" EntityType="EFRecipesModel.Schedule" />
+          <EntitySet Name="Trains" EntityType="EFRecipesModel.Train" />
+          <AssociationSet Name="FK_Reservation_Schedule" Association="EFRecipesModel.FK_Reservation_Schedule">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="Reservation" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Train" Association="EFRecipesModel.FK_Schedule_Train">
+            <End Role="Train" EntitySet="Trains" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ReservationId" />
+          </Key>
+          <Property Name="ReservationId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduleId" Type="Int32" Nullable="false" />
+          <Property Name="Passenger" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Schedule" Relationship="EFRecipesModel.FK_Reservation_Schedule" FromRole="Reservation" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TrainId" Type="Int32" Nullable="false" />
+          <Property Name="ArrivalDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DepartureDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LeavesFrom" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ArrivesAt" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Reservations" Relationship="EFRecipesModel.FK_Reservation_Schedule" FromRole="Schedule" ToRole="Reservation" />
+          <NavigationProperty Name="Train" Relationship="EFRecipesModel.FK_Schedule_Train" FromRole="Schedule" ToRole="Train" />
+        </EntityType>
+        <EntityType Name="Train">
+          <Key>
+            <PropertyRef Name="TrainId" />
+          </Key>
+          <Property Name="TrainId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TrainName" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Schedules" Relationship="EFRecipesModel.FK_Schedule_Train" FromRole="Train" ToRole="Schedule" />
+        </EntityType>
+        <Association Name="FK_Reservation_Schedule">
+          <End Role="Schedule" Type="EFRecipesModel.Schedule" Multiplicity="1" />
+          <End Role="Reservation" Type="EFRecipesModel.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="ScheduleId" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ScheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Train">
+          <End Role="Train" Type="EFRecipesModel.Train" Multiplicity="1" />
+          <End Role="Schedule" Type="EFRecipesModel.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Train">
+              <PropertyRef Name="TrainId" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="TrainId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EFRecipesModelStoreContainer" CdmEntityContainer="EFRecipesEntities">
+          <EntitySetMapping Name="Reservations">
+            <EntityTypeMapping TypeName="EFRecipesModel.Reservation">
+              <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="ReservationId" ColumnName="ReservationId" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+                <ScalarProperty Name="Passenger" ColumnName="Passenger" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="EFRecipesModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+                <ScalarProperty Name="TrainId" ColumnName="TrainId" />
+                <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+                <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+                <ScalarProperty Name="LeavesFrom" ColumnName="LeavesFrom" />
+                <ScalarProperty Name="ArrivesAt" ColumnName="ArrivesAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trains">
+            <EntityTypeMapping TypeName="EFRecipesModel.Train">
+              <MappingFragment StoreEntitySet="Train">
+                <ScalarProperty Name="TrainId" ColumnName="TrainId" />
+                <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,16 @@
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe4\bin\Debug\FunctionsEFRecipe4.exe.config
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe4\bin\Debug\FunctionsEFRecipe4.exe
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe4\bin\Debug\FunctionsEFRecipe4.pdb
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe4\obj\Debug\FunctionsEFRecipe4.csprojResolveAssemblyReference.cache
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe4\obj\Debug\FunctionsEFRecipe4.exe
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\FunctionsEFRecipes\FunctionsEFRecipe4\obj\Debug\FunctionsEFRecipe4.pdb
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\FunctionsEFRecipe4\obj\Debug\FunctionsEFRecipe4.csprojResolveAssemblyReference.cache
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\FunctionsEFRecipe4\obj\Debug\FunctionsEFRecipe4.exe
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\FunctionsEFRecipe4\obj\Debug\FunctionsEFRecipe4.pdb
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\FunctionsEFRecipe4\bin\Debug\FunctionsEFRecipe4.exe.config
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\FunctionsEFRecipe4\bin\Debug\FunctionsEFRecipe4.exe
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\FunctionsEFRecipe4\bin\Debug\FunctionsEFRecipe4.pdb
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\FunctionsEFRecipe4\bin\Debug\EntityFramework.dll
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\FunctionsEFRecipe4\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\FunctionsEFRecipe4\bin\Debug\EntityFramework.xml
+C:\Users\Nitin\Downloads\Chapter11\FunctionsEFRecipes\FunctionsEFRecipe4\bin\Debug\EntityFramework.SqlServer.xml

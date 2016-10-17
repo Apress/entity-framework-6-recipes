@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Ticket" EntityType="EFRecipesModel.Store.Ticket" store:Type="Tables" Schema="Chapter8" />
+    <EntitySet Name="Vehicle" EntityType="EFRecipesModel.Store.Vehicle" store:Type="Tables" Schema="Chapter8" />
+    <EntitySet Name="Violation" EntityType="EFRecipesModel.Store.Violation" store:Type="Tables" Schema="Chapter8" />
+    <AssociationSet Name="FK_Ticket_Vehicle" Association="EFRecipesModel.Store.FK_Ticket_Vehicle">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Violation_Ticket" Association="EFRecipesModel.Store.FK_Violation_Ticket">
+      <End Role="Ticket" EntitySet="Ticket" />
+      <End Role="Violation" EntitySet="Violation" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="TicketId" />
+    </Key>
+    <Property Name="TicketId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="VehicleId" Type="int" Nullable="false" />
+    <Property Name="IssueDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Name="VehicleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LicenseNo" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Violation">
+    <Key>
+      <PropertyRef Name="ViolationId" />
+    </Key>
+    <Property Name="ViolationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="Amount" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="TicketId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Ticket_Vehicle">
+    <End Role="Vehicle" Type="EFRecipesModel.Store.Vehicle" Multiplicity="1" />
+    <End Role="Ticket" Type="EFRecipesModel.Store.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleId" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Violation_Ticket">
+    <End Role="Ticket" Type="EFRecipesModel.Store.Ticket" Multiplicity="1" />
+    <End Role="Violation" Type="EFRecipesModel.Store.Violation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ticket">
+        <PropertyRef Name="TicketId" />
+      </Principal>
+      <Dependent Role="Violation">
+        <PropertyRef Name="TicketId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

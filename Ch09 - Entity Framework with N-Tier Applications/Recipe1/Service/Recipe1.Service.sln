@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipe1.Service", "Recipe1Service\Recipe1.Service.csproj", "{BE1D92F5-F4FE-47CC-BD08-32C2FA8D4428}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE1D92F5-F4FE-47CC-BD08-32C2FA8D4428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE1D92F5-F4FE-47CC-BD08-32C2FA8D4428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE1D92F5-F4FE-47CC-BD08-32C2FA8D4428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE1D92F5-F4FE-47CC-BD08-32C2FA8D4428}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

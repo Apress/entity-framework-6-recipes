@@ -1,0 +1,13 @@
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe3_DatabaseFirst\Recipe3_DatabaseFirst\bin\Debug\Recipe3_DatabaseFirst.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe3_DatabaseFirst\Recipe3_DatabaseFirst\bin\Debug\Recipe3_DatabaseFirst.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe3_DatabaseFirst\Recipe3_DatabaseFirst\bin\Debug\Recipe3_DatabaseFirst.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe3_DatabaseFirst\Recipe3_DatabaseFirst\bin\Debug\EntityFramework.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe3_DatabaseFirst\Recipe3_DatabaseFirst\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe3_DatabaseFirst\Recipe3_DatabaseFirst\bin\Debug\EntityFramework.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe3_DatabaseFirst\Recipe3_DatabaseFirst\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe3_DatabaseFirst\Recipe3_DatabaseFirst\obj\Debug\Recipe3_DatabaseFirst.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe3_DatabaseFirst\Recipe3_DatabaseFirst\obj\Debug\Recipe3_DatabaseFirst.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe3_DatabaseFirst\Recipe3_DatabaseFirst\obj\Debug\Recipe3_DatabaseFirst.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe3\Recipe3_DatabaseFirst\bin\Debug\Recipe3_DatabaseFirst.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe3\Recipe3_DatabaseFirst\obj\Debug\Recipe3_DatabaseFirst.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe3\Recipe3_DatabaseFirst\obj\Debug\Recipe3_DatabaseFirst.pdb

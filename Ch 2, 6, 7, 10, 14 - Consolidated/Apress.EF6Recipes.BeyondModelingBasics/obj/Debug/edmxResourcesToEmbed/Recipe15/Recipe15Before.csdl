@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe15" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Recipe15BeforeContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Vehicles" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe15.Vehicle" />
+    <EntitySet Name="Tickets" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe15.Ticket" />
+    <AssociationSet Name="VehicleTicket" Association="Apress.EF6Recipes.BeyondModelingBasics.Recipe15.VehicleTicket">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="Ticket" EntitySet="Tickets" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="LicenseNumber" />
+    </Key>
+    <Property Type="String" Name="LicenseNumber" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Type="String" Name="Model" Nullable="false" />
+    <NavigationProperty Name="Tickets" Relationship="Apress.EF6Recipes.BeyondModelingBasics.Recipe15.VehicleTicket" FromRole="Vehicle" ToRole="Ticket" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="TicketId" />
+    </Key>
+    <Property Type="Int32" Name="TicketId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="IssueDate" Nullable="false" />
+    <Property Type="String" Name="Violation" Nullable="false" />
+    <NavigationProperty Name="Vehicle" Relationship="Apress.EF6Recipes.BeyondModelingBasics.Recipe15.VehicleTicket" FromRole="Ticket" ToRole="Vehicle" />
+  </EntityType>
+  <Association Name="VehicleTicket">
+    <End Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe15.Vehicle" Role="Vehicle" Multiplicity="1" />
+    <End Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe15.Ticket" Role="Ticket" Multiplicity="*" />
+  </Association>
+</Schema>

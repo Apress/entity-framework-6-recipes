@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Products" EntityType="EFRecipesModel.Product" />
+    <EntitySet Name="TopSellings" EntityType="EFRecipesModel.TopSelling" />
+    <AssociationSet Name="FK__TopSellin__Produ__251C81ED" Association="EFRecipesModel.FK__TopSellin__Produ__251C81ED">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="TopSelling" EntitySet="TopSellings" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="TopSelling" Relationship="EFRecipesModel.FK__TopSellin__Produ__251C81ED" FromRole="Product" ToRole="TopSelling" />
+  </EntityType>
+  <EntityType Name="TopSelling">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Rating" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="EFRecipesModel.FK__TopSellin__Produ__251C81ED" FromRole="TopSelling" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK__TopSellin__Produ__251C81ED">
+    <End Role="Product" Type="EFRecipesModel.Product" Multiplicity="1" />
+    <End Role="TopSelling" Type="EFRecipesModel.TopSelling" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="TopSelling">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

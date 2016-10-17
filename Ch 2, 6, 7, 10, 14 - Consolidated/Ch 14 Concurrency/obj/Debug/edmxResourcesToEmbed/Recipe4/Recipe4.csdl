@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Apress.EF6Recipes.Concurrency.Recipe4" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Recipe4Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ForumPosts" EntityType="Apress.EF6Recipes.Concurrency.Recipe4.ForumPost" />
+  </EntityContainer>
+  <EntityType Name="ForumPost">
+    <Key>
+      <PropertyRef Name="PostingId" />
+    </Key>
+    <Property Type="Int32" Name="PostingId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Post" Nullable="false" />
+    <Property Type="String" Name="ForumUser" Nullable="false" />
+    <Property Type="Binary" Name="TimeStamp" Nullable="false" annotation:StoreGeneratedPattern="Computed" MaxLength="8" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+  </EntityType>
+</Schema>

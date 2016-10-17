@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Apress.EF6Recipes.WorkingWithObjectServices.Recipe8" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Recipe8Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="Apress.EF6Recipes.WorkingWithObjectServices.Recipe8.Employee" />
+    <EntitySet Name="Tasks" EntityType="Apress.EF6Recipes.WorkingWithObjectServices.Recipe8.Task" />
+    <AssociationSet Name="TaskEmployee" Association="Apress.EF6Recipes.WorkingWithObjectServices.Recipe8.TaskEmployee">
+      <End Role="Task" EntitySet="Tasks" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeNumber" />
+    </Key>
+    <Property Type="Int32" Name="EmployeeNumber" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="Decimal" Name="Salary" Nullable="false" />
+    <NavigationProperty Name="Tasks" Relationship="Apress.EF6Recipes.WorkingWithObjectServices.Recipe8.TaskEmployee" FromRole="Employee" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Type="Int32" Name="TaskId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="AssignedId" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Apress.EF6Recipes.WorkingWithObjectServices.Recipe8.TaskEmployee" FromRole="Task" ToRole="Employee" />
+  </EntityType>
+  <Association Name="TaskEmployee">
+    <End Type="Apress.EF6Recipes.WorkingWithObjectServices.Recipe8.Task" Role="Task" Multiplicity="*" />
+    <End Type="Apress.EF6Recipes.WorkingWithObjectServices.Recipe8.Employee" Role="Employee" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeNumber" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="AssignedId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

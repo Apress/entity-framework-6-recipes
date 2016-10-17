@@ -1,0 +1,37 @@
+H:\Book Work\Code\Chapter5\Recipe5\Recipe5\bin\Debug\Recipe5.exe.config
+H:\Book Work\Code\Chapter5\Recipe5\Recipe5\obj\x86\Debug\ResolveAssemblyReference.cache
+H:\Book Work\Code\Chapter5\Recipe5\Recipe5\bin\Debug\Recipe5.exe
+H:\Book Work\Code\Chapter5\Recipe5\Recipe5\bin\Debug\Recipe5.pdb
+H:\Book Work\Code\Chapter5\Recipe5\Recipe5\obj\x86\Debug\Recipe5.exe
+H:\Book Work\Code\Chapter5\Recipe5\Recipe5\obj\x86\Debug\Recipe5.pdb
+C:\Users\robve_000\Documents\My Book\Original Book\Complete Source for 4\Entity Framework 4 Recipes\Chapter5\Recipe5\Recipe5\bin\Debug\Recipe5.exe.config
+C:\Users\robve_000\Documents\My Book\Original Book\Complete Source for 4\Entity Framework 4 Recipes\Chapter5\Recipe5\Recipe5\bin\Debug\Recipe5.exe
+C:\Users\robve_000\Documents\My Book\Original Book\Complete Source for 4\Entity Framework 4 Recipes\Chapter5\Recipe5\Recipe5\bin\Debug\Recipe5.pdb
+C:\Users\robve_000\Documents\My Book\Original Book\Complete Source for 4\Entity Framework 4 Recipes\Chapter5\Recipe5\Recipe5\obj\x86\Debug\Recipe5.exe
+C:\Users\robve_000\Documents\My Book\Original Book\Complete Source for 4\Entity Framework 4 Recipes\Chapter5\Recipe5\Recipe5\obj\x86\Debug\Recipe5.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe5\Recipe5\bin\Debug\Recipe5.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe5\Recipe5\obj\x86\Debug\Recipe5.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe5\Recipe5\obj\x86\Debug\Recipe5.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe5\Recipe5\obj\x86\Debug\Recipe5.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe5\Recipe5\bin\Debug\Recipe5.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe5\Recipe5\bin\Debug\Recipe5.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe5\Recipe5\bin\Debug\EntityFramework.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe5\Recipe5\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe5\Recipe5\bin\Debug\EntityFramework.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe5\Recipe5\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Legacy Code\Chapter5\Recipe5\Recipe5\bin\Debug\Recipe5.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Legacy Code\Chapter5\Recipe5\Recipe5\obj\x86\Debug\Recipe5.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Legacy Code\Chapter5\Recipe5\Recipe5\obj\x86\Debug\Recipe5.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe8\Recipe5\bin\Debug\Recipe5.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe8\Recipe5\obj\x86\Debug\Recipe5.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe8\Recipe5\obj\x86\Debug\Recipe5.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe8\Recipe5\bin\Debug\Recipe5.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe8\Recipe5\bin\Debug\Recipe5.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe8\Recipe5\bin\Debug\EntityFramework.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe8\Recipe5\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe8\Recipe5\bin\Debug\EntityFramework.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe8\Recipe5\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe8\Recipe5\obj\x86\Debug\Recipe5.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe8\Recipe8\bin\Debug\Recipe5.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe8\Recipe8\obj\x86\Debug\Recipe5.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe8\Recipe8\obj\x86\Debug\Recipe5.pdb

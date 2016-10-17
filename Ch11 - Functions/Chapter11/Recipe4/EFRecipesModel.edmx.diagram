@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="14d30809cf714d59b80543a692f72f54" Name="Diagram1">
+        <EntityTypeShape EntityType="EFRecipesModel.Associate" Width="1.5" PointX="3.875" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="EFRecipesModel.FK_Associate_Associate" ManuallyRouted="false" >
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EFRecipesModel.TeamLead" Width="1.5" PointX="2.5" PointY="4.75" />
+        <InheritanceConnector EntityType="EFRecipesModel.TeamLead" ManuallyRouted="false" >
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="EFRecipesModel.TeamMember" Width="1.5" PointX="0.625" PointY="4.75" />
+        <InheritanceConnector EntityType="EFRecipesModel.TeamMember" />
+        <EntityTypeShape EntityType="EFRecipesModel.ProjectManager" Width="1.5" PointX="4.375" PointY="4.75" />
+        <InheritanceConnector EntityType="EFRecipesModel.ProjectManager" />
+        <EntityTypeShape EntityType="EFRecipesModel.Supervisor" Width="1.5" PointX="6.25" PointY="4.75" />
+        <InheritanceConnector EntityType="EFRecipesModel.Supervisor" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

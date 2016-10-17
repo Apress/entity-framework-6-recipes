@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesBeyondModelingBasicsRecipe10StoreContainer" CdmEntityContainer="Recipe10Context">
+    <EntitySetMapping Name="WebOrders">
+      <QueryView>
+					  select value
+					  Apress.EF6Recipes.BeyondModelingBasics.Recipe10.WebOrder(o.OrderId,
+					  o.CustomerName,o.OrderDate,o.IsDeleted,o.Amount)
+					  from ApressEF6RecipesBeyondModelingBasicsRecipe10StoreContainer.WebOrder as o
+					  where (o.OrderDate &gt; datetime'2012-01-01 00:00') ||
+					  (o.OrderDate between cast('2010-01-01' as Edm.DateTime) and
+					  cast('2012-01-01' as Edm.DateTime) and !o.IsDeleted) ||
+					  (o.Amount &gt; 200 and o.OrderDate &lt;
+					  cast('2010-01-01' as Edm.DateTime))
+				  </QueryView>
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.WebOrder" />
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.WebOrder">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.InsertOrder">
+            <ScalarProperty Name="Amount" ParameterName="Amount" />
+            <ScalarProperty Name="IsDeleted" ParameterName="IsDeleted" />
+            <ScalarProperty Name="OrderDate" ParameterName="OrderDate" />
+            <ScalarProperty Name="CustomerName" ParameterName="CustomerName" />
+            <ResultBinding Name="OrderId" ColumnName="OrderId" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.UpdateOrder">
+            <ScalarProperty Name="OrderId" ParameterName="OrderId" Version="Current" />
+            <ScalarProperty Name="Amount" ParameterName="Amount" Version="Current" />
+            <ScalarProperty Name="IsDeleted" ParameterName="IsDeleted" Version="Current" />
+            <ScalarProperty Name="OrderDate" ParameterName="OrderDate" Version="Current" />
+            <ScalarProperty Name="CustomerName" ParameterName="CustomerName" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.DeleteOrder">
+            <ScalarProperty Name="OrderId" ParameterName="OrderId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteOrder" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.DeleteOrder" />
+    <FunctionImportMapping FunctionImportName="InsertOrder" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.InsertOrder" />
+    <FunctionImportMapping FunctionImportName="UpdateOrder" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.UpdateOrder" />
+  </EntityContainerMapping>
+</Mapping>

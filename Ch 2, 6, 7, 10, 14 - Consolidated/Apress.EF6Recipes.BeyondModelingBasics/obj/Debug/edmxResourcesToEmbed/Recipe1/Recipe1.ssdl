@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesBeyoneModelingBasicsRecipe1StoreContainer">
+    <EntitySet Name="Event" EntityType="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.Event" store:Type="Tables" Schema="Chapter6" />
+    <EntitySet Name="EventOrganizer" EntityType="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.EventOrganizer" store:Type="Tables" Schema="Chapter6" />
+    <EntitySet Name="Organizer" EntityType="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.Organizer" store:Type="Tables" Schema="Chapter6" />
+    <AssociationSet Name="FK_EventOrganizer_Event" Association="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.FK_EventOrganizer_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="EventOrganizer" EntitySet="EventOrganizer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventOrganizer_Organizer" Association="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.FK_EventOrganizer_Organizer">
+      <End Role="Organizer" EntitySet="Organizer" />
+      <End Role="EventOrganizer" EntitySet="EventOrganizer" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="EventOrganizer">
+    <Key>
+      <PropertyRef Name="EventId" />
+      <PropertyRef Name="OrganizerId" />
+    </Key>
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="OrganizerId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Organizer">
+    <Key>
+      <PropertyRef Name="OrganizerId" />
+    </Key>
+    <Property Name="OrganizerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_EventOrganizer_Event">
+    <End Role="Event" Type="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.Event" Multiplicity="1" />
+    <End Role="EventOrganizer" Type="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.EventOrganizer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="EventId" />
+      </Principal>
+      <Dependent Role="EventOrganizer">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventOrganizer_Organizer">
+    <End Role="Organizer" Type="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.Organizer" Multiplicity="1" />
+    <End Role="EventOrganizer" Type="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.EventOrganizer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizer">
+        <PropertyRef Name="OrganizerId" />
+      </Principal>
+      <Dependent Role="EventOrganizer">
+        <PropertyRef Name="OrganizerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

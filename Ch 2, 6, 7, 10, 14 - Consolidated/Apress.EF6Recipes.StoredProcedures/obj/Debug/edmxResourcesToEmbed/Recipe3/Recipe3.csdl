@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe3" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Recipe3Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ATMMachines" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe3.ATMMachine" />
+    <EntitySet Name="ATMWithdrawals" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe3.ATMWithdrawal" />
+    <AssociationSet Name="FK_ATMWithdrawal_ATMMachine" Association="Apress.EF6Recipes.StoredProcedures.Recipe3.FK_ATMWithdrawal_ATMMachine">
+      <End Role="ATMMachine" EntitySet="ATMMachines" />
+      <End Role="ATMWithdrawal" EntitySet="ATMWithdrawals" />
+    </AssociationSet>
+    <FunctionImport Name="GetWithdrawals" ReturnType="Collection(Decimal)">
+      <Parameter Name="ATMId" Mode="In" Type="Int32" />
+      <Parameter Name="WithdrawalDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="ATMMachine">
+    <Key>
+      <PropertyRef Name="ATMId" />
+    </Key>
+    <Property Name="ATMId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="Location" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="ATMWithdrawals" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe3.FK_ATMWithdrawal_ATMMachine" FromRole="ATMMachine" ToRole="ATMWithdrawal" />
+  </EntityType>
+  <EntityType Name="ATMWithdrawal">
+    <Key>
+      <PropertyRef Name="WithdrawalId" />
+    </Key>
+    <Property Name="WithdrawalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="ATMId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ATMMachine" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe3.FK_ATMWithdrawal_ATMMachine" FromRole="ATMWithdrawal" ToRole="ATMMachine" />
+  </EntityType>
+  <Association Name="FK_ATMWithdrawal_ATMMachine">
+    <End Role="ATMMachine" Type="Apress.EF6Recipes.StoredProcedures.Recipe3.ATMMachine" Multiplicity="1" />
+    <End Role="ATMWithdrawal" Type="Apress.EF6Recipes.StoredProcedures.Recipe3.ATMWithdrawal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ATMMachine">
+        <PropertyRef Name="ATMId" />
+      </Principal>
+      <Dependent Role="ATMWithdrawal">
+        <PropertyRef Name="ATMId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

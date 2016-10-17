@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe8.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesStoredProceduresRecipe8StoreContainer">
+    <EntitySet Name="Athlete" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.Athlete" store:Type="Tables" Schema="Chapter10" />
+  </EntityContainer>
+  <EntityType Name="Athlete">
+    <Key>
+      <PropertyRef Name="AthleteId" />
+    </Key>
+    <Property Name="AthleteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Height" Type="int" />
+    <Property Name="Weight" Type="int" />
+  </EntityType>
+  <Function Name="DeleteAthlete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="AthleteId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertAthlete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Height" Type="int" Mode="In" />
+    <Parameter Name="Weight" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdateAthlete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="AthleteId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Height" Type="int" Mode="In" />
+    <Parameter Name="Weight" Type="int" Mode="In" />
+  </Function>
+</Schema>

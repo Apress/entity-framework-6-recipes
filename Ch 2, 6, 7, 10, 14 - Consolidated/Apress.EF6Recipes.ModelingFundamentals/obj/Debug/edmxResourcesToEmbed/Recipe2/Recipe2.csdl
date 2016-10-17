@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.ModelingFundamentals.Recipe2" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Recipe2Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Meters" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe2.Meter" />
+    <EntitySet Name="Poems" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe2.Poem" />
+    <EntitySet Name="Poets" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe2.Poet" />
+    <AssociationSet Name="FK_Poem_Meter" Association="Apress.EF6Recipes.ModelingFundamentals.Recipe2.FK_Poem_Meter">
+      <End Role="Meter" EntitySet="Meters" />
+      <End Role="Poem" EntitySet="Poems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Poem_Poet" Association="Apress.EF6Recipes.ModelingFundamentals.Recipe2.FK_Poem_Poet">
+      <End Role="Poet" EntitySet="Poets" />
+      <End Role="Poem" EntitySet="Poems" />
+    </AssociationSet>
+    <EntitySet Name="vwLibraries" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe2.vwLibrary" />
+  </EntityContainer>
+  <EntityType Name="Meter">
+    <Key>
+      <PropertyRef Name="MeterId" />
+    </Key>
+    <Property Name="MeterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MeterName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Poems" Relationship="Apress.EF6Recipes.ModelingFundamentals.Recipe2.FK_Poem_Meter" FromRole="Meter" ToRole="Poem" />
+  </EntityType>
+  <EntityType Name="Poem">
+    <Key>
+      <PropertyRef Name="PoemId" />
+    </Key>
+    <Property Name="PoemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PoetId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="MeterId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Meter" Relationship="Apress.EF6Recipes.ModelingFundamentals.Recipe2.FK_Poem_Meter" FromRole="Poem" ToRole="Meter" />
+    <NavigationProperty Name="Poet" Relationship="Apress.EF6Recipes.ModelingFundamentals.Recipe2.FK_Poem_Poet" FromRole="Poem" ToRole="Poet" />
+  </EntityType>
+  <EntityType Name="Poet">
+    <Key>
+      <PropertyRef Name="PoetId" />
+    </Key>
+    <Property Name="PoetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Poems" Relationship="Apress.EF6Recipes.ModelingFundamentals.Recipe2.FK_Poem_Poet" FromRole="Poet" ToRole="Poem" />
+  </EntityType>
+  <Association Name="FK_Poem_Meter">
+    <End Role="Meter" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe2.Meter" Multiplicity="1" />
+    <End Role="Poem" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe2.Poem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meter">
+        <PropertyRef Name="MeterId" />
+      </Principal>
+      <Dependent Role="Poem">
+        <PropertyRef Name="MeterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Poem_Poet">
+    <End Role="Poet" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe2.Poet" Multiplicity="1" />
+    <End Role="Poem" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe2.Poem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Poet">
+        <PropertyRef Name="PoetId" />
+      </Principal>
+      <Dependent Role="Poem">
+        <PropertyRef Name="PoetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="vwLibrary">
+    <Key>
+      <PropertyRef Name="PoemId" />
+    </Key>
+    <Property Type="Int32" Name="PoemId" Nullable="false" />
+    <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MiddleName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Title" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MeterName" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

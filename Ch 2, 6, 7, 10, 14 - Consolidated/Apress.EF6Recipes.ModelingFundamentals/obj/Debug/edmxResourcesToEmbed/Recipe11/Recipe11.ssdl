@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.ModelingFundamentals.Recipe11.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesModelingFundamentalsRecipe11StoreContainer">
+    <EntitySet Name="Location" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe11.Store.Location" store:Type="Tables" Schema="Chapter2" />
+    <EntitySet Name="Park" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe11.Store.Park" store:Type="Tables" Schema="Chapter2" />
+    <AssociationSet Name="FK_Park_Location_1" Association="Apress.EF6Recipes.ModelingFundamentals.Recipe11.Store.FK_Park_Location_1">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Park" EntitySet="Park" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Park_Location_2" Association="Apress.EF6Recipes.ModelingFundamentals.Recipe11.Store.FK_Park_Location_2">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Park" EntitySet="Park" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Address" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="100" />
+    <Property Name="State" Type="varchar" MaxLength="100" />
+    <Property Name="ZIPCode" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Park">
+    <Key>
+      <PropertyRef Name="ParkId" />
+    </Key>
+    <Property Name="ParkId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="OfficeLocationId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Park_Location_1">
+    <End Role="Location" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe11.Store.Location" Multiplicity="1" />
+    <End Role="Park" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe11.Store.Park" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="Park">
+        <PropertyRef Name="ParkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Park_Location_2">
+    <End Role="Location" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe11.Store.Location" Multiplicity="1" />
+    <End Role="Park" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe11.Store.Park" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="Park">
+        <PropertyRef Name="OfficeLocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

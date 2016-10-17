@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesBeyondModelingBasicsRecipe9StoreContainer">
+    <EntitySet Name="RefurbishedToy" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Store.RefurbishedToy" store:Type="Tables" Schema="Chapter6" />
+    <EntitySet Name="Toy" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Store.Toy" store:Type="Tables" Schema="Chapter6" />
+    <AssociationSet Name="FK_RefurbishedToy_Toy_ToyId" Association="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Store.FK_RefurbishedToy_Toy_ToyId">
+      <End Role="Toy" EntitySet="Toy" />
+      <End Role="RefurbishedToy" EntitySet="RefurbishedToy" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="RefurbishedToy">
+    <Key>
+      <PropertyRef Name="ToyId" />
+    </Key>
+    <Property Name="ToyId" Type="int" Nullable="false" />
+    <Property Name="Quality" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Toy">
+    <Key>
+      <PropertyRef Name="ToyId" />
+    </Key>
+    <Property Name="ToyId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="Price" Type="money" />
+    <Property Name="ForDonationOnly" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_RefurbishedToy_Toy_ToyId">
+    <End Role="Toy" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Store.Toy" Multiplicity="1" />
+    <End Role="RefurbishedToy" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Store.RefurbishedToy" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Toy">
+        <PropertyRef Name="ToyId" />
+      </Principal>
+      <Dependent Role="RefurbishedToy">
+        <PropertyRef Name="ToyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

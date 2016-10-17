@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EF6RecipesModelStoreContainer" CdmEntityContainer="Recipe1Context">
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.Concurrency.Recipe1.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteAgent" FunctionName="EF6RecipesModel.Store.DeleteAgent" />
+    <FunctionImportMapping FunctionImportName="InsertAgent" FunctionName="EF6RecipesModel.Store.InsertAgent" />
+    <FunctionImportMapping FunctionImportName="UpdateAgent" FunctionName="EF6RecipesModel.Store.UpdateAgent" />
+  </EntityContainerMapping>
+</Mapping>

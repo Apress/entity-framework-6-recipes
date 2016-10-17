@@ -1,0 +1,7 @@
+Customer: Robin Rosen in Raytown
+	Card: 41949494338899 expires on 12/1/2010
+		Transaction: $29.95
+Customer: Bill Meyers in Raytown
+	Card: 41238389484448 expires on 12/1/2013
+		Transaction: $83.39
+Press <enter> to continue...

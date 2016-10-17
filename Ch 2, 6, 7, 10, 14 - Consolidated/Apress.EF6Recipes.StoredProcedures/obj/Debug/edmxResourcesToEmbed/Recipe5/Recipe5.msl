@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesStoredProceduresRecipe5StoreContainer" CdmEntityContainer="Recipe5Context">
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe5.Member">
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe5.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="DateSent" ColumnName="DateSent" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="MessageBody" ColumnName="MessageBody" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="MembersWithTheMostMessages" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe5.Store.MembersWithTheMostMessages" />
+  </EntityContainerMapping>
+</Mapping>

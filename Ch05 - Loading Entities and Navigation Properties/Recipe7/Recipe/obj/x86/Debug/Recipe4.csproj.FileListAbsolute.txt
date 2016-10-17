@@ -1,0 +1,29 @@
+H:\Book Work\Code\Chapter5\Recipe4\Recipe4\bin\Debug\Recipe4.exe.config
+H:\Book Work\Code\Chapter5\Recipe4\Recipe4\obj\x86\Debug\ResolveAssemblyReference.cache
+H:\Book Work\Code\Chapter5\Recipe4\Recipe4\bin\Debug\Recipe4.exe
+H:\Book Work\Code\Chapter5\Recipe4\Recipe4\bin\Debug\Recipe4.pdb
+H:\Book Work\Code\Chapter5\Recipe4\Recipe4\obj\x86\Debug\Recipe4.exe
+H:\Book Work\Code\Chapter5\Recipe4\Recipe4\obj\x86\Debug\Recipe4.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe4\Recipe4\bin\Debug\Recipe4.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe4\Recipe4\bin\Debug\Recipe4.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe4\Recipe4\bin\Debug\Recipe4.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe4\Recipe4\obj\x86\Debug\Recipe4.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe4\Recipe4\obj\x86\Debug\Recipe4.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe4\Recipe4\obj\x86\Debug\Recipe4.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe4\Recipe4\bin\Debug\EntityFramework.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe4\Recipe4\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe4\Recipe4\bin\Debug\EntityFramework.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Code\Chapter5\Recipe4\Recipe4\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Legacy Code\Chapter5\Recipe4\Recipe4\bin\Debug\Recipe4.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Legacy Code\Chapter5\Recipe4\Recipe4\obj\x86\Debug\Recipe4.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Legacy Code\Chapter5\Recipe4\Recipe4\obj\x86\Debug\Recipe4.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe7\Recipe4\bin\Debug\Recipe4.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe7\Recipe4\obj\x86\Debug\Recipe4.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe7\Recipe4\obj\x86\Debug\Recipe4.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe7\Recipe4\bin\Debug\Recipe4.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe7\Recipe4\bin\Debug\Recipe4.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe7\Recipe4\bin\Debug\EntityFramework.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe7\Recipe4\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe7\Recipe4\bin\Debug\EntityFramework.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe7\Recipe4\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe7\Recipe4\obj\x86\Debug\Recipe4.csprojResolveAssemblyReference.cache

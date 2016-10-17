@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Recipe1Context" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Events" EntityType="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Event" />
+    <EntitySet Name="Organizers" EntityType="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Organizer" />
+    <AssociationSet Name="EventOrganizer" Association="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.EventOrganizer">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="Organizer" EntitySet="Organizers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Organizers" Relationship="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.EventOrganizer" FromRole="Event" ToRole="Organizer" />
+  </EntityType>
+  <EntityType Name="Organizer">
+    <Key>
+      <PropertyRef Name="OrganizerId" />
+    </Key>
+    <Property Name="OrganizerId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Events" Relationship="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.EventOrganizer" FromRole="Organizer" ToRole="Event" />
+  </EntityType>
+  <Association Name="EventOrganizer">
+    <End Role="Event" Type="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Event" Multiplicity="*" />
+    <End Role="Organizer" Type="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Organizer" Multiplicity="*" />
+  </Association>
+</Schema>

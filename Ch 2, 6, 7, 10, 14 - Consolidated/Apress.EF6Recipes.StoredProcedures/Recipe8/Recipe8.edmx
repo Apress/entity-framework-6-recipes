@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe8.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ApressEF6RecipesStoredProceduresRecipe8StoreContainer">
+          <EntitySet Name="Athlete" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.Athlete" store:Type="Tables" Schema="Chapter10" />
+        </EntityContainer>
+        <EntityType Name="Athlete">
+          <Key>
+            <PropertyRef Name="AthleteId" />
+          </Key>
+          <Property Name="AthleteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Height" Type="int" />
+          <Property Name="Weight" Type="int" />
+        </EntityType>
+        <Function Name="DeleteAthlete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+          <Parameter Name="AthleteId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertAthlete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Height" Type="int" Mode="In" />
+          <Parameter Name="Weight" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateAthlete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+          <Parameter Name="AthleteId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Height" Type="int" Mode="In" />
+          <Parameter Name="Weight" Type="int" Mode="In" />
+        </Function>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe8" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Recipe8Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Athletes" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe8.Athlete" />
+          <FunctionImport Name="DeleteAthlete">
+            <Parameter Name="AthleteId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertAthlete" ReturnType="Collection(Decimal)">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Height" Mode="In" Type="Int32" />
+            <Parameter Name="Weight" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateAthlete">
+            <Parameter Name="AthleteId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Height" Mode="In" Type="Int32" />
+            <Parameter Name="Weight" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Athlete">
+          <Key>
+            <PropertyRef Name="AthleteId" />
+          </Key>
+          <Property Name="AthleteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Height" Type="Int32" />
+          <Property Name="Weight" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesStoredProceduresRecipe8StoreContainer" CdmEntityContainer="Recipe8Context">
+          <EntitySetMapping Name="Athletes">
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe8.Athlete">
+              <MappingFragment StoreEntitySet="Athlete">
+                <ScalarProperty Name="AthleteId" ColumnName="AthleteId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe8.Athlete">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.InsertAthlete">
+                  <ScalarProperty Name="Weight" ParameterName="Weight" />
+                  <ScalarProperty Name="Height" ParameterName="Height" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                  <ResultBinding Name="AthleteId" ColumnName="AthleteId" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.UpdateAthlete">
+                  <ScalarProperty Name="Weight" ParameterName="Weight" Version="Current" />
+                  <ScalarProperty Name="Height" ParameterName="Height" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                  <ScalarProperty Name="AthleteId" ParameterName="AthleteId" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.DeleteAthlete">
+                  <ScalarProperty Name="AthleteId" ParameterName="AthleteId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteAthlete" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.DeleteAthlete" />
+          <FunctionImportMapping FunctionImportName="InsertAthlete" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.InsertAthlete" />
+          <FunctionImportMapping FunctionImportName="UpdateAthlete" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.UpdateAthlete" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="Chapter10" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

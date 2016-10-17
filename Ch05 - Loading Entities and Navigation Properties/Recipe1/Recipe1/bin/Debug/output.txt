@@ -1,0 +1,18 @@
+Customers
+=========
+Joan Smith is a Web Customer, email address(es)
+	jsmith@gmail.com
+	joan@smith.com
+Bill Meyers is a Retail Customer, email address(es)
+	bmeyers@gmail.com
+
+Customers by Type
+=================
+Customer type: Web Customer
+Joan Smith
+	jsmith@gmail.com
+	joan@smith.com
+Customer type: Retail Customer
+Bill Meyers
+	bmeyers@gmail.com
+Press <enter> to continue...

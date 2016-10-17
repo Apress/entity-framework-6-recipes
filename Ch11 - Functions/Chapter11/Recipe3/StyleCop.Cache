@@ -1,0 +1,48 @@
+<stylecopresultscache>
+  <version>11</version>
+  <project key="1369439201">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="EFRecipesModel.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>03/21/2012 12:05:02</timestamp>
+      <milliseconds>0</milliseconds>
+    </settings>
+    <timestamp>07/17/2013 14:23:19</timestamp>
+    <milliseconds>181</milliseconds>
+    <violations>
+      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="FileHeaderMustShowCopyright" ruleCheckId="SA1634">
+        <context>The file header must contain a copyright tag.</context>
+        <line>1</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
+  <sourcecode name="EFRecipesModel.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>03/21/2012 12:05:02</timestamp>
+      <milliseconds>0</milliseconds>
+    </settings>
+    <timestamp>07/17/2013 14:23:19</timestamp>
+    <milliseconds>52</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="EFRecipesModel.Context.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>03/21/2012 12:05:02</timestamp>
+      <milliseconds>0</milliseconds>
+    </settings>
+    <timestamp>07/17/2013 14:23:17</timestamp>
+    <milliseconds>332</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Employee.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>03/21/2012 12:05:02</timestamp>
+      <milliseconds>0</milliseconds>
+    </settings>
+    <timestamp>07/17/2013 14:22:04</timestamp>
+    <milliseconds>274</milliseconds>
+    <violations />
+  </sourcecode>
+</stylecopresultscache>

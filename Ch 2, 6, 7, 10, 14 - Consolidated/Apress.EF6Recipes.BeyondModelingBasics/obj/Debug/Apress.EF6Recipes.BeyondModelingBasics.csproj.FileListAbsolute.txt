@@ -1,0 +1,33 @@
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\Apress.EF6Recipes.BeyondModelingBasics.exe.config
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\Apress.EF6Recipes.BeyondModelingBasics.exe
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\Apress.EF6Recipes.BeyondModelingBasics.pdb
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\EntityFramework.dll
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\EntityFramework.xml
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\obj\Debug\Apress.EF6Recipes.BeyondModelingBasics.csprojResolveAssemblyReference.cache
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\obj\Debug\Apress.EF6Recipes.BeyondModelingBasics.exe
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\obj\Debug\Apress.EF6Recipes.BeyondModelingBasics.pdb
+D:\My Book\Brians Code\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\Apress.EF6Recipes.BeyondModelingBasics.exe.config
+D:\My Book\Brians Code\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\obj\Debug\Apress.EF6Recipes.BeyondModelingBasics.exe
+D:\My Book\Brians Code\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\obj\Debug\Apress.EF6Recipes.BeyondModelingBasics.pdb
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\Apress.EF6Recipes.BeyondModelingBasics.exe.config
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\Apress.EF6Recipes.BeyondModelingBasics.exe
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\Apress.EF6Recipes.BeyondModelingBasics.pdb
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\EntityFramework.dll
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\EntityFramework.SqlServer.dll
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\EntityFramework.xml
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\EntityFramework.SqlServer.xml
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\obj\Debug\Apress.EF6Recipes.BeyondModelingBasics.exe
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\obj\Debug\Apress.EF6Recipes.BeyondModelingBasics.pdb
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Apress.EF6Recipes.BeyondModelingBasics\obj\Debug\Apress.EF6Recipes.BeyondModelingBasics.csprojResolveAssemblyReference.cache
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\Apress.EF6Recipes.BeyondModelingBasics.exe.config
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\Apress.EF6Recipes.BeyondModelingBasics.exe
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\Apress.EF6Recipes.BeyondModelingBasics.pdb
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\EntityFramework.dll
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\EntityFramework.xml
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.BeyondModelingBasics\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.BeyondModelingBasics\obj\Debug\Apress.EF6Recipes.BeyondModelingBasics.csprojResolveAssemblyReference.cache
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.BeyondModelingBasics\obj\Debug\Apress.EF6Recipes.BeyondModelingBasics.exe
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Apress.EF6Recipes.BeyondModelingBasics\obj\Debug\Apress.EF6Recipes.BeyondModelingBasics.pdb

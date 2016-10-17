@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="Recipe4" />
+  <Alias Key="Target" Value="Recipe4.Store" />
+  <EntityContainerMapping CdmEntityContainer="Recipe4Context" StorageEntityContainer="Recipe4StoreContainer">
+    <FunctionImportMapping FunctionImportName="GetEmployeeAddresses" FunctionName="Recipe4.Store.GetEmployeeAddresses">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe4.EmployeeAddress">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

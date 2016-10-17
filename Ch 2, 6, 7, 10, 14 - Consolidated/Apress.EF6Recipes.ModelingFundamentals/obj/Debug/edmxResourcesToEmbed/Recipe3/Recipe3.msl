@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesModelingFundamentalsRecipe3StoreContainer" CdmEntityContainer="Recipe3Context">
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Album">
+        <MappingFragment StoreEntitySet="Album">
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Artists">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.ModelingFundamentals.Recipe3.Artist">
+        <MappingFragment StoreEntitySet="Artist">
+          <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="LinkTable" TypeName="Apress.EF6Recipes.ModelingFundamentals.Recipe3.LinkTable" StoreEntitySet="LinkTable">
+      <EndProperty Name="Album">
+        <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+      </EndProperty>
+      <EndProperty Name="Artist">
+        <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

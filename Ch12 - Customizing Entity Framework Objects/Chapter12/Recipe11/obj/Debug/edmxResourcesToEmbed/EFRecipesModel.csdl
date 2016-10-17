@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="ParkingTickets" EntityType="EFRecipesModel.ParkingTicket" />
+  </EntityContainer>
+  <EntityType Name="ParkingTicket">
+    <Key>
+      <PropertyRef Name="TicketId" />
+    </Key>
+    <Property Name="TicketId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Paid" Type="Boolean" Nullable="false" />
+    <Property Name="PaidDate" Type="DateTime" Precision="0" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+  </EntityType>
+</Schema>

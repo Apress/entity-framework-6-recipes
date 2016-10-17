@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EF6Recipes.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EF6RecipesStoreContainer">
+          <EntitySet Name="Customer" EntityType="EF6Recipes.Store.Customer" store:Type="Tables" Schema="Chapter10" />
+          <EntitySet Name="Member" EntityType="EF6Recipes.Store.Member" store:Type="Tables" Schema="Chapter10" />
+          <EntitySet Name="Message" EntityType="EF6Recipes.Store.Message" store:Type="Tables" Schema="Chapter10" />
+          <AssociationSet Name="FK__Message__MemberI__1367E606" Association="EF6Recipes.Store.FK__Message__MemberI__1367E606">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Company" Type="varchar" MaxLength="50" />
+          <Property Name="ContactTitle" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MemberId" Type="int" Nullable="false" />
+          <Property Name="DateSent" Type="datetime" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="100" />
+          <Property Name="MessageBody" Type="text" />
+        </EntityType>
+        <Association Name="FK__Message__MemberI__1367E606">
+          <End Role="Member" Type="EF6Recipes.Store.Member" Multiplicity="1" />
+          <End Role="Message" Type="EF6Recipes.Store.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetCustomers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+          <Parameter Name="Company" Type="varchar" Mode="In" />
+          <Parameter Name="ContactTitle" Type="varchar" Mode="In" />
+        </Function>
+		<Function Name="MembersWithTheMostMessages" IsComposable="false">
+			<CommandText>
+				select m.*
+				from chapter10.member m
+				join
+				(
+				select distinct msg.MemberId
+				from chapter10.message msg where datesent = @datesent
+				) temp on m.MemberId = temp.MemberId
+			</CommandText>
+			<Parameter Name="datesent" Type="datetime" />
+		</Function>
+
+	</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EF6Recipes" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EF6RecipesContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="EF6Recipes.Customer" />
+          <FunctionImport Name="GetCustomers" EntitySet="Customers" ReturnType="Collection(EF6Recipes.Customer)">
+            <Parameter Name="Company" Mode="In" Type="String" />
+            <Parameter Name="ContactTitle" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Members" EntityType="EF6Recipes.Member" />
+          <EntitySet Name="Messages" EntityType="EF6Recipes.Message" />
+          <AssociationSet Name="FK__Message__MemberI__1367E606" Association="EF6Recipes.FK__Message__MemberI__1367E606">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <FunctionImport Name="MembersWithTheMostMessages" EntitySet="Members" ReturnType="Collection(EF6Recipes.Member)">
+            <Parameter Name="datesent" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Company" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ContactTitle" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <ComplexType Name="GetCustomers_Result">
+          <Property Type="Int32" Name="CustomerId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Company" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ContactTitle" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Type="Int32" Name="MemberId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Messages" Relationship="EF6Recipes.FK__Message__MemberI__1367E606" FromRole="Member" ToRole="Message" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Type="Int32" Name="MessageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="MemberId" Nullable="false" />
+          <Property Type="DateTime" Name="DateSent" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Subject" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MessageBody" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Member" Relationship="EF6Recipes.FK__Message__MemberI__1367E606" FromRole="Message" ToRole="Member" />
+        </EntityType>
+        <Association Name="FK__Message__MemberI__1367E606">
+          <End Type="EF6Recipes.Member" Role="Member" Multiplicity="1" />
+          <End Type="EF6Recipes.Message" Role="Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EF6RecipesStoreContainer" CdmEntityContainer="EF6RecipesContext">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="EF6Recipes.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetCustomers" FunctionName="EF6Recipes.Store.GetCustomers">
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="EF6Recipes.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="EF6Recipes.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="MessageBody" ColumnName="MessageBody" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="DateSent" ColumnName="DateSent" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="MembersWithTheMostMessages" FunctionName="EF6Recipes.Store.MembersWithTheMostMessages" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

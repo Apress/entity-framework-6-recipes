@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="WebCustomer" EntityType="EFRecipesModel.Store.WebCustomer" store:Type="Tables" Schema="Chapter11" />
+    <EntitySet Name="Zip" EntityType="EFRecipesModel.Store.Zip" store:Type="Tables" Schema="Chapter11" />
+  </EntityContainer>
+  <EntityType Name="WebCustomer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Zip" Type="nvarchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Zip">
+    <Key>
+      <PropertyRef Name="ZipCode" />
+    </Key>
+    <Property Name="ZipCode" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Latitude" Type="decimal" Nullable="false" Precision="9" Scale="6" />
+    <Property Name="Longitude" Type="decimal" Nullable="false" Precision="9" Scale="6" />
+  </EntityType>
+</Schema>

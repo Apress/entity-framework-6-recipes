@@ -1,0 +1,9 @@
+2 proxies generated!
+Album: Abbey Road
+	Come Together by The Beatles
+Album: Cowboy Town
+	Cowgirls Don't Cry by Brooks & Dunn
+Album: Long Black Train
+	In My Dreams by Josh Turner
+	Jacksonville by Josh Turner
+Press <enter> to continue...

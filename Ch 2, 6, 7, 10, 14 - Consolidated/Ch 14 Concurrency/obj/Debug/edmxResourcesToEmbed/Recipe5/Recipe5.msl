@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="Recipe5" />
+  <Alias Key="Target" Value="Recipe5.Store" />
+  <EntityContainerMapping CdmEntityContainer="Recipe5Context" StorageEntityContainer="Recipe5StoreContainer">
+    <FunctionImportMapping FunctionImportName="DeleteAccount" FunctionName="Recipe5.Store.DeleteAccount" />
+    <FunctionImportMapping FunctionImportName="InsertAccount" FunctionName="Recipe5.Store.InsertAccount" />
+    <FunctionImportMapping FunctionImportName="UpdateAccount" FunctionName="Recipe5.Store.UpdateAccount" />
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.Concurrency.Recipe5.Account">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="Recipe5.Store.InsertAccount" RowsAffectedParameter="RowsAffected">
+            <ScalarProperty Name="Balance" ParameterName="Balance" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+            <ScalarProperty Name="AccountNumber" ParameterName="AccountNumber" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="Recipe5.Store.UpdateAccount" RowsAffectedParameter="RowsAffected">
+            <ScalarProperty Name="TimeStamp" ParameterName="TimeStamp" Version="Original" />
+            <ScalarProperty Name="Balance" ParameterName="Balance" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+            <ScalarProperty Name="AccountNumber" ParameterName="AccountNumber" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="Recipe5.Store.DeleteAccount" RowsAffectedParameter="RowsAffected">
+            <ScalarProperty Name="TimeStamp" ParameterName="TimeStamp" />
+            <ScalarProperty Name="AccountNumber" ParameterName="AccountNumber" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

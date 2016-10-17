@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Apress.EF6Recipes.StoredProcedures.Recipe6" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="Recipe6Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Media" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe6.Media" />
+    <FunctionImport Name="GetAllMedia" EntitySet="Media" ReturnType="Collection(Apress.EF6Recipes.StoredProcedures.Recipe6.Media)" />
+  </EntityContainer>
+  <EntityType Name="Media">
+    <Key>
+      <PropertyRef Name="MediaId" />
+    </Key>
+    <Property Type="Int32" Name="MediaId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Title" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Magazine" BaseType="Apress.EF6Recipes.StoredProcedures.Recipe6.Media">
+    <Property Type="DateTime" Name="PublicationDate" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DVD" BaseType="Apress.EF6Recipes.StoredProcedures.Recipe6.Media">
+    <Property Type="String" Name="PlayTime" Nullable="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe12" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Recipe12Context" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Dealers" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Dealer" />
+    <EntitySet Name="Cars" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Car" />
+    <AssociationSet Name="DealerCar" Association="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.DealerCar">
+      <End Role="Dealer" EntitySet="Dealers" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BMW" BaseType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Car">
+    <Property Name="CollisionAvoidance" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dealer">
+    <Key>
+      <PropertyRef Name="DealerId" />
+    </Key>
+    <Property Name="DealerId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Cars" Relationship="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.DealerCar" FromRole="Dealer" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="Toyota" BaseType="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Car" />
+  <EntityType Name="Car" Abstract="true">
+    <Key>
+      <PropertyRef Name="CarId" />
+    </Key>
+    <Property Type="Int32" Name="CarId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Model" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Year" />
+    <Property Type="String" Name="Color" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Dealer" Relationship="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.DealerCar" FromRole="Car" ToRole="Dealer" />
+  </EntityType>
+  <Association Name="DealerCar">
+    <End Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Dealer" Role="Dealer" Multiplicity="1" />
+    <End Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe12.Car" Role="Car" Multiplicity="*" />
+  </Association>
+</Schema>

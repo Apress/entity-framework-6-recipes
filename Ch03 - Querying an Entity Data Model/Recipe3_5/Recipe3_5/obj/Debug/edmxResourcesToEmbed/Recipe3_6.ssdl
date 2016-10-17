@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="BlogPost" EntityType="EFRecipesModel.Store.BlogPost" store:Type="Tables" Schema="Chapter3" />
+    <EntitySet Name="Comment" EntityType="EFRecipesModel.Store.Comment" store:Type="Tables" Schema="Chapter3" />
+    <AssociationSet Name="FK__Comment__PostID__5F7E2DAC" Association="EFRecipesModel.Store.FK__Comment__PostID__5F7E2DAC">
+      <End Role="BlogPost" EntitySet="BlogPost" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BlogPost">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" MaxLength="100" />
+    <Property Name="Description" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Comments" Type="varchar(max)" />
+    <Property Name="PostID" Type="int" />
+  </EntityType>
+  <Association Name="FK__Comment__PostID__5F7E2DAC">
+    <End Role="BlogPost" Type="EFRecipesModel.Store.BlogPost" Multiplicity="0..1" />
+    <End Role="Comment" Type="EFRecipesModel.Store.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogPost">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

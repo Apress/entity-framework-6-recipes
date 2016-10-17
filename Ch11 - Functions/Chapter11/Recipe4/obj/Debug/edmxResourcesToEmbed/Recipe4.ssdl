@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Associate" EntityType="EFRecipesModel.Store.Associate" store:Type="Tables" Schema="Chapter11" />
+    <AssociationSet Name="FK_Associate_Associate" Association="EFRecipesModel.Store.FK_Associate_Associate">
+      <End Role="Associate" EntitySet="Associate" />
+      <End Role="Associate1" EntitySet="Associate" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Associate">
+    <Key>
+      <PropertyRef Name="AssociateId" />
+    </Key>
+    <Property Name="AssociateId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AssociateType" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ReportsTo" Type="int" />
+  </EntityType>
+  <Association Name="FK_Associate_Associate">
+    <End Role="Associate" Type="EFRecipesModel.Store.Associate" Multiplicity="0..1" />
+    <End Role="Associate1" Type="EFRecipesModel.Store.Associate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associate">
+        <PropertyRef Name="AssociateId" />
+      </Principal>
+      <Dependent Role="Associate1">
+        <PropertyRef Name="ReportsTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

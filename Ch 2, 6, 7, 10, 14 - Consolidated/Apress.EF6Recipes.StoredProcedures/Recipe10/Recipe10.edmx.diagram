@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="51e82f0d8e2c422491c3c8b8c3db6f6f" Name="Diagram1">
+        <EntityTypeShape EntityType="Apress.EF6Recipes.StoredProcedures.Recipe10.Product" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Apress.EF6Recipes.StoredProcedures.Recipe10.DVD" Width="1.5" PointX="1.25" PointY="3" />
+        <EntityTypeShape EntityType="Apress.EF6Recipes.StoredProcedures.Recipe10.Book" Width="1.5" PointX="3.25" PointY="3" />
+        <InheritanceConnector EntityType="Apress.EF6Recipes.StoredProcedures.Recipe10.DVD" />
+        <InheritanceConnector EntityType="Apress.EF6Recipes.StoredProcedures.Recipe10.Book" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

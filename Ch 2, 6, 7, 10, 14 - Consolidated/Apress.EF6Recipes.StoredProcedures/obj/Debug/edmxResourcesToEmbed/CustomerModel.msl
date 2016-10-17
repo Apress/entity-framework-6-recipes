@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EF6RecipesStoreContainer" CdmEntityContainer="EF6RecipesContext">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="EF6Recipes.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomers" FunctionName="EF6Recipes.Store.GetCustomers" />
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="EF6Recipes.Member">
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="EF6Recipes.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="MessageBody" ColumnName="MessageBody" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="DateSent" ColumnName="DateSent" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="MembersWithTheMostMessages" FunctionName="EF6Recipes.Store.MembersWithTheMostMessages" />
+  </EntityContainerMapping>
+</Mapping>

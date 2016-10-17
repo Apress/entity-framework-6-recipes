@@ -1,0 +1,18 @@
+H:\Book Work\Code\Chapter9\Recipe1\Recipe1Client\bin\Debug\Recipe1Client.exe.config
+H:\Book Work\Code\Chapter9\Recipe1\Recipe1Client\bin\Debug\Recipe1Client.exe
+H:\Book Work\Code\Chapter9\Recipe1\Recipe1Client\bin\Debug\Recipe1Client.pdb
+H:\Book Work\Code\Chapter9\Recipe1\Recipe1Client\obj\x86\Debug\ResolveAssemblyReference.cache
+H:\Book Work\Code\Chapter9\Recipe1\Recipe1Client\obj\x86\Debug\Recipe1Client.exe
+H:\Book Work\Code\Chapter9\Recipe1\Recipe1Client\obj\x86\Debug\Recipe1Client.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe1\Recipe1Client\bin\Debug\Recipe1Client.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe1\Recipe1Client\bin\Debug\Recipe1Client.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe1\Recipe1Client\bin\Debug\Recipe1Client.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe1\Recipe1Client\obj\x86\Debug\Recipe1Client.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe1\Recipe1Client\obj\x86\Debug\Recipe1Client.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe1\Recipe1Client\obj\x86\Debug\Recipe1Client.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe5\Recipe1Client\bin\Debug\Recipe1Client.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe5\Recipe1Client\bin\Debug\Recipe1Client.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe5\Recipe1Client\bin\Debug\Recipe1Client.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe5\Recipe1Client\obj\x86\Debug\Recipe1Client.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe5\Recipe1Client\obj\x86\Debug\Recipe1Client.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe5\Recipe1Client\obj\x86\Debug\Recipe1Client.pdb

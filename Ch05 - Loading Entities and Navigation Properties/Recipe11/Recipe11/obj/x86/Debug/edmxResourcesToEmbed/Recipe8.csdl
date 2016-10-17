@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="EFRecipesEntities">
+    <EntitySet Name="Contractors" EntityType="EFRecipesModel.Contractor" />
+    <EntitySet Name="Managers" EntityType="EFRecipesModel.Manager" />
+    <EntitySet Name="Projects" EntityType="EFRecipesModel.Project" />
+    <AssociationSet Name="FK_Contractor_Project" Association="EFRecipesModel.FK_Contractor_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="Contractor" EntitySet="Contractors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_Manager" Association="EFRecipesModel.FK_Project_Manager">
+      <End Role="Manager" EntitySet="Managers" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Contractor">
+    <Key>
+      <PropertyRef Name="ContracterID" />
+    </Key>
+    <Property Name="ContracterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Project" Relationship="EFRecipesModel.FK_Contractor_Project" FromRole="Contractor" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="Manager">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Projects" Relationship="EFRecipesModel.FK_Project_Manager" FromRole="Manager" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ManagerID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Contractors" Relationship="EFRecipesModel.FK_Contractor_Project" FromRole="Project" ToRole="Contractor" />
+    <NavigationProperty Name="Manager" Relationship="EFRecipesModel.FK_Project_Manager" FromRole="Project" ToRole="Manager" />
+  </EntityType>
+  <Association Name="FK_Contractor_Project">
+    <End Role="Project" Type="EFRecipesModel.Project" Multiplicity="1" />
+    <End Role="Contractor" Type="EFRecipesModel.Contractor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="Contractor">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_Manager">
+    <End Role="Manager" Type="EFRecipesModel.Manager" Multiplicity="1" />
+    <End Role="Project" Type="EFRecipesModel.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manager">
+        <PropertyRef Name="ManagerID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

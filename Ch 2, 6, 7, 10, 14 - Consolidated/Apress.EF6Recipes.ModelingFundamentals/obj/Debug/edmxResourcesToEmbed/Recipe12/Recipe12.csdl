@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.ModelingFundamentals.Recipe12" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Recipe12Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Agents" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe12.Agent" />
+  </EntityContainer>
+  <EntityType Name="Agent">
+    <Key>
+      <PropertyRef Name="AgentId" />
+    </Key>
+    <Property Name="AgentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe12.Name" Nullable="false" />
+    <Property Name="Address" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe12.Address" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="Name">
+    <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <ComplexType Name="Address">
+    <Property Type="String" Name="AddressLine1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AddressLine2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="City" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="State" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ZIPCode" MaxLength="100" FixedLength="false" Unicode="false" />
+  </ComplexType>
+</Schema>

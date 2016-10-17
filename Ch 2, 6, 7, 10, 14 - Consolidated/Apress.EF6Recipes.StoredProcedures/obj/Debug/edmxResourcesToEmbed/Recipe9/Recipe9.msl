@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesStoredProceduresRecipe9StoreContainer" CdmEntityContainer="Recipe9Context">
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe9.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe9.Book">
+        <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AuthorBook" TypeName="Apress.EF6Recipes.StoredProcedures.Recipe9.AuthorBook" StoreEntitySet="AuthorBook">
+      <EndProperty Name="Author">
+        <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+      </EndProperty>
+      <EndProperty Name="Book">
+        <ScalarProperty Name="BookId" ColumnName="BookId" />
+      </EndProperty>
+      <ModificationFunctionMapping>
+        <InsertFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe9.Store.InsertAuthorBook">
+          <EndProperty Name="Author">
+            <ScalarProperty Name="AuthorId" ParameterName="AuthorId" />
+          </EndProperty>
+          <EndProperty Name="Book">
+            <ScalarProperty Name="BookId" ParameterName="BookId" />
+          </EndProperty>
+        </InsertFunction>
+        <DeleteFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe9.Store.DeleteAuthorBook">
+          <EndProperty Name="Author">
+            <ScalarProperty Name="AuthorId" ParameterName="AuthorId" />
+          </EndProperty>
+          <EndProperty Name="Book">
+            <ScalarProperty Name="BookId" ParameterName="BookId" />
+          </EndProperty>
+        </DeleteFunction>
+      </ModificationFunctionMapping>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteAuthorBook" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe9.Store.DeleteAuthorBook" />
+    <FunctionImportMapping FunctionImportName="InsertAuthorBook" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe9.Store.InsertAuthorBook" />
+  </EntityContainerMapping>
+</Mapping>

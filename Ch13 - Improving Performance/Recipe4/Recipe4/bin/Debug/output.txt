@@ -1,0 +1,9 @@
+More complex SQL...
+Found reservation for James Jordan on 4/18/2010
+Found reservation for James Jordan on 5/12/2010
+Found reservation for James Jordan on 6/22/2010
+Cleaner SQL...
+Found reservation for James Jordan on 4/18/2010
+Found reservation for James Jordan on 5/12/2010
+Found reservation for James Jordan on 6/22/2010
+Press <enter> to continue...

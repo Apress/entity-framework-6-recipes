@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Competitor" EntityType="EFRecipesModel.Store.Competitor" store:Type="Tables" Schema="Chapter8" />
+    <EntitySet Name="Event" EntityType="EFRecipesModel.Store.Event" store:Type="Tables" Schema="Chapter8" />
+    <EntitySet Name="Venue" EntityType="EFRecipesModel.Store.Venue" store:Type="Tables" Schema="Chapter8" />
+    <AssociationSet Name="FK_Competitor_Competitor" Association="EFRecipesModel.Store.FK_Competitor_Competitor">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="Competitor" EntitySet="Competitor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_Venue" Association="EFRecipesModel.Store.FK_Event_Venue">
+      <End Role="Venue" EntitySet="Venue" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Competitor">
+    <Key>
+      <PropertyRef Name="CompetitorId" />
+    </Key>
+    <Property Name="CompetitorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="VenueId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Venue">
+    <Key>
+      <PropertyRef Name="VenueId" />
+    </Key>
+    <Property Name="VenueId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <Association Name="FK_Competitor_Competitor">
+    <End Role="Event" Type="EFRecipesModel.Store.Event" Multiplicity="1" />
+    <End Role="Competitor" Type="EFRecipesModel.Store.Competitor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="EventId" />
+      </Principal>
+      <Dependent Role="Competitor">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_Venue">
+    <End Role="Venue" Type="EFRecipesModel.Store.Venue" Multiplicity="1" />
+    <End Role="Event" Type="EFRecipesModel.Store.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venue">
+        <PropertyRef Name="VenueId" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="VenueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

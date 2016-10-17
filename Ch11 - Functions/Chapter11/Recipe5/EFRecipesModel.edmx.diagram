@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c7d56dbab67540bb97c47a42f97dae22" Name="Diagram1">
+        <EntityTypeShape EntityType="EFRecipesModel.Hotel" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.Reservation" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFRecipesModel.Visitor" Width="1.5" PointX="5.5" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="EFRecipesModel.FK_Reservation_Hotel" ManuallyRouted="false" />
+        <AssociationConnector Association="EFRecipesModel.FK_Reservation_Visitor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

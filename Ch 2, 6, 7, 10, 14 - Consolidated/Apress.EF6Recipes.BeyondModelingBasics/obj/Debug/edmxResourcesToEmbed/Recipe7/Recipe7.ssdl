@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesBeyondModelingBasicsRecipe7StoreContainer">
+    <EntitySet Name="Instructor" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Instructor" store:Type="Tables" Schema="Chapter6" />
+    <EntitySet Name="Principal" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Principal" store:Type="Tables" Schema="Chapter6" />
+    <EntitySet Name="Staff" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Staff" store:Type="Tables" Schema="Chapter6" />
+    <AssociationSet Name="FK_Instructor_Staff_StaffId" Association="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.FK_Instructor_Staff_StaffId">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Instructor" EntitySet="Instructor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Principal_Staff_StaffId" Association="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.FK_Principal_Staff_StaffId">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Principal" EntitySet="Principal" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Instructor">
+    <Key>
+      <PropertyRef Name="InstructorId" />
+    </Key>
+    <Property Name="InstructorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Salary" Type="money" />
+    <Property Name="StaffId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Principal">
+    <Key>
+      <PropertyRef Name="PrincipalId" />
+    </Key>
+    <Property Name="PrincipalId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Salary" Type="money" />
+    <Property Name="Bonus" Type="money" />
+    <Property Name="StaffId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_Instructor_Staff_StaffId">
+    <End Role="Staff" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Staff" Multiplicity="1" />
+    <End Role="Instructor" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Instructor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffId" />
+      </Principal>
+      <Dependent Role="Instructor">
+        <PropertyRef Name="StaffId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Principal_Staff_StaffId">
+    <End Role="Staff" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Staff" Multiplicity="1" />
+    <End Role="Principal" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Principal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffId" />
+      </Principal>
+      <Dependent Role="Principal">
+        <PropertyRef Name="StaffId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DeleteInstructor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+    <Parameter Name="StaffId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeletePrincipal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+    <Parameter Name="StaffId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertInstructor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Salary" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="InsertPrincipal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Salary" Type="decimal" Mode="In" />
+    <Parameter Name="Bonus" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="UpdateInstructor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Salary" Type="decimal" Mode="In" />
+    <Parameter Name="StaffId" Type="int" Mode="In" />
+    <Parameter Name="InstructorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdatePrincipal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Salary" Type="decimal" Mode="In" />
+    <Parameter Name="Bonus" Type="decimal" Mode="In" />
+    <Parameter Name="StaffId" Type="int" Mode="In" />
+    <Parameter Name="PrincipalId" Type="int" Mode="In" />
+  </Function>
+</Schema>

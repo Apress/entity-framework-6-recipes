@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe7" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Recipe7Context" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Staffs" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Staff" />
+    <FunctionImport Name="DeleteInstructor">
+      <Parameter Name="StaffId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeletePrincipal">
+      <Parameter Name="StaffId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertInstructor" ReturnType="Collection(Apress.EF6Recipes.BeyondModelingBasics.Recipe7.InsertInstructor_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Salary" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="InsertPrincipal" ReturnType="Collection(Apress.EF6Recipes.BeyondModelingBasics.Recipe7.InsertPrincipal_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Salary" Mode="In" Type="Decimal" />
+      <Parameter Name="Bonus" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateInstructor">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Salary" Mode="In" Type="Decimal" />
+      <Parameter Name="StaffId" Mode="In" Type="Int32" />
+      <Parameter Name="InstructorId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdatePrincipal">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Salary" Mode="In" Type="Decimal" />
+      <Parameter Name="Bonus" Mode="In" Type="Decimal" />
+      <Parameter Name="StaffId" Mode="In" Type="Int32" />
+      <Parameter Name="PrincipalId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Instructor" BaseType="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Staff">
+    <Property Name="InstructorId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Principal" BaseType="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Staff">
+    <Property Name="PrincipalId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Bonus" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Staff" Abstract="true">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <ComplexType Name="InsertInstructor_Result">
+    <Property Type="Int32" Name="StaffId" Nullable="true" />
+    <Property Type="Decimal" Name="InstructorId" Nullable="true" Precision="38" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="InsertPrincipal_Result">
+    <Property Type="Int32" Name="StaffId" Nullable="true" />
+    <Property Type="Decimal" Name="PrincipalId" Nullable="true" Precision="38" Scale="0" />
+  </ComplexType>
+</Schema>

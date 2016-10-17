@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesStoredProceduresRecipe10StoreContainer" CdmEntityContainer="Recipe10Context">
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.StoredProcedures.Recipe10.Product)">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.StoredProcedures.Recipe10.DVD)">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <Condition ColumnName="ProductType" Value="DVD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.StoredProcedures.Recipe10.Book)">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <Condition ColumnName="ProductType" Value="Book" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe10.DVD">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.InsertDVD">
+            <ScalarProperty Name="Rating" ParameterName="Rating" />
+            <ScalarProperty Name="Title" ParameterName="Title" />
+            <ResultBinding Name="ProductId" ColumnName="ProductId" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.UpdateDVD">
+            <ScalarProperty Name="ProductId" ParameterName="ProductId" Version="Current" />
+            <ScalarProperty Name="Rating" ParameterName="Rating" Version="Current" />
+            <ScalarProperty Name="Title" ParameterName="Title" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.DeleteDVD">
+            <ScalarProperty Name="ProductId" ParameterName="ProductId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe10.Book">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.InsertBook">
+            <ScalarProperty Name="Publisher" ParameterName="Publisher" />
+            <ScalarProperty Name="Title" ParameterName="Title" />
+            <ResultBinding Name="ProductId" ColumnName="ProductId" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.UpdateBook">
+            <ScalarProperty Name="ProductId" ParameterName="ProductId" Version="Current" />
+            <ScalarProperty Name="Publisher" ParameterName="Publisher" Version="Current" />
+            <ScalarProperty Name="Title" ParameterName="Title" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.DeleteBook">
+            <ScalarProperty Name="ProductId" ParameterName="ProductId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteBook" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.DeleteBook" />
+    <FunctionImportMapping FunctionImportName="DeleteDVD" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.DeleteDVD" />
+    <FunctionImportMapping FunctionImportName="InsertBook" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.InsertBook" />
+    <FunctionImportMapping FunctionImportName="InsertDVD" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.InsertDVD" />
+    <FunctionImportMapping FunctionImportName="UpdateBook" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.UpdateBook" />
+    <FunctionImportMapping FunctionImportName="UpdateDVD" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.UpdateDVD" />
+  </EntityContainerMapping>
+</Mapping>

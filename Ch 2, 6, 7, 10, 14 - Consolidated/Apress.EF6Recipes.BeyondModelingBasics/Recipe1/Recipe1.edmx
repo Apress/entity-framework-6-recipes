@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ApressEF6RecipesBeyoneModelingBasicsRecipe1StoreContainer">
+          <EntitySet Name="Event" EntityType="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.Event" store:Type="Tables" Schema="Chapter6" />
+          <EntitySet Name="EventOrganizer" EntityType="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.EventOrganizer" store:Type="Tables" Schema="Chapter6" />
+          <EntitySet Name="Organizer" EntityType="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.Organizer" store:Type="Tables" Schema="Chapter6" />
+          <AssociationSet Name="FK_EventOrganizer_Event" Association="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.FK_EventOrganizer_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="EventOrganizer" EntitySet="EventOrganizer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventOrganizer_Organizer" Association="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.FK_EventOrganizer_Organizer">
+            <End Role="Organizer" EntitySet="Organizer" />
+            <End Role="EventOrganizer" EntitySet="EventOrganizer" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="EventOrganizer">
+          <Key>
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="OrganizerId" />
+          </Key>
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="OrganizerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organizer">
+          <Key>
+            <PropertyRef Name="OrganizerId" />
+          </Key>
+          <Property Name="OrganizerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_EventOrganizer_Event">
+          <End Role="Event" Type="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.Event" Multiplicity="1" />
+          <End Role="EventOrganizer" Type="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.EventOrganizer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="EventId" />
+            </Principal>
+            <Dependent Role="EventOrganizer">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventOrganizer_Organizer">
+          <End Role="Organizer" Type="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.Organizer" Multiplicity="1" />
+          <End Role="EventOrganizer" Type="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Store.EventOrganizer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organizer">
+              <PropertyRef Name="OrganizerId" />
+            </Principal>
+            <Dependent Role="EventOrganizer">
+              <PropertyRef Name="OrganizerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Recipe1Context" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Events" EntityType="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Event" />
+          <EntitySet Name="Organizers" EntityType="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Organizer" />
+          <AssociationSet Name="EventOrganizer" Association="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.EventOrganizer">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Organizer" EntitySet="Organizers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Organizers" Relationship="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.EventOrganizer" FromRole="Event" ToRole="Organizer" />
+        </EntityType>
+        <EntityType Name="Organizer">
+          <Key>
+            <PropertyRef Name="OrganizerId" />
+          </Key>
+          <Property Name="OrganizerId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Events" Relationship="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.EventOrganizer" FromRole="Organizer" ToRole="Event" />
+        </EntityType>
+        <Association Name="EventOrganizer">
+          <End Role="Event" Type="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Event" Multiplicity="*" />
+          <End Role="Organizer" Type="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Organizer" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesBeyoneModelingBasicsRecipe1StoreContainer" CdmEntityContainer="Recipe1Context">
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organizers">
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.Organizer">
+              <MappingFragment StoreEntitySet="Organizer">
+                <ScalarProperty Name="OrganizerId" ColumnName="OrganizerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="EventOrganizer" TypeName="Apress.EF6Recipes.BeyoneModelingBasics.Recipe1.EventOrganizer" StoreEntitySet="EventOrganizer">
+            <EndProperty Name="Event">
+              <ScalarProperty Name="EventId" ColumnName="EventId" />
+            </EndProperty>
+            <EndProperty Name="Organizer">
+              <ScalarProperty Name="OrganizerId" ColumnName="OrganizerId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="Chapter6" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

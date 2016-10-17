@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <Function Name="GetProjectManager" ReturnType="EFRecipesModel.ProjectManager">
+    <Parameter Name="teammember" Type="EFRecipesModel.TeamMember" />
+    <DefiningExpression>
+            treat(teammember.Manager.Manager as EFRecipesModel.ProjectManager)
+          </DefiningExpression>
+  </Function>
+  <Function Name="GetSupervisor" ReturnType="EFRecipesModel.Supervisor">
+    <Parameter Name="teammember" Type="EFRecipesModel.TeamMember" />
+    <DefiningExpression>
+            treat(EFRecipesModel.GetProjectManager(teammember).Manager as
+            EFRecipesModel.Supervisor)
+          </DefiningExpression>
+  </Function>
+  <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Associates" EntityType="EFRecipesModel.Associate" />
+    <AssociationSet Name="FK_Associate_Associate" Association="EFRecipesModel.FK_Associate_Associate">
+      <End Role="Associate" EntitySet="Associates" />
+      <End Role="Associate1" EntitySet="Associates" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Associate" Abstract="true">
+    <Key>
+      <PropertyRef Name="AssociateId" />
+    </Key>
+    <Property Name="AssociateId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ReportsTo" Type="Int32" />
+    <NavigationProperty Name="DirectReports" Relationship="EFRecipesModel.FK_Associate_Associate" FromRole="Associate" ToRole="Associate1" />
+    <NavigationProperty Name="Manager" Relationship="EFRecipesModel.FK_Associate_Associate" FromRole="Associate1" ToRole="Associate" />
+  </EntityType>
+  <Association Name="FK_Associate_Associate">
+    <End Role="Associate" Type="EFRecipesModel.Associate" Multiplicity="0..1" />
+    <End Role="Associate1" Type="EFRecipesModel.Associate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associate">
+        <PropertyRef Name="AssociateId" />
+      </Principal>
+      <Dependent Role="Associate1">
+        <PropertyRef Name="ReportsTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TeamLead" BaseType="EFRecipesModel.Associate" />
+  <EntityType Name="TeamMember" BaseType="EFRecipesModel.Associate" />
+  <EntityType Name="ProjectManager" BaseType="EFRecipesModel.Associate" />
+  <EntityType Name="Supervisor" BaseType="EFRecipesModel.Associate" />
+</Schema>

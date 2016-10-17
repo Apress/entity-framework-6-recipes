@@ -1,0 +1,10 @@
+C:\NitinWork_24_August_2012\Code\Temp_POCs\EntityFrameworkRecipes\POCORecipes\POCORecipe11\obj\Debug\POCORecipe11.csprojResolveAssemblyReference.cache
+C:\NitinWork_24_August_2012\Code\Temp_POCs\EntityFrameworkRecipes\POCORecipes\POCORecipe11\bin\Debug\POCORecipe11.exe.config
+C:\NitinWork_24_August_2012\Code\Temp_POCs\EntityFrameworkRecipes\POCORecipes\POCORecipe11\bin\Debug\POCORecipe11.exe
+C:\NitinWork_24_August_2012\Code\Temp_POCs\EntityFrameworkRecipes\POCORecipes\POCORecipe11\bin\Debug\POCORecipe11.pdb
+C:\NitinWork_24_August_2012\Code\Temp_POCs\EntityFrameworkRecipes\POCORecipes\POCORecipe11\bin\Debug\EntityFramework.dll
+C:\NitinWork_24_August_2012\Code\Temp_POCs\EntityFrameworkRecipes\POCORecipes\POCORecipe11\bin\Debug\EntityFramework.SqlServer.dll
+C:\NitinWork_24_August_2012\Code\Temp_POCs\EntityFrameworkRecipes\POCORecipes\POCORecipe11\bin\Debug\EntityFramework.xml
+C:\NitinWork_24_August_2012\Code\Temp_POCs\EntityFrameworkRecipes\POCORecipes\POCORecipe11\bin\Debug\EntityFramework.SqlServer.xml
+C:\NitinWork_24_August_2012\Code\Temp_POCs\EntityFrameworkRecipes\POCORecipes\POCORecipe11\obj\Debug\POCORecipe11.exe
+C:\NitinWork_24_August_2012\Code\Temp_POCs\EntityFrameworkRecipes\POCORecipes\POCORecipe11\obj\Debug\POCORecipe11.pdb

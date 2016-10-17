@@ -1,0 +1,5 @@
+The next New York club event is:
+	Event: Winter Classic
+	Date: 12/18/2009
+	Club: Star City Chess Club
+Press <enter> to continue...

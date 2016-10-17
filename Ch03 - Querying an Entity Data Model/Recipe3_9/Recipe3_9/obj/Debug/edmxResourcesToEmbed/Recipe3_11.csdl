@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Accidents" EntityType="EFRecipesModel.Accident" />
+    <EntitySet Name="Workers" EntityType="EFRecipesModel.Worker" />
+    <AssociationSet Name="FK__Accident__Worker__1C873BEC" Association="EFRecipesModel.FK__Accident__Worker__1C873BEC">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="Accident" EntitySet="Accidents" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Accident">
+    <Key>
+      <PropertyRef Name="AccidentID" />
+    </Key>
+    <Property Name="AccidentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Severity" Type="Int32" />
+    <Property Name="WorkerID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Worker" Relationship="EFRecipesModel.FK__Accident__Worker__1C873BEC" FromRole="Accident" ToRole="Worker" />
+  </EntityType>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="WorkerID" />
+    </Key>
+    <Property Name="WorkerID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Accidents" Relationship="EFRecipesModel.FK__Accident__Worker__1C873BEC" FromRole="Worker" ToRole="Accident" />
+  </EntityType>
+  <Association Name="FK__Accident__Worker__1C873BEC">
+    <End Type="EFRecipesModel.Worker" Role="Worker" Multiplicity="1" />
+    <End Type="EFRecipesModel.Accident" Role="Accident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="WorkerID" />
+      </Principal>
+      <Dependent Role="Accident">
+        <PropertyRef Name="WorkerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

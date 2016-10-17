@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe10.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ApressEF6RecipesStoredProceduresRecipe10StoreContainer">
+          <EntitySet Name="Product" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.Product" store:Type="Tables" Schema="Chapter10" />
+        </EntityContainer>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductType" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Publisher" Type="varchar" MaxLength="50" />
+          <Property Name="Rating" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="DeleteBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+          <Parameter Name="ProductId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteDVD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+          <Parameter Name="ProductId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="Publisher" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertDVD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="Rating" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="Publisher" Type="varchar" Mode="In" />
+          <Parameter Name="ProductId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateDVD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="Rating" Type="varchar" Mode="In" />
+          <Parameter Name="ProductId" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe10" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Recipe10Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Products" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe10.Product" />
+          <FunctionImport Name="DeleteBook">
+            <Parameter Name="ProductId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteDVD">
+            <Parameter Name="ProductId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertBook" ReturnType="Collection(Decimal)">
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Publisher" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertDVD" ReturnType="Collection(Decimal)">
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Rating" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateBook">
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Publisher" Mode="In" Type="String" />
+            <Parameter Name="ProductId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateDVD">
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Rating" Mode="In" Type="String" />
+            <Parameter Name="ProductId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Product" Abstract="true">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="DVD" BaseType="Apress.EF6Recipes.StoredProcedures.Recipe10.Product">
+          <Property Type="String" Name="Rating" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Book" BaseType="Apress.EF6Recipes.StoredProcedures.Recipe10.Product">
+          <Property Type="String" Name="Publisher" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesStoredProceduresRecipe10StoreContainer" CdmEntityContainer="Recipe10Context">
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.StoredProcedures.Recipe10.Product)">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.StoredProcedures.Recipe10.DVD)">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <Condition ColumnName="ProductType" Value="DVD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.StoredProcedures.Recipe10.Book)">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <Condition ColumnName="ProductType" Value="Book" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe10.DVD">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.InsertDVD">
+                  <ScalarProperty Name="Rating" ParameterName="Rating" />
+                  <ScalarProperty Name="Title" ParameterName="Title" />
+                  <ResultBinding Name="ProductId" ColumnName="ProductId" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.UpdateDVD">
+                  <ScalarProperty Name="ProductId" ParameterName="ProductId" Version="Current" />
+                  <ScalarProperty Name="Rating" ParameterName="Rating" Version="Current" />
+                  <ScalarProperty Name="Title" ParameterName="Title" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.DeleteDVD">
+                  <ScalarProperty Name="ProductId" ParameterName="ProductId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe10.Book">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.InsertBook">
+                  <ScalarProperty Name="Publisher" ParameterName="Publisher" />
+                  <ScalarProperty Name="Title" ParameterName="Title" />
+                  <ResultBinding Name="ProductId" ColumnName="ProductId" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.UpdateBook">
+                  <ScalarProperty Name="ProductId" ParameterName="ProductId" Version="Current" />
+                  <ScalarProperty Name="Publisher" ParameterName="Publisher" Version="Current" />
+                  <ScalarProperty Name="Title" ParameterName="Title" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.DeleteBook">
+                  <ScalarProperty Name="ProductId" ParameterName="ProductId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteBook" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.DeleteBook" />
+          <FunctionImportMapping FunctionImportName="DeleteDVD" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.DeleteDVD" />
+          <FunctionImportMapping FunctionImportName="InsertBook" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.InsertBook" />
+          <FunctionImportMapping FunctionImportName="InsertDVD" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.InsertDVD" />
+          <FunctionImportMapping FunctionImportName="UpdateBook" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.UpdateBook" />
+          <FunctionImportMapping FunctionImportName="UpdateDVD" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe10.Store.UpdateDVD" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="Chapter10" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

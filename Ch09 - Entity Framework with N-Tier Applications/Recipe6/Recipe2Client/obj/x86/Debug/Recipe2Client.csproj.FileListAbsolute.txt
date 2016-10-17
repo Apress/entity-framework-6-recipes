@@ -1,0 +1,18 @@
+H:\Book Work\Code\Chapter9\Recipe2\Recipe2Client\bin\Debug\Recipe2Client.exe
+H:\Book Work\Code\Chapter9\Recipe2\Recipe2Client\bin\Debug\Recipe2Client.pdb
+H:\Book Work\Code\Chapter9\Recipe2\Recipe2Client\obj\x86\Debug\ResolveAssemblyReference.cache
+H:\Book Work\Code\Chapter9\Recipe2\Recipe2Client\obj\x86\Debug\Recipe2Client.exe
+H:\Book Work\Code\Chapter9\Recipe2\Recipe2Client\obj\x86\Debug\Recipe2Client.pdb
+H:\Book Work\Code\Chapter9\Recipe2\Recipe2Client\bin\Debug\Recipe2Client.exe.config
+M:\Book Work\Code\Chapter9\Recipe2\Recipe2Client\bin\Debug\Recipe2Client.exe.config
+M:\Book Work\Code\Chapter9\Recipe2\Recipe2Client\obj\x86\Debug\Recipe2Client.exe
+M:\Book Work\Code\Chapter9\Recipe2\Recipe2Client\obj\x86\Debug\Recipe2Client.pdb
+M:\Book Work\Code\Chapter9\Recipe2\Recipe2Client\bin\Debug\Recipe2Client.exe
+M:\Book Work\Code\Chapter9\Recipe2\Recipe2Client\bin\Debug\Recipe2Client.pdb
+M:\Book Work\Code\Chapter9\Recipe2\Recipe2Client\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2Client\bin\Debug\Recipe2Client.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2Client\bin\Debug\Recipe2Client.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2Client\bin\Debug\Recipe2Client.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2Client\obj\x86\Debug\Recipe2Client.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2Client\obj\x86\Debug\Recipe2Client.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2Client\obj\x86\Debug\Recipe2Client.pdb

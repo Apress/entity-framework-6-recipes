@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EFRecipesModel2StoreContainer" CdmEntityContainer="Recipe4Context">
+    <EntitySetMapping Name="ForumPosts">
+      <EntityTypeMapping TypeName="EFRecipesModel2.ForumPost">
+        <MappingFragment StoreEntitySet="ForumPost">
+          <ScalarProperty Name="PostingId" ColumnName="PostingId" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="ForumUser" ColumnName="ForumUser" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

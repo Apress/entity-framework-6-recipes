@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Patient" EntityType="EFRecipesModel.Store.Patient" store:Type="Tables" Schema="Chapter11" />
+    <EntitySet Name="PatientVisit" EntityType="EFRecipesModel.Store.PatientVisit" store:Type="Tables" Schema="Chapter11" />
+    <AssociationSet Name="FK_PatientVisit_Patient" Association="EFRecipesModel.Store.FK_PatientVisit_Patient">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="PatientVisit" EntitySet="PatientVisit" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="PatientId" />
+    </Key>
+    <Property Name="PatientId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Age" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatientVisit">
+    <Key>
+      <PropertyRef Name="VisitId" />
+    </Key>
+    <Property Name="VisitId" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="Hospital" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="PatientId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_PatientVisit_Patient">
+    <End Role="Patient" Type="EFRecipesModel.Store.Patient" Multiplicity="1" />
+    <End Role="PatientVisit" Type="EFRecipesModel.Store.PatientVisit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="PatientId" />
+      </Principal>
+      <Dependent Role="PatientVisit">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

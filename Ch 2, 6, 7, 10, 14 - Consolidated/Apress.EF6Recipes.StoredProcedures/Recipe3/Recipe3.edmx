@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe3.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ApressEF6RecipesStoredProceduresRecipe3StoreContainer">
+          <EntitySet Name="ATMMachine" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe3.Store.ATMMachine" store:Type="Tables" Schema="Chapter10" />
+          <EntitySet Name="ATMWithdrawal" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe3.Store.ATMWithdrawal" store:Type="Tables" Schema="Chapter10" />
+          <AssociationSet Name="FK_ATMWithdrawal_ATMMachine" Association="Apress.EF6Recipes.StoredProcedures.Recipe3.Store.FK_ATMWithdrawal_ATMMachine">
+            <End Role="ATMMachine" EntitySet="ATMMachine" />
+            <End Role="ATMWithdrawal" EntitySet="ATMWithdrawal" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ATMMachine">
+          <Key>
+            <PropertyRef Name="ATMId" />
+          </Key>
+          <Property Name="ATMId" Type="int" Nullable="false" StoreGeneratedPattern="None" />
+          <Property Name="Location" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ATMWithdrawal">
+          <Key>
+            <PropertyRef Name="WithdrawalId" />
+          </Key>
+          <Property Name="WithdrawalId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="ATMId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ATMWithdrawal_ATMMachine">
+          <End Role="ATMMachine" Type="Apress.EF6Recipes.StoredProcedures.Recipe3.Store.ATMMachine" Multiplicity="1" />
+          <End Role="ATMWithdrawal" Type="Apress.EF6Recipes.StoredProcedures.Recipe3.Store.ATMWithdrawal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ATMMachine">
+              <PropertyRef Name="ATMId" />
+            </Principal>
+            <Dependent Role="ATMWithdrawal">
+              <PropertyRef Name="ATMId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetWithdrawals" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+          <Parameter Name="ATMId" Type="int" Mode="In" />
+          <Parameter Name="WithdrawalDate" Type="datetime" Mode="In" />
+        </Function>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe3" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Recipe3Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ATMMachines" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe3.ATMMachine" />
+          <EntitySet Name="ATMWithdrawals" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe3.ATMWithdrawal" />
+          <AssociationSet Name="FK_ATMWithdrawal_ATMMachine" Association="Apress.EF6Recipes.StoredProcedures.Recipe3.FK_ATMWithdrawal_ATMMachine">
+            <End Role="ATMMachine" EntitySet="ATMMachines" />
+            <End Role="ATMWithdrawal" EntitySet="ATMWithdrawals" />
+          </AssociationSet>
+          <FunctionImport Name="GetWithdrawals" ReturnType="Collection(Decimal)">
+            <Parameter Name="ATMId" Mode="In" Type="Int32" />
+            <Parameter Name="WithdrawalDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="ATMMachine">
+          <Key>
+            <PropertyRef Name="ATMId" />
+          </Key>
+          <Property Name="ATMId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Location" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ATMWithdrawals" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe3.FK_ATMWithdrawal_ATMMachine" FromRole="ATMMachine" ToRole="ATMWithdrawal" />
+        </EntityType>
+        <EntityType Name="ATMWithdrawal">
+          <Key>
+            <PropertyRef Name="WithdrawalId" />
+          </Key>
+          <Property Name="WithdrawalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="ATMId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ATMMachine" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe3.FK_ATMWithdrawal_ATMMachine" FromRole="ATMWithdrawal" ToRole="ATMMachine" />
+        </EntityType>
+        <Association Name="FK_ATMWithdrawal_ATMMachine">
+          <End Role="ATMMachine" Type="Apress.EF6Recipes.StoredProcedures.Recipe3.ATMMachine" Multiplicity="1" />
+          <End Role="ATMWithdrawal" Type="Apress.EF6Recipes.StoredProcedures.Recipe3.ATMWithdrawal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ATMMachine">
+              <PropertyRef Name="ATMId" />
+            </Principal>
+            <Dependent Role="ATMWithdrawal">
+              <PropertyRef Name="ATMId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesStoredProceduresRecipe3StoreContainer" CdmEntityContainer="Recipe3Context">
+          <EntitySetMapping Name="ATMMachines">
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe3.ATMMachine">
+              <MappingFragment StoreEntitySet="ATMMachine">
+                <ScalarProperty Name="ATMId" ColumnName="ATMId" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ATMWithdrawals">
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe3.ATMWithdrawal">
+              <MappingFragment StoreEntitySet="ATMWithdrawal">
+                <ScalarProperty Name="WithdrawalId" ColumnName="WithdrawalId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ATMId" ColumnName="ATMId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetWithdrawals" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe3.Store.GetWithdrawals" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="Chapter10" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="ExecutiveSuite" EntityType="EFRecipesModel.Store.ExecutiveSuite" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Hotel" EntityType="EFRecipesModel.Store.Hotel" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Reservation" EntityType="EFRecipesModel.Store.Reservation" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Room" EntityType="EFRecipesModel.Store.Room" store:Type="Tables" Schema="Chapter5" />
+    <AssociationSet Name="FK_ExecutiveSuite_Room" Association="EFRecipesModel.Store.FK_ExecutiveSuite_Room">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="ExecutiveSuite" EntitySet="ExecutiveSuite" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_Room" Association="EFRecipesModel.Store.FK_Reservation_Room">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_Hotel" Association="EFRecipesModel.Store.FK_Room_Hotel">
+      <End Role="Hotel" EntitySet="Hotel" />
+      <End Role="Room" EntitySet="Room" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ExecutiveSuite">
+    <Key>
+      <PropertyRef Name="RoomId" />
+    </Key>
+    <Property Name="RoomId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hotel">
+    <Key>
+      <PropertyRef Name="HotelId" />
+    </Key>
+    <Property Name="HotelId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="ReservationId" />
+    </Key>
+    <Property Name="ReservationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="ContactName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="RoomId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RoomId" />
+    </Key>
+    <Property Name="RoomId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Rate" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="HotelId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ExecutiveSuite_Room">
+    <End Role="Room" Type="EFRecipesModel.Store.Room" Multiplicity="1" />
+    <End Role="ExecutiveSuite" Type="EFRecipesModel.Store.ExecutiveSuite" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="RoomId" />
+      </Principal>
+      <Dependent Role="ExecutiveSuite">
+        <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_Room">
+    <End Role="Room" Type="EFRecipesModel.Store.Room" Multiplicity="1" />
+    <End Role="Reservation" Type="EFRecipesModel.Store.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="RoomId" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_Hotel">
+    <End Role="Hotel" Type="EFRecipesModel.Store.Hotel" Multiplicity="1" />
+    <End Role="Room" Type="EFRecipesModel.Store.Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hotel">
+        <PropertyRef Name="HotelId" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="HotelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

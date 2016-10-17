@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Contractor" EntityType="EFRecipesModel.Store.Contractor" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Manager" EntityType="EFRecipesModel.Store.Manager" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Project" EntityType="EFRecipesModel.Store.Project" store:Type="Tables" Schema="Chapter5" />
+    <AssociationSet Name="FK_Contractor_Project" Association="EFRecipesModel.Store.FK_Contractor_Project">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Contractor" EntitySet="Contractor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_Manager" Association="EFRecipesModel.Store.FK_Project_Manager">
+      <End Role="Manager" EntitySet="Manager" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Contractor">
+    <Key>
+      <PropertyRef Name="ContracterID" />
+    </Key>
+    <Property Name="ContracterID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Manager">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ManagerID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Contractor_Project">
+    <End Role="Project" Type="EFRecipesModel.Store.Project" Multiplicity="1" />
+    <End Role="Contractor" Type="EFRecipesModel.Store.Contractor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="Contractor">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_Manager">
+    <End Role="Manager" Type="EFRecipesModel.Store.Manager" Multiplicity="1" />
+    <End Role="Project" Type="EFRecipesModel.Store.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manager">
+        <PropertyRef Name="ManagerID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

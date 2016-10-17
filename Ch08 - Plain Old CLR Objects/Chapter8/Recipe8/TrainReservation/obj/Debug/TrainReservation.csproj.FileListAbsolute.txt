@@ -1,0 +1,13 @@
+C:\NitinWork\Code\Temp_POCs\EntityFrameworkRecipes\POCORecipes\TrainReservation\obj\Debug\TrainReservation.csprojResolveAssemblyReference.cache
+\\UK_LON1B_MS101\HOME$\NitinGupta\Desktop\Book_Code\POCORecipes\TrainReservation\obj\Debug\TrainReservation.csprojResolveAssemblyReference.cache
+\\UK_LON1B_MS101\HOME$\NitinGupta\Desktop\Book_Code\Chapter8\POCORecipes\TrainReservation\obj\Debug\TrainReservation.csprojResolveAssemblyReference.cache
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\TrainReservation\obj\Debug\TrainReservation.csprojResolveAssemblyReference.cache
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\TrainReservation\bin\Debug\TrainReservation.dll.config
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\TrainReservation\bin\Debug\TrainReservation.dll
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\TrainReservation\bin\Debug\TrainReservation.pdb
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\TrainReservation\bin\Debug\EntityFramework.dll
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\TrainReservation\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\TrainReservation\bin\Debug\EntityFramework.xml
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\TrainReservation\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\TrainReservation\obj\Debug\TrainReservation.dll
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\TrainReservation\obj\Debug\TrainReservation.pdb

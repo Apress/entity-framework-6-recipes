@@ -1,0 +1,22 @@
+H:\Book Work\Code\Chapter9\Recipe2\Recipe2\obj\Debug\ResolveAssemblyReference.cache
+H:\Book Work\Code\Chapter9\Recipe2\Recipe2\bin\Debug\Recipe2.dll.config
+H:\Book Work\Code\Chapter9\Recipe2\Recipe2\bin\Debug\Recipe2.dll
+H:\Book Work\Code\Chapter9\Recipe2\Recipe2\bin\Debug\Recipe2.pdb
+H:\Book Work\Code\Chapter9\Recipe2\Recipe2\obj\Debug\Recipe2.dll
+H:\Book Work\Code\Chapter9\Recipe2\Recipe2\obj\Debug\Recipe2.pdb
+M:\Book Work\Code\Chapter9\Recipe2\Recipe2\bin\Debug\Recipe2.dll.config
+M:\Book Work\Code\Chapter9\Recipe2\Recipe2\bin\Debug\Recipe2.dll
+M:\Book Work\Code\Chapter9\Recipe2\Recipe2\bin\Debug\Recipe2.pdb
+M:\Book Work\Code\Chapter9\Recipe2\Recipe2\obj\Debug\ResolveAssemblyReference.cache
+M:\Book Work\Code\Chapter9\Recipe2\Recipe2\obj\Debug\Recipe2.dll
+M:\Book Work\Code\Chapter9\Recipe2\Recipe2\obj\Debug\Recipe2.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2\bin\Debug\Recipe2.dll.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2\bin\Debug\Recipe2.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2\bin\Debug\Recipe2.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2\obj\Debug\Recipe2.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2\obj\Debug\Recipe2.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2\obj\Debug\Recipe2.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2\bin\Debug\EntityFramework.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2\bin\Debug\EntityFramework.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Updated\Recipe2\Recipe2\bin\Debug\EntityFramework.SqlServer.xml

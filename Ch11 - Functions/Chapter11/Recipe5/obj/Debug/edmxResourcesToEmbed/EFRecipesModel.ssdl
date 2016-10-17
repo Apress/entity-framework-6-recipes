@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Hotel" EntityType="EFRecipesModel.Store.Hotel" store:Type="Tables" Schema="Chapter11" />
+    <EntitySet Name="Reservation" EntityType="EFRecipesModel.Store.Reservation" store:Type="Tables" Schema="Chapter11" />
+    <EntitySet Name="Visitor" EntityType="EFRecipesModel.Store.Visitor" store:Type="Tables" Schema="Chapter11" />
+    <AssociationSet Name="FK_Reservation_Hotel" Association="EFRecipesModel.Store.FK_Reservation_Hotel">
+      <End Role="Hotel" EntitySet="Hotel" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_Visitor" Association="EFRecipesModel.Store.FK_Reservation_Visitor">
+      <End Role="Visitor" EntitySet="Visitor" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Hotel">
+    <Key>
+      <PropertyRef Name="HotelId" />
+    </Key>
+    <Property Name="HotelId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="ReservationId" />
+    </Key>
+    <Property Name="ReservationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoomNumber" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="ReservationDate" Type="datetime" Nullable="false" />
+    <Property Name="VisitorId" Type="int" Nullable="false" />
+    <Property Name="HotelId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Visitor">
+    <Key>
+      <PropertyRef Name="VistorId" />
+    </Key>
+    <Property Name="VistorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Reservation_Hotel">
+    <End Role="Hotel" Type="EFRecipesModel.Store.Hotel" Multiplicity="1" />
+    <End Role="Reservation" Type="EFRecipesModel.Store.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hotel">
+        <PropertyRef Name="HotelId" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="HotelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_Visitor">
+    <End Role="Visitor" Type="EFRecipesModel.Store.Visitor" Multiplicity="1" />
+    <End Role="Reservation" Type="EFRecipesModel.Store.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Visitor">
+        <PropertyRef Name="VistorId" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="VisitorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

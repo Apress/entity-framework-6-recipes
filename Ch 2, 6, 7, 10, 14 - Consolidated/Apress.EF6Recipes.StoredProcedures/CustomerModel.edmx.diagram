@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1e3cd7e3c83b45bd8061617f965c2f29" Name="Diagram1">
+        <EntityTypeShape EntityType="EF6Recipes.Customer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF6Recipes.Member" Width="1.5" PointX="8.3024625984497664" PointY="19.233278015271424" />
+        <EntityTypeShape EntityType="EF6Recipes.Message" Width="1.5" PointX="1.9264086996793788" PointY="3.9734803158666381" />
+        <AssociationConnector Association="EF6Recipes.FK__Message__MemberI__1367E606" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

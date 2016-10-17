@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EFRecipesModelStoreContainer" CdmEntityContainer="EFRecipesEntities">
+    <EntitySetMapping Name="Associates">
+      <EntityTypeMapping TypeName="IsTypeOf(EFRecipesModel.Associate)">
+        <MappingFragment StoreEntitySet="Associate">
+          <ScalarProperty Name="AssociateId" ColumnName="AssociateId" />
+          <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(EFRecipesModel.TeamMember)">
+        <MappingFragment StoreEntitySet="Associate">
+          <ScalarProperty Name="AssociateId" ColumnName="AssociateId" />
+          <Condition ColumnName="AssociateType" Value="TeamMember" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(EFRecipesModel.TeamLead)">
+        <MappingFragment StoreEntitySet="Associate">
+          <ScalarProperty Name="AssociateId" ColumnName="AssociateId" />
+          <Condition ColumnName="AssociateType" Value="TeamLead" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(EFRecipesModel.ProjectManager)">
+        <MappingFragment StoreEntitySet="Associate">
+          <ScalarProperty Name="AssociateId" ColumnName="AssociateId" />
+          <Condition ColumnName="AssociateType" Value="ProjectManager" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(EFRecipesModel.Supervisor)">
+        <MappingFragment StoreEntitySet="Associate">
+          <ScalarProperty Name="AssociateId" ColumnName="AssociateId" />
+          <Condition ColumnName="AssociateType" Value="Supervisor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ApressEF6RecipesBeyondModelingBasicsRecipe7StoreContainer">
+          <EntitySet Name="Instructor" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Instructor" store:Type="Tables" Schema="Chapter6" />
+          <EntitySet Name="Principal" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Principal" store:Type="Tables" Schema="Chapter6" />
+          <EntitySet Name="Staff" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Staff" store:Type="Tables" Schema="Chapter6" />
+          <AssociationSet Name="FK_Instructor_Staff_StaffId" Association="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.FK_Instructor_Staff_StaffId">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Instructor" EntitySet="Instructor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Principal_Staff_StaffId" Association="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.FK_Principal_Staff_StaffId">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Principal" EntitySet="Principal" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Instructor">
+          <Key>
+            <PropertyRef Name="InstructorId" />
+          </Key>
+          <Property Name="InstructorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Salary" Type="money" />
+          <Property Name="StaffId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Principal">
+          <Key>
+            <PropertyRef Name="PrincipalId" />
+          </Key>
+          <Property Name="PrincipalId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Salary" Type="money" />
+          <Property Name="Bonus" Type="money" />
+          <Property Name="StaffId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="StaffId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_Instructor_Staff_StaffId">
+          <End Role="Staff" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Staff" Multiplicity="1" />
+          <End Role="Instructor" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Instructor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="StaffId" />
+            </Principal>
+            <Dependent Role="Instructor">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Principal_Staff_StaffId">
+          <End Role="Staff" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Staff" Multiplicity="1" />
+          <End Role="Principal" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.Principal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="StaffId" />
+            </Principal>
+            <Dependent Role="Principal">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DeleteInstructor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+          <Parameter Name="StaffId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeletePrincipal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+          <Parameter Name="StaffId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertInstructor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Salary" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="InsertPrincipal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Salary" Type="decimal" Mode="In" />
+          <Parameter Name="Bonus" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="UpdateInstructor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Salary" Type="decimal" Mode="In" />
+          <Parameter Name="StaffId" Type="int" Mode="In" />
+          <Parameter Name="InstructorId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdatePrincipal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Salary" Type="decimal" Mode="In" />
+          <Parameter Name="Bonus" Type="decimal" Mode="In" />
+          <Parameter Name="StaffId" Type="int" Mode="In" />
+          <Parameter Name="PrincipalId" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe7" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Recipe7Context" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Staffs" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Staff" />
+          <FunctionImport Name="DeleteInstructor">
+            <Parameter Name="StaffId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeletePrincipal">
+            <Parameter Name="StaffId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertInstructor" ReturnType="Collection(Apress.EF6Recipes.BeyondModelingBasics.Recipe7.InsertInstructor_Result)">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Salary" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="InsertPrincipal" ReturnType="Collection(Apress.EF6Recipes.BeyondModelingBasics.Recipe7.InsertPrincipal_Result)">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Salary" Mode="In" Type="Decimal" />
+            <Parameter Name="Bonus" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateInstructor">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Salary" Mode="In" Type="Decimal" />
+            <Parameter Name="StaffId" Mode="In" Type="Int32" />
+            <Parameter Name="InstructorId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdatePrincipal">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Salary" Mode="In" Type="Decimal" />
+            <Parameter Name="Bonus" Mode="In" Type="Decimal" />
+            <Parameter Name="StaffId" Mode="In" Type="Int32" />
+            <Parameter Name="PrincipalId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Instructor" BaseType="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Staff">
+          <Property Name="InstructorId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Principal" BaseType="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Staff">
+          <Property Name="PrincipalId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Bonus" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Staff" Abstract="true">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="StaffId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <ComplexType Name="InsertInstructor_Result">
+          <Property Type="Int32" Name="StaffId" Nullable="true" />
+          <Property Type="Decimal" Name="InstructorId" Nullable="true" Precision="38" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="InsertPrincipal_Result">
+          <Property Type="Int32" Name="StaffId" Nullable="true" />
+          <Property Type="Decimal" Name="PrincipalId" Nullable="true" Precision="38" Scale="0" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesBeyondModelingBasicsRecipe7StoreContainer" CdmEntityContainer="Recipe7Context">
+			<EntitySetMapping Name="Staffs">
+				<QueryView>
+					select value
+					case
+					when (i.StaffId is not null) then
+					Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Instructor(s.StaffId,s.Name,i.InstructorId,i.Salary)
+					when (p.StaffId is not null) then
+					Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Principal(s.StaffId,s.Name,p.PrincipalId,p.Salary,p.Bonus)
+					END
+					from ApressEF6RecipesBeyondModelingBasicsRecipe7StoreContainer.Staff as s
+					left join ApressEF6RecipesBeyondModelingBasicsRecipe7StoreContainer.Instructor as i
+					on s.StaffId = i.StaffId
+					left join ApressEF6RecipesBeyondModelingBasicsRecipe7StoreContainer.Principal as p
+					on s.StaffId = p.StaffId
+				</QueryView>
+			</EntitySetMapping>
+
+			<FunctionImportMapping FunctionImportName="DeleteInstructor" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.DeleteInstructor" />
+          <FunctionImportMapping FunctionImportName="DeletePrincipal" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.DeletePrincipal" />
+          <FunctionImportMapping FunctionImportName="InsertInstructor" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.InsertInstructor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.InsertInstructor_Result">
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="InstructorId" ColumnName="InstructorId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertPrincipal" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.InsertPrincipal">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.InsertPrincipal_Result">
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="PrincipalId" ColumnName="PrincipalId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UpdateInstructor" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.UpdateInstructor" />
+          <FunctionImportMapping FunctionImportName="UpdatePrincipal" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe7.Store.UpdatePrincipal" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

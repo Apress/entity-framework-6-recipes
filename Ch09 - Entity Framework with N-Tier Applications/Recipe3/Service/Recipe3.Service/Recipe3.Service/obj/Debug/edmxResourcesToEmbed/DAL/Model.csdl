@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AgentId" Type="Int32" Nullable="false" />
+    <Property Name="Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BookingDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Paid" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TravelAgent" Relationship="Self.FK_Booking_TravelAgent" FromRole="Booking" ToRole="TravelAgent" />
+  </EntityType>
+  <EntityType Name="TravelAgent">
+    <Key>
+      <PropertyRef Name="AgentId" />
+    </Key>
+    <Property Name="AgentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Bookings" Relationship="Self.FK_Booking_TravelAgent" FromRole="TravelAgent" ToRole="Booking" />
+  </EntityType>
+  <Association Name="FK_Booking_TravelAgent">
+    <End Role="TravelAgent" Type="Self.TravelAgent" Multiplicity="1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TravelAgent">
+        <PropertyRef Name="AgentId" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="AgentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Recipe3Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bookings" EntityType="Self.Booking" />
+    <EntitySet Name="TravelAgents" EntityType="Self.TravelAgent" />
+    <AssociationSet Name="FK_Booking_TravelAgent" Association="Self.FK_Booking_TravelAgent">
+      <End Role="TravelAgent" EntitySet="TravelAgents" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

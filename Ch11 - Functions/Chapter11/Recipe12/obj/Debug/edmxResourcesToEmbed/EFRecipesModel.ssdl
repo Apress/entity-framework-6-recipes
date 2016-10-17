@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="ISNULL" ReturnType="varchar" BuiltIn="true" Schema="dbo">
+    <Parameter Name="expr1" Type="varchar" Mode="In" />
+    <Parameter Name="expr2" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="WebProduct" EntityType="EFRecipesModel.Store.WebProduct" store:Type="Tables" Schema="Chapter11" />
+  </EntityContainer>
+  <EntityType Name="WebProduct">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe5" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Recipe5Context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Members" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe5.Member" />
+    <EntitySet Name="Messages" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe5.Message" />
+    <AssociationSet Name="FK__Message__MemberI__1367E606" Association="Apress.EF6Recipes.StoredProcedures.Recipe5.FK__Message__MemberI__1367E606">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <FunctionImport Name="MembersWithTheMostMessages" EntitySet="Members" ReturnType="Collection(Apress.EF6Recipes.StoredProcedures.Recipe5.Member)">
+      <Parameter Name="datesent" Type="DateTime" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Messages" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe5.FK__Message__MemberI__1367E606" FromRole="Member" ToRole="Message" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int32" Nullable="false" />
+    <Property Name="DateSent" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Subject" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="MessageBody" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Member" Relationship="Apress.EF6Recipes.StoredProcedures.Recipe5.FK__Message__MemberI__1367E606" FromRole="Message" ToRole="Member" />
+  </EntityType>
+  <Association Name="FK__Message__MemberI__1367E606">
+    <End Role="Member" Type="Apress.EF6Recipes.StoredProcedures.Recipe5.Member" Multiplicity="1" />
+    <End Role="Message" Type="Apress.EF6Recipes.StoredProcedures.Recipe5.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

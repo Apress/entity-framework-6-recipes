@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesModelingFundamentalsRecipe4StoreContainer">
+    <EntitySet Name="Item" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.Item" store:Type="Tables" Schema="Chapter2" />
+    <EntitySet Name="Order" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.Order" store:Type="Tables" Schema="Chapter2" />
+    <EntitySet Name="OrderItem" EntityType="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.OrderItem" store:Type="Tables" Schema="Chapter2" />
+    <AssociationSet Name="FK_OrderItem_Item" Association="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.FK_OrderItem_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="OrderItem" EntitySet="OrderItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItem_Order" Association="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.FK_OrderItem_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="OrderItem" EntitySet="OrderItem" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="SKU" />
+    </Key>
+    <Property Name="SKU" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="Price" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="SKU" />
+    </Key>
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="SKU" Type="int" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_OrderItem_Item">
+    <End Role="Item" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.Item" Multiplicity="1" />
+    <End Role="OrderItem" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="SKU" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="SKU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItem_Order">
+    <End Role="Order" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.Order" Multiplicity="1" />
+    <End Role="OrderItem" Type="Apress.EF6Recipes.ModelingFundamentals.Recipe4.Store.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

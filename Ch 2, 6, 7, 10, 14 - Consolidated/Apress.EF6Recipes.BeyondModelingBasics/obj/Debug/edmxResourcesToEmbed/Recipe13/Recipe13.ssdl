@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe13.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesBeyondModelingBasicsRecipe13StoreContainer">
+    <EntitySet Name="Invoice" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe13.Store.Invoice" store:Type="Tables" Schema="Chapter6" />
+  </EntityContainer>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="InvoiceId" />
+    </Key>
+    <Property Name="InvoiceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Description" Type="varchar" MaxLength="255" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EFRecipesModelStoreContainer" CdmEntityContainer="EFRecipesEntities">
+    <EntitySetMapping Name="Associates">
+      <EntityTypeMapping TypeName="EFRecipesModel.Associate">
+        <MappingFragment StoreEntitySet="Associate">
+          <ScalarProperty Name="AssociateId" ColumnName="AssociateId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paychecks">
+      <EntityTypeMapping TypeName="EFRecipesModel.Paycheck">
+        <MappingFragment StoreEntitySet="Paycheck">
+          <ScalarProperty Name="PayCheckId" ColumnName="PayCheckId" />
+          <ScalarProperty Name="AssociateId" ColumnName="AssociateId" />
+          <ScalarProperty Name="PayDate" ColumnName="PayDate" />
+          <ScalarProperty Name="Gross" ColumnName="Gross" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

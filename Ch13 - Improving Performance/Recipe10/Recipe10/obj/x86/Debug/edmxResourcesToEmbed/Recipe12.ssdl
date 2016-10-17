@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="CD" EntityType="EFRecipesModel.Store.CD" store:Type="Tables" Schema="Chapter13" />
+    <EntitySet Name="Track" EntityType="EFRecipesModel.Store.Track" store:Type="Tables" Schema="Chapter13" />
+    <AssociationSet Name="FK_Track_CD" Association="EFRecipesModel.Store.FK_Track_CD">
+      <End Role="CD" EntitySet="CD" />
+      <End Role="Track" EntitySet="Track" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CD">
+    <Key>
+      <PropertyRef Name="CDId" />
+    </Key>
+    <Property Name="CDId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Track">
+    <Key>
+      <PropertyRef Name="Title" />
+    </Key>
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Artist" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="CDId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Track_CD">
+    <End Role="CD" Type="EFRecipesModel.Store.CD" Multiplicity="1" />
+    <End Role="Track" Type="EFRecipesModel.Store.Track" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CD">
+        <PropertyRef Name="CDId" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="CDId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

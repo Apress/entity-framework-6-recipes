@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Bids" EntityType="EFRecipesModel.Bid" />
+    <EntitySet Name="Jobs" EntityType="EFRecipesModel.Job" />
+    <AssociationSet Name="FK__Bid__JobID__6FB49575" Association="EFRecipesModel.FK__Bid__JobID__6FB49575">
+      <End Role="Job" EntitySet="Jobs" />
+      <End Role="Bid" EntitySet="Bids" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Bid">
+    <Key>
+      <PropertyRef Name="BidID" />
+    </Key>
+    <Property Name="BidID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="JobID" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Bidder" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Job" Relationship="EFRecipesModel.FK__Bid__JobID__6FB49575" FromRole="Bid" ToRole="Job" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="JobID" />
+    </Key>
+    <Property Name="JobID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="JobDetails" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Bids" Relationship="EFRecipesModel.FK__Bid__JobID__6FB49575" FromRole="Job" ToRole="Bid" />
+  </EntityType>
+  <Association Name="FK__Bid__JobID__6FB49575">
+    <End Type="EFRecipesModel.Job" Role="Job" Multiplicity="1" />
+    <End Type="EFRecipesModel.Bid" Role="Bid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="JobID" />
+      </Principal>
+      <Dependent Role="Bid">
+        <PropertyRef Name="JobID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

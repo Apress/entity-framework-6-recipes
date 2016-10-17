@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3bc297e344bb47fea98bdab88e1ee3b3" Name="Diagram1" >
+        <EntityTypeShape EntityType="Apress.EF6Recipes.WorkingWithObjectServices.Recipe8.Employee" Width="1.5" PointX="1.625" PointY="1.125" />
+        <EntityTypeShape EntityType="Apress.EF6Recipes.WorkingWithObjectServices.Recipe8.Task" Width="1.5" PointX="4.5" PointY="1.75" />
+        <AssociationConnector Association="Apress.EF6Recipes.WorkingWithObjectServices.Recipe8.TaskEmployee" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

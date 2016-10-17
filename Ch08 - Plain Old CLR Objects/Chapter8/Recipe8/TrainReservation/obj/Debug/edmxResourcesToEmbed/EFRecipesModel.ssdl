@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Reservation" EntityType="EFRecipesModel.Store.Reservation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Schedule" EntityType="EFRecipesModel.Store.Schedule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Train" EntityType="EFRecipesModel.Store.Train" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Reservation_Schedule" Association="EFRecipesModel.Store.FK_Reservation_Schedule">
+      <End Role="Schedule" EntitySet="Schedule" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schedule_Train" Association="EFRecipesModel.Store.FK_Schedule_Train">
+      <End Role="Train" EntitySet="Train" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="ReservationId" />
+    </Key>
+    <Property Name="ReservationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ScheduleId" Type="int" Nullable="false" />
+    <Property Name="Passenger" Type="nvarchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleId" />
+    </Key>
+    <Property Name="ScheduleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TrainId" Type="int" Nullable="false" />
+    <Property Name="ArrivalDate" Type="datetime" Nullable="false" />
+    <Property Name="DepartureDate" Type="datetime" Nullable="false" />
+    <Property Name="LeavesFrom" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ArrivesAt" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Train">
+    <Key>
+      <PropertyRef Name="TrainId" />
+    </Key>
+    <Property Name="TrainId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TrainName" Type="nvarchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <Association Name="FK_Reservation_Schedule">
+    <End Role="Schedule" Type="EFRecipesModel.Store.Schedule" Multiplicity="1" />
+    <End Role="Reservation" Type="EFRecipesModel.Store.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="ScheduleId" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="ScheduleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schedule_Train">
+    <End Role="Train" Type="EFRecipesModel.Store.Train" Multiplicity="1" />
+    <End Role="Schedule" Type="EFRecipesModel.Store.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Train">
+        <PropertyRef Name="TrainId" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="TrainId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

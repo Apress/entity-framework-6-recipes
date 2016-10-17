@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="EFRecipesModel.Store.Customer" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="CustomerEmail" EntityType="EFRecipesModel.Store.CustomerEmail" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="CustomerType" EntityType="EFRecipesModel.Store.CustomerType" store:Type="Tables" Schema="Chapter5" />
+    <AssociationSet Name="FK_Customer_CustomerType" Association="EFRecipesModel.Store.FK_Customer_CustomerType">
+      <End Role="CustomerType" EntitySet="CustomerType" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerEmail_Customer" Association="EFRecipesModel.Store.FK_CustomerEmail_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="CustomerEmail" EntitySet="CustomerEmail" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="CustomerTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerEmail">
+    <Key>
+      <PropertyRef Name="CustomerEmailId" />
+    </Key>
+    <Property Name="CustomerEmailId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="1024" />
+  </EntityType>
+  <EntityType Name="CustomerType">
+    <Key>
+      <PropertyRef Name="CustomerTypeId" />
+    </Key>
+    <Property Name="CustomerTypeId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Customer_CustomerType">
+    <End Role="CustomerType" Type="EFRecipesModel.Store.CustomerType" Multiplicity="1" />
+    <End Role="Customer" Type="EFRecipesModel.Store.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerType">
+        <PropertyRef Name="CustomerTypeId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="CustomerTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerEmail_Customer">
+    <End Role="Customer" Type="EFRecipesModel.Store.Customer" Multiplicity="1" />
+    <End Role="CustomerEmail" Type="EFRecipesModel.Store.CustomerEmail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="CustomerEmail">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

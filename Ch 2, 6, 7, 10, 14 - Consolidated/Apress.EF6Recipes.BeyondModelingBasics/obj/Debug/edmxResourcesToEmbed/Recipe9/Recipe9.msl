@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesBeyondModelingBasicsRecipe9StoreContainer" CdmEntityContainer="Recipe9Context">
+    <EntitySetMapping Name="Toys">
+      <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.BeyondModelingBasics.Recipe9.Toy)">
+        <MappingFragment StoreEntitySet="Toy">
+          <ScalarProperty Name="ToyId" ColumnName="ToyId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <Condition ColumnName="ForDonationOnly" Value="0" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.BeyondModelingBasics.Recipe9.RefurbishedToy)">
+        <MappingFragment StoreEntitySet="RefurbishedToy">
+          <ScalarProperty Name="Quality" ColumnName="Quality" />
+          <ScalarProperty Name="ToyId" ColumnName="ToyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

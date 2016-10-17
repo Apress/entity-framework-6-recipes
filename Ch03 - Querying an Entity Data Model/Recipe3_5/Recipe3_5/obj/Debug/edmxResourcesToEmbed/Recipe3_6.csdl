@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="BlogPosts" EntityType="EFRecipesModel.BlogPost" />
+    <EntitySet Name="Comments" EntityType="EFRecipesModel.Comment" />
+    <AssociationSet Name="FK__Comment__PostID__56E8E7AB" Association="EFRecipesModel.FK__Comment__PostID__56E8E7AB">
+      <End Role="BlogPost" EntitySet="BlogPosts" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BlogPost">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Comments" Relationship="EFRecipesModel.FK__Comment__PostID__56E8E7AB" FromRole="BlogPost" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="Int32" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="PostID" Type="Int32" />
+    <NavigationProperty Name="BlogPost" Relationship="EFRecipesModel.FK__Comment__PostID__56E8E7AB" FromRole="Comment" ToRole="BlogPost" />
+  </EntityType>
+  <Association Name="FK__Comment__PostID__56E8E7AB">
+    <End Role="BlogPost" Type="EFRecipesModel.BlogPost" Multiplicity="0..1" />
+    <End Role="Comment" Type="EFRecipesModel.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogPost">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

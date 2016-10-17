@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="Recipe7" />
+  <Alias Key="Target" Value="Recipe7.Store" />
+  <EntityContainerMapping CdmEntityContainer="Recipe7Context" StorageEntityContainer="Recipe7StoreContainer">
+    <FunctionImportMapping FunctionImportName="GetAllPeople" FunctionName="Recipe7.Store.GetAllPeople">
+      <ResultMapping>
+        <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe7.Student">
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <Condition ColumnName="PersonType" Value="Student" />
+        </EntityTypeMapping>
+        <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe7.Instructor">
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <Condition ColumnName="PersonType" Value="Instructor" />
+        </EntityTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.StoredProcedures.Recipe7.Person)">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.StoredProcedures.Recipe7.Instructor)">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <Condition ColumnName="PersonType" Value="Instructor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Apress.EF6Recipes.StoredProcedures.Recipe7.Student)">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <Condition ColumnName="PersonType" Value="Student" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

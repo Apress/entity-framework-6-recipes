@@ -1,0 +1,13 @@
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe16\AsyncEntityFramework\AsyncEntityFramework\bin\Debug\AsyncEntityFramework.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe16\AsyncEntityFramework\AsyncEntityFramework\bin\Debug\AsyncEntityFramework.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe16\AsyncEntityFramework\AsyncEntityFramework\bin\Debug\AsyncEntityFramework.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe16\AsyncEntityFramework\AsyncEntityFramework\bin\Debug\EntityFramework.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe16\AsyncEntityFramework\AsyncEntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe16\AsyncEntityFramework\AsyncEntityFramework\bin\Debug\EntityFramework.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe16\AsyncEntityFramework\AsyncEntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe16\AsyncEntityFramework\AsyncEntityFramework\obj\Debug\AsyncEntityFramework.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe16\AsyncEntityFramework\AsyncEntityFramework\obj\Debug\AsyncEntityFramework.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe16\AsyncEntityFramework\AsyncEntityFramework\obj\Debug\AsyncEntityFramework.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe16\Recipe16\bin\Debug\AsyncEntityFramework.exe.config
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe16\Recipe16\obj\Debug\AsyncEntityFramework.exe
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 5\Updated Code\Chapter5\Recipe16\Recipe16\obj\Debug\AsyncEntityFramework.pdb

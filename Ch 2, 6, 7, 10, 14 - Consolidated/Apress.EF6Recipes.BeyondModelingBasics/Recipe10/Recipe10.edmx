@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ApressEF6RecipesBeyondModelingBasicsRecipe10StoreContainer">
+          <EntitySet Name="WebOrder" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.WebOrder" store:Type="Tables" Schema="Chapter6" />
+        </EntityContainer>
+        <EntityType Name="WebOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Amount" Type="money" />
+        </EntityType>
+        <Function Name="DeleteOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+          <Parameter Name="OrderId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+          <Parameter Name="CustomerName" Type="varchar" Mode="In" />
+          <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+          <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+          <Parameter Name="Amount" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="UpdateOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter6">
+          <Parameter Name="CustomerName" Type="varchar" Mode="In" />
+          <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+          <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+          <Parameter Name="Amount" Type="decimal" Mode="In" />
+          <Parameter Name="OrderId" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe10" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Recipe10Context" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="WebOrders" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.WebOrder" />
+          <FunctionImport Name="DeleteOrder">
+            <Parameter Name="OrderId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertOrder" ReturnType="Collection(Decimal)">
+            <Parameter Name="CustomerName" Mode="In" Type="String" />
+            <Parameter Name="OrderDate" Mode="In" Type="DateTime" />
+            <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateOrder">
+            <Parameter Name="CustomerName" Mode="In" Type="String" />
+            <Parameter Name="OrderDate" Mode="In" Type="DateTime" />
+            <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="OrderId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="WebOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesBeyondModelingBasicsRecipe10StoreContainer" CdmEntityContainer="Recipe10Context">
+          <EntitySetMapping Name="WebOrders">
+				  <QueryView>
+					  select value
+					  Apress.EF6Recipes.BeyondModelingBasics.Recipe10.WebOrder(o.OrderId,
+					  o.CustomerName,o.OrderDate,o.IsDeleted,o.Amount)
+					  from ApressEF6RecipesBeyondModelingBasicsRecipe10StoreContainer.WebOrder as o
+					  where (o.OrderDate > datetime'2012-01-01 00:00') ||
+					  (o.OrderDate between cast('2010-01-01' as Edm.DateTime) and
+					  cast('2012-01-01' as Edm.DateTime) and !o.IsDeleted) ||
+					  (o.Amount > 200 and o.OrderDate &lt;
+					  cast('2010-01-01' as Edm.DateTime))
+				  </QueryView>
+			  <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.WebOrder">
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.WebOrder">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.InsertOrder">
+                  <ScalarProperty Name="Amount" ParameterName="Amount" />
+                  <ScalarProperty Name="IsDeleted" ParameterName="IsDeleted" />
+                  <ScalarProperty Name="OrderDate" ParameterName="OrderDate" />
+                  <ScalarProperty Name="CustomerName" ParameterName="CustomerName" />
+                  <ResultBinding Name="OrderId" ColumnName="OrderId" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.UpdateOrder">
+                  <ScalarProperty Name="OrderId" ParameterName="OrderId" Version="Current" />
+                  <ScalarProperty Name="Amount" ParameterName="Amount" Version="Current" />
+                  <ScalarProperty Name="IsDeleted" ParameterName="IsDeleted" Version="Current" />
+                  <ScalarProperty Name="OrderDate" ParameterName="OrderDate" Version="Current" />
+                  <ScalarProperty Name="CustomerName" ParameterName="CustomerName" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.DeleteOrder">
+                  <ScalarProperty Name="OrderId" ParameterName="OrderId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteOrder" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.DeleteOrder" />
+          <FunctionImportMapping FunctionImportName="InsertOrder" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.InsertOrder" />
+          <FunctionImportMapping FunctionImportName="UpdateOrder" FunctionName="Apress.EF6Recipes.BeyondModelingBasics.Recipe10.Store.UpdateOrder" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="Chapter6" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

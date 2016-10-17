@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Rental" EntityType="EFRecipesModel.Store.Rental" store:Type="Tables" Schema="Chapter10" />
+    <EntitySet Name="Vehicle" EntityType="EFRecipesModel.Store.Vehicle" store:Type="Tables" Schema="Chapter10" />
+    <AssociationSet Name="FK_Rental_Vehicle" Association="EFRecipesModel.Store.FK_Rental_Vehicle">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="Rental" EntitySet="Rental" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Rental">
+    <Key>
+      <PropertyRef Name="RentalId" />
+    </Key>
+    <Property Name="RentalId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RentalDate" Type="datetime" Nullable="false" />
+    <Property Name="Payment" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="VehicleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Name="VehicleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Model" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Manufacturer" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Year" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Rental_Vehicle">
+    <End Role="Vehicle" Type="EFRecipesModel.Store.Vehicle" Multiplicity="1" />
+    <End Role="Rental" Type="EFRecipesModel.Store.Rental" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleId" />
+      </Principal>
+      <Dependent Role="Rental">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetVehiclesWithRentals" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Chapter10">
+    <Parameter Name="date" Type="date" Mode="In" />
+    <Parameter Name="TotalRentals" Type="int" Mode="InOut" />
+    <Parameter Name="TotalPayments" Type="decimal" Mode="InOut" />
+  </Function>
+</Schema>

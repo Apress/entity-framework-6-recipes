@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9D7E42D8-37EC-465C-9692-869F311CDFB7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Apress.EF6Recipes.ModelingFundamentals</RootNamespace>
+    <AssemblyName>Apress.EF6Recipes.ModelingFundamentals</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Recipe10\Recipe10Program.cs" />
+    <Compile Include="Recipe11\Location.cs">
+      <DependentUpon>Recipe11.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe11\Park.cs">
+      <DependentUpon>Recipe11.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe11\Recipe11.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe11.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe11\Recipe11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe11.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe11\Recipe11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe11.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe11\Recipe11Program.cs" />
+    <Compile Include="Recipe12\Address.cs">
+      <DependentUpon>Recipe12.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe12\Agent.cs">
+      <DependentUpon>Recipe12.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe12\Name.cs">
+      <DependentUpon>Recipe12.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe12\Recipe12.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe12.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe12\Recipe12.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe12.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe12\Recipe12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe12.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe12\Recipe12Program.cs" />
+    <Compile Include="Recipe8\Business.cs" />
+    <Compile Include="Recipe8\BusinessContext.cs" />
+    <Compile Include="Recipe10\Employee.cs" />
+    <Compile Include="Recipe10\EmployeeContext.cs" />
+    <Compile Include="Recipe1\Person.cs">
+      <DependentUpon>PersonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe1\PersonModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PersonModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe1\PersonModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PersonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe1\PersonModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PersonModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe7\Photograph.cs" />
+    <Compile Include="Recipe7\PhotographContext.cs" />
+    <Compile Include="Recipe5\PictureCategory.cs" />
+    <Compile Include="Recipe5\PictureContext.cs" />
+    <Compile Include="Recipe6\Product.cs" />
+    <Compile Include="Recipe6\ProductContext.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recipe1\Recipe1.cs" />
+    <Compile Include="Recipe2\Meter.cs">
+      <DependentUpon>Recipe2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe2\Poem.cs">
+      <DependentUpon>Recipe2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe2\Poet.cs">
+      <DependentUpon>Recipe2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe2\Recipe2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe2\Recipe2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe2\Recipe2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe2.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe2\Recipe2Program.cs" />
+    <Compile Include="Recipe2\vwLibrary.cs">
+      <DependentUpon>Recipe2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe3\Album.cs">
+      <DependentUpon>Recipe3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe3\Artist.cs">
+      <DependentUpon>Recipe3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe3\Recipe3.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe3.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe3\Recipe3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe3\Recipe3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe3.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe3\Recipe3Program.cs" />
+    <Compile Include="Recipe4\Item.cs">
+      <DependentUpon>Recipe4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe4\Order.cs">
+      <DependentUpon>Recipe4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe4\OrderItem.cs">
+      <DependentUpon>Recipe4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe4\Recipe4.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe4.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe4\Recipe4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe4\Recipe4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe4.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe4\Recipe4Program.cs" />
+    <Compile Include="Recipe5\Recipe5Program.cs" />
+    <Compile Include="Recipe6\Recipe6Program.cs" />
+    <Compile Include="Recipe7\Recipe7Program.cs" />
+    <Compile Include="Recipe8\Recipe8Program.cs" />
+    <Compile Include="Recipe9\Account.cs">
+      <DependentUpon>Recipe9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe9\Recipe9.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe9.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe9\Recipe9.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe9\Recipe9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipe9.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe9\Recipe9Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="Recipe1\PersonModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PersonModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Recipe11\Recipe11.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Recipe11.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <None Include="Recipe11\Recipe11.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe11.edmx</DependentUpon>
+      <LastGenOutput>Recipe11.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Recipe11\Recipe11.edmx.diagram">
+      <DependentUpon>Recipe11.edmx</DependentUpon>
+    </None>
+    <None Include="Recipe11\Recipe11.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe11.edmx</DependentUpon>
+      <LastGenOutput>Recipe11.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Recipe12\Recipe12.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Recipe12.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Recipe12\Recipe12.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe12.edmx</DependentUpon>
+      <LastGenOutput>Recipe12.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Recipe12\Recipe12.edmx.diagram">
+      <DependentUpon>Recipe12.edmx</DependentUpon>
+    </None>
+    <None Include="Recipe12\Recipe12.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe12.edmx</DependentUpon>
+      <LastGenOutput>Recipe12.cs</LastGenOutput>
+    </None>
+    <None Include="Recipe1\PersonModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PersonModel.edmx</DependentUpon>
+      <LastGenOutput>PersonModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Recipe1\PersonModel.edmx.diagram">
+      <DependentUpon>PersonModel.edmx</DependentUpon>
+    </None>
+    <None Include="Recipe1\PersonModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PersonModel.edmx</DependentUpon>
+      <LastGenOutput>PersonModel.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Recipe2\Recipe2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Recipe2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Recipe2\Recipe2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe2.edmx</DependentUpon>
+      <LastGenOutput>Recipe2.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Recipe2\Recipe2.edmx.diagram">
+      <DependentUpon>Recipe2.edmx</DependentUpon>
+    </None>
+    <None Include="Recipe2\Recipe2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe2.edmx</DependentUpon>
+      <LastGenOutput>Recipe2.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Recipe3\Recipe3.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Recipe3.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Recipe3\Recipe3.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe3.edmx</DependentUpon>
+      <LastGenOutput>Recipe3.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Recipe3\Recipe3.edmx.diagram">
+      <DependentUpon>Recipe3.edmx</DependentUpon>
+    </None>
+    <None Include="Recipe3\Recipe3.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe3.edmx</DependentUpon>
+      <LastGenOutput>Recipe3.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Recipe4\Recipe4.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Recipe4.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Recipe4\Recipe4.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe4.edmx</DependentUpon>
+      <LastGenOutput>Recipe4.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Recipe4\Recipe4.edmx.diagram">
+      <DependentUpon>Recipe4.edmx</DependentUpon>
+    </None>
+    <None Include="Recipe4\Recipe4.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe4.edmx</DependentUpon>
+      <LastGenOutput>Recipe4.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Recipe9\Recipe9.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Recipe9.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Recipe9\Recipe9.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe9.edmx</DependentUpon>
+      <LastGenOutput>Recipe9.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Recipe9\Recipe9.edmx.diagram">
+      <DependentUpon>Recipe9.edmx</DependentUpon>
+    </None>
+    <None Include="Recipe9\Recipe9.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Recipe9.edmx</DependentUpon>
+      <LastGenOutput>Recipe9.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Recipe1\PersonModel.edmx.sql" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="EFRecipesModelStoreContainer">
+          <EntitySet Name="Bid" EntityType="EFRecipesModel.Store.Bid" store:Type="Tables" Schema="Chapter3" />
+          <EntitySet Name="Job" EntityType="EFRecipesModel.Store.Job" store:Type="Tables" Schema="Chapter3" />
+          <AssociationSet Name="FK__Bid__JobID__6FB49575" Association="EFRecipesModel.Store.FK__Bid__JobID__6FB49575">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="Bid" EntitySet="Bid" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Bid">
+          <Key>
+            <PropertyRef Name="BidID" />
+          </Key>
+          <Property Name="BidID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="JobID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" />
+          <Property Name="Bidder" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="JobDetails" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK__Bid__JobID__6FB49575">
+          <End Role="Job" Type="EFRecipesModel.Store.Job" Multiplicity="1" />
+          <End Role="Bid" Type="EFRecipesModel.Store.Bid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="Bid">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Bids" EntityType="EFRecipesModel.Bid" />
+          <EntitySet Name="Jobs" EntityType="EFRecipesModel.Job" />
+          <AssociationSet Name="FK__Bid__JobID__6FB49575" Association="EFRecipesModel.FK__Bid__JobID__6FB49575">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="Bid" EntitySet="Bids" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Bid">
+          <Key>
+            <PropertyRef Name="BidID" />
+          </Key>
+          <Property Name="BidID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="JobID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Bidder" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Job" Relationship="EFRecipesModel.FK__Bid__JobID__6FB49575" FromRole="Bid" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="JobDetails" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Bids" Relationship="EFRecipesModel.FK__Bid__JobID__6FB49575" FromRole="Job" ToRole="Bid" />
+        </EntityType>
+        <Association Name="FK__Bid__JobID__6FB49575">
+          <End Type="EFRecipesModel.Job" Role="Job" Multiplicity="1" />
+          <End Type="EFRecipesModel.Bid" Role="Bid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="Bid">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EFRecipesModelStoreContainer" CdmEntityContainer="EFRecipesEntities">
+          <EntitySetMapping Name="Bids">
+            <EntityTypeMapping TypeName="EFRecipesModel.Bid">
+              <MappingFragment StoreEntitySet="Bid">
+                <ScalarProperty Name="BidID" ColumnName="BidID" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Bidder" ColumnName="Bidder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="EFRecipesModel.Job">
+              <MappingFragment StoreEntitySet="Job">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="JobDetails" ColumnName="JobDetails" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

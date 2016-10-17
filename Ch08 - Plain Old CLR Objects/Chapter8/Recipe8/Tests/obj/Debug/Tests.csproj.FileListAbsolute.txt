@@ -1,0 +1,11 @@
+\\UK_LON1B_MS101\HOME$\NitinGupta\Desktop\Book_Code\POCORecipes\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+\\UK_LON1B_MS101\HOME$\NitinGupta\Desktop\Book_Code\Chapter8\POCORecipes\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\Tests\bin\Debug\Tests.dll
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\Tests\bin\Debug\Tests.pdb
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\Tests\bin\Debug\TrainReservation.dll
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\Tests\bin\Debug\EntityFramework.dll
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\Tests\bin\Debug\TrainReservation.pdb
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\Tests\bin\Debug\EntityFramework.xml
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\Tests\obj\Debug\Tests.dll
+C:\Users\Nitin\Downloads\documents-export-2013-11-17\Chapter8\POCORecipes\Tests\obj\Debug\Tests.pdb

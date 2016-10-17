@@ -1,0 +1,25 @@
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\obj\Debug\ResolveAssemblyReference.cache
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\bin\WcfService1.dll
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\bin\WcfService1.pdb
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\bin\Recipe4.dll
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\bin\Recipe4.pdb
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\obj\Debug\WcfService1.dll
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\obj\Debug\WcfService1.pdb
+M:\Book Work\Code\Chapter9\Recipe4\WcfService1\bin\WcfService1.dll
+M:\Book Work\Code\Chapter9\Recipe4\WcfService1\bin\WcfService1.pdb
+M:\Book Work\Code\Chapter9\Recipe4\WcfService1\bin\Recipe4.dll
+M:\Book Work\Code\Chapter9\Recipe4\WcfService1\bin\Recipe4.pdb
+M:\Book Work\Code\Chapter9\Recipe4\WcfService1\obj\Debug\ResolveAssemblyReference.cache
+M:\Book Work\Code\Chapter9\Recipe4\WcfService1\obj\Debug\WcfService1.dll
+M:\Book Work\Code\Chapter9\Recipe4\WcfService1\obj\Debug\WcfService1.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe2\WcfService1\obj\Debug\WcfService1.csprojResolveAssemblyReference.cache
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe2\WcfService1\bin\WcfService1.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe2\WcfService1\bin\WcfService1.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe2\WcfService1\bin\EntityFramework.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe2\WcfService1\bin\EntityFramework.SqlServer.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe2\WcfService1\bin\Recipe2.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe2\WcfService1\bin\Recipe2.pdb
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe2\WcfService1\bin\EntityFramework.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe2\WcfService1\bin\EntityFramework.SqlServer.xml
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe2\WcfService1\obj\Debug\WcfService1.dll
+C:\Users\robve_000\Documents\My Book\New Book\Chapters\CH 9\Code\Final\Recipe2\WcfService1\obj\Debug\WcfService1.pdb

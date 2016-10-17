@@ -1,0 +1,7 @@
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\bin\WcfService1.dll
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\bin\WcfService1.pdb
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\bin\Recipe4.dll
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\bin\Recipe4.pdb
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\obj\Release\ResolveAssemblyReference.cache
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\obj\Release\WcfService1.dll
+H:\Book Work\Code\Chapter9\Recipe4\WcfService1\obj\Release\WcfService1.pdb

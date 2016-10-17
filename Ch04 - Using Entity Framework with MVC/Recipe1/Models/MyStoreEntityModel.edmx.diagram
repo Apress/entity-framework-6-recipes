@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e659e442da6146d6ab79abd535b285fc" Name="Diagram1" DisplayType="true">
+        <EntityTypeShape EntityType="MyStoreModel.App" Width="1.625" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyStoreModel.Category" Width="1.625" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyStoreModel.Developer" Width="1.625" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="MyStoreModel.FK_App_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="MyStoreModel.FK_App_Developer" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

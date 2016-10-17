@@ -1,0 +1,12 @@
+C:\NitinWork\Auth\SOURCE_CODE\Chapter8\Recipe5\bin\Debug\POCORecipe55.exe.config
+C:\NitinWork\Auth\SOURCE_CODE\Chapter8\Recipe5\obj\Debug\POCORecipe55.exe
+C:\NitinWork\Auth\SOURCE_CODE\Chapter8\Recipe5\obj\Debug\POCORecipe55.pdb
+D:\Chapters\Chapter8\Chapter8\Recipe5\bin\Debug\POCORecipe55.exe.config
+D:\Chapters\Chapter8\Chapter8\Recipe5\obj\Debug\POCORecipe55.exe
+D:\Chapters\Chapter8\Chapter8\Recipe5\obj\Debug\POCORecipe55.pdb
+D:\Chapters\Chapter8\Chapter8\Recipe5\bin\Debug\POCORecipe55.exe
+D:\Chapters\Chapter8\Chapter8\Recipe5\bin\Debug\POCORecipe55.pdb
+D:\Chapters\Chapter8\Chapter8\Recipe5\bin\Debug\EntityFramework.dll
+D:\Chapters\Chapter8\Chapter8\Recipe5\bin\Debug\EntityFramework.SqlServer.dll
+D:\Chapters\Chapter8\Chapter8\Recipe5\bin\Debug\EntityFramework.xml
+D:\Chapters\Chapter8\Chapter8\Recipe5\bin\Debug\EntityFramework.SqlServer.xml

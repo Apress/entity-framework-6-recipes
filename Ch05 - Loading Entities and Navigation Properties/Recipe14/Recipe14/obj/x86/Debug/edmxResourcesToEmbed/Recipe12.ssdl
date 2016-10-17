@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Client" EntityType="EFRecipesModel.Store.Client" store:Type="Tables" Schema="Chapter5" />
+    <EntitySet Name="Invoice" EntityType="EFRecipesModel.Store.Invoice" store:Type="Tables" Schema="Chapter5" />
+    <AssociationSet Name="FK_Invoice_Client" Association="EFRecipesModel.Store.FK_Invoice_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Invoice" EntitySet="Invoice" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="InvoiceId" />
+    </Key>
+    <Property Name="InvoiceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Invoice_Client">
+    <End Role="Client" Type="EFRecipesModel.Store.Client" Multiplicity="1" />
+    <End Role="Invoice" Type="EFRecipesModel.Store.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

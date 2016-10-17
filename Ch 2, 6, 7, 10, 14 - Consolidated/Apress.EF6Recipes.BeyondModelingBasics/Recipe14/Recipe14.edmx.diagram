@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9c277276f6e048df9e1b5eabcc72dc86" Name="Diagram1" >
+        <EntityTypeShape EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe14.User" Width="1.5" PointX="2.125" PointY="1.75" />
+        <EntityTypeShape EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe14.PasswordHistory" Width="1.5" PointX="5.25" PointY="2.625" />
+        <AssociationConnector Association="Apress.EF6Recipes.BeyondModelingBasics.Recipe14.UserPasswordHistory" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

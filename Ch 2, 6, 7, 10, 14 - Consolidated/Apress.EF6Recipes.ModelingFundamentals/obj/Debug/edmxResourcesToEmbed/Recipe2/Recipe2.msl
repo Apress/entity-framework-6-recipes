@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesModelingFundamentalsRecipe2StoreContainer" CdmEntityContainer="Recipe2Context">
+    <EntitySetMapping Name="Meters">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.ModelingFundamentals.Recipe2.Meter">
+        <MappingFragment StoreEntitySet="Meter">
+          <ScalarProperty Name="MeterId" ColumnName="MeterId" />
+          <ScalarProperty Name="MeterName" ColumnName="MeterName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Poems">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.ModelingFundamentals.Recipe2.Poem">
+        <MappingFragment StoreEntitySet="Poem">
+          <ScalarProperty Name="PoemId" ColumnName="PoemId" />
+          <ScalarProperty Name="PoetId" ColumnName="PoetId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="MeterId" ColumnName="MeterId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Poets">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.ModelingFundamentals.Recipe2.Poet">
+        <MappingFragment StoreEntitySet="Poet">
+          <ScalarProperty Name="PoetId" ColumnName="PoetId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwLibraries">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.ModelingFundamentals.Recipe2.vwLibrary">
+        <MappingFragment StoreEntitySet="vwLibrary">
+          <ScalarProperty Name="MeterName" ColumnName="MeterName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="PoemId" ColumnName="PoemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

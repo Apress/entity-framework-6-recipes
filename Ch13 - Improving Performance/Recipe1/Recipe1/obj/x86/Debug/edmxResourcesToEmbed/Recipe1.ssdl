@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EFRecipesModelStoreContainer">
+    <EntitySet Name="Employee" EntityType="EFRecipesModel.Store.Employee" store:Type="Tables" Schema="Chapter13" />
+    <EntitySet Name="HourlyEmployee" EntityType="EFRecipesModel.Store.HourlyEmployee" store:Type="Tables" Schema="Chapter13" />
+    <EntitySet Name="SalariedEmployee" EntityType="EFRecipesModel.Store.SalariedEmployee" store:Type="Tables" Schema="Chapter13" />
+    <AssociationSet Name="FK_HourlyEmployee_Employee" Association="EFRecipesModel.Store.FK_HourlyEmployee_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="HourlyEmployee" EntitySet="HourlyEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalariedEmployee_Employee" Association="EFRecipesModel.Store.FK_SalariedEmployee_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="SalariedEmployee" EntitySet="SalariedEmployee" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HourlyEmployee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="Rate" Type="decimal" Nullable="false" Scale="2" />
+  </EntityType>
+  <EntityType Name="SalariedEmployee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="Salary" Type="decimal" Nullable="false" Scale="2" />
+  </EntityType>
+  <Association Name="FK_HourlyEmployee_Employee">
+    <End Role="Employee" Type="EFRecipesModel.Store.Employee" Multiplicity="1" />
+    <End Role="HourlyEmployee" Type="EFRecipesModel.Store.HourlyEmployee" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="HourlyEmployee">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalariedEmployee_Employee">
+    <End Role="Employee" Type="EFRecipesModel.Store.Employee" Multiplicity="1" />
+    <End Role="SalariedEmployee" Type="EFRecipesModel.Store.SalariedEmployee" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="SalariedEmployee">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

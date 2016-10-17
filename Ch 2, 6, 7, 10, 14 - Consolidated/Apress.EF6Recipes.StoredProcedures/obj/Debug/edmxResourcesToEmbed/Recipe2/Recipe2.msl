@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="Recipe2" />
+  <Alias Key="Target" Value="Recipe2.Store" />
+  <EntityContainerMapping CdmEntityContainer="Recipe2Context" StorageEntityContainer="Recipe2StoreContainer">
+    <FunctionImportMapping FunctionImportName="GetVehiclesWithRentals" FunctionName="Recipe2.Store.GetVehiclesWithRentals" />
+  </EntityContainerMapping>
+</Mapping>

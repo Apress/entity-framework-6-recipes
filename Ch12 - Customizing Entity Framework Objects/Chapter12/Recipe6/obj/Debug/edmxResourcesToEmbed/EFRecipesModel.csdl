@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Ingredients" EntityType="EFRecipesModel.Ingredient" />
+    <EntitySet Name="Recipes" EntityType="EFRecipesModel.Recipe" />
+    <EntitySet Name="Steps" EntityType="EFRecipesModel.Step" />
+    <AssociationSet Name="FK_Ingredient_Recipe" Association="EFRecipesModel.FK_Ingredient_Recipe">
+      <End Role="Recipe" EntitySet="Recipes" />
+      <End Role="Ingredient" EntitySet="Ingredients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Step_Recipe" Association="EFRecipesModel.FK_Step_Recipe">
+      <End Role="Recipe" EntitySet="Recipes" />
+      <End Role="Step" EntitySet="Steps" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="IngredientId" />
+    </Key>
+    <Property Name="IngredientId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="RecipeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Recipe" Relationship="EFRecipesModel.FK_Ingredient_Recipe" FromRole="Ingredient" ToRole="Recipe" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="RecipeId" />
+    </Key>
+    <Property Name="RecipeId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="RecipeName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Ingredients" Relationship="EFRecipesModel.FK_Ingredient_Recipe" FromRole="Recipe" ToRole="Ingredient" />
+    <NavigationProperty Name="Steps" Relationship="EFRecipesModel.FK_Step_Recipe" FromRole="Recipe" ToRole="Step" />
+  </EntityType>
+  <EntityType Name="Step">
+    <Key>
+      <PropertyRef Name="StepId" />
+    </Key>
+    <Property Name="StepId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="RecipeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Recipe" Relationship="EFRecipesModel.FK_Step_Recipe" FromRole="Step" ToRole="Recipe" />
+  </EntityType>
+  <Association Name="FK_Ingredient_Recipe">
+    <End Role="Recipe" Type="EFRecipesModel.Recipe" Multiplicity="1" />
+    <End Role="Ingredient" Type="EFRecipesModel.Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipe">
+        <PropertyRef Name="RecipeId" />
+      </Principal>
+      <Dependent Role="Ingredient">
+        <PropertyRef Name="RecipeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Step_Recipe">
+    <End Role="Recipe" Type="EFRecipesModel.Recipe" Multiplicity="1" />
+    <End Role="Step" Type="EFRecipesModel.Step" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipe">
+        <PropertyRef Name="RecipeId" />
+      </Principal>
+      <Dependent Role="Step">
+        <PropertyRef Name="RecipeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

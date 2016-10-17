@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.StoredProcedures.Recipe5.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesStoredProceduresRecipe5StoreContainer">
+    <EntitySet Name="Member" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe5.Store.Member" store:Type="Tables" Schema="Chapter10" />
+    <EntitySet Name="Message" EntityType="Apress.EF6Recipes.StoredProcedures.Recipe5.Store.Message" store:Type="Tables" Schema="Chapter10" />
+    <AssociationSet Name="FK__Message__MemberI__1367E606" Association="Apress.EF6Recipes.StoredProcedures.Recipe5.Store.FK__Message__MemberI__1367E606">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="DateSent" Type="datetime" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="100" />
+    <Property Name="MessageBody" Type="text" />
+  </EntityType>
+  <Association Name="FK__Message__MemberI__1367E606">
+    <End Role="Member" Type="Apress.EF6Recipes.StoredProcedures.Recipe5.Store.Member" Multiplicity="1" />
+    <End Role="Message" Type="Apress.EF6Recipes.StoredProcedures.Recipe5.Store.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="MembersWithTheMostMessages" IsComposable="false">
+    <CommandText>
+				  select m.*
+				  from chapter10.member m
+				  join
+				  (
+				  select msg.MemberId, count(msg.MessageId) as MessageCount
+				  from chapter10.message msg where datesent = @datesent
+				  group by msg.MemberId
+				  ) temp on m.MemberId = temp.MemberId
+				  order by temp.MessageCount desc
+			  </CommandText>
+    <Parameter Name="datesent" Type="datetime" />
+  </Function>
+</Schema>

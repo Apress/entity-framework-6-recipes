@@ -1,0 +1,30 @@
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Ch 14 Concurrency\bin\Debug\Apress.EF6Recipes.Concurrency.exe.config
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Ch 14 Concurrency\bin\Debug\Apress.EF6Recipes.Concurrency.exe
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Ch 14 Concurrency\bin\Debug\Apress.EF6Recipes.Concurrency.pdb
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Ch 14 Concurrency\bin\Debug\EntityFramework.dll
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Ch 14 Concurrency\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Ch 14 Concurrency\bin\Debug\EntityFramework.xml
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Ch 14 Concurrency\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Ch 14 Concurrency\obj\Debug\Apress.EF6Recipes.Concurrency.csprojResolveAssemblyReference.cache
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Ch 14 Concurrency\obj\Debug\Apress.EF6Recipes.Concurrency.exe
+C:\Users\brian.driscoll\Dropbox\Apress\EF 6 Recipes\SampleCode\EF6 Recipes\Ch 14 Concurrency\obj\Debug\Apress.EF6Recipes.Concurrency.pdb
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Ch 14 Concurrency\bin\Debug\Apress.EF6Recipes.Concurrency.exe.config
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Ch 14 Concurrency\bin\Debug\Apress.EF6Recipes.Concurrency.exe
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Ch 14 Concurrency\bin\Debug\Apress.EF6Recipes.Concurrency.pdb
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Ch 14 Concurrency\bin\Debug\EntityFramework.dll
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Ch 14 Concurrency\bin\Debug\EntityFramework.SqlServer.dll
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Ch 14 Concurrency\bin\Debug\EntityFramework.xml
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Ch 14 Concurrency\bin\Debug\EntityFramework.SqlServer.xml
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Ch 14 Concurrency\obj\Debug\Apress.EF6Recipes.Concurrency.exe
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Ch 14 Concurrency\obj\Debug\Apress.EF6Recipes.Concurrency.pdb
+D:\My Book\My Book\Brians Code\Brians Current Code\EF6 Recipes\Ch 14 Concurrency\obj\Debug\Apress.EF6Recipes.Concurrency.csprojResolveAssemblyReference.cache
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Ch 14 Concurrency\bin\Debug\Apress.EF6Recipes.Concurrency.exe.config
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Ch 14 Concurrency\bin\Debug\Apress.EF6Recipes.Concurrency.exe
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Ch 14 Concurrency\bin\Debug\Apress.EF6Recipes.Concurrency.pdb
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Ch 14 Concurrency\bin\Debug\EntityFramework.dll
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Ch 14 Concurrency\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Ch 14 Concurrency\bin\Debug\EntityFramework.xml
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Ch 14 Concurrency\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Ch 14 Concurrency\obj\Debug\Apress.EF6Recipes.Concurrency.csprojResolveAssemblyReference.cache
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Ch 14 Concurrency\obj\Debug\Apress.EF6Recipes.Concurrency.exe
+C:\Users\bdriscoll\Documents\Apress\EF6 Recipes - Brians Code\EF6 Recipes - Brians Code\Ch 14 Concurrency\obj\Debug\Apress.EF6Recipes.Concurrency.pdb

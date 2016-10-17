@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesStoredProceduresRecipe8StoreContainer" CdmEntityContainer="Recipe8Context">
+    <EntitySetMapping Name="Athletes">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe8.Athlete">
+        <MappingFragment StoreEntitySet="Athlete">
+          <ScalarProperty Name="AthleteId" ColumnName="AthleteId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.StoredProcedures.Recipe8.Athlete">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.InsertAthlete">
+            <ScalarProperty Name="Weight" ParameterName="Weight" />
+            <ScalarProperty Name="Height" ParameterName="Height" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+            <ResultBinding Name="AthleteId" ColumnName="AthleteId" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.UpdateAthlete">
+            <ScalarProperty Name="Weight" ParameterName="Weight" Version="Current" />
+            <ScalarProperty Name="Height" ParameterName="Height" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+            <ScalarProperty Name="AthleteId" ParameterName="AthleteId" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.DeleteAthlete">
+            <ScalarProperty Name="AthleteId" ParameterName="AthleteId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteAthlete" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.DeleteAthlete" />
+    <FunctionImportMapping FunctionImportName="InsertAthlete" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.InsertAthlete" />
+    <FunctionImportMapping FunctionImportName="UpdateAthlete" FunctionName="Apress.EF6Recipes.StoredProcedures.Recipe8.Store.UpdateAthlete" />
+  </EntityContainerMapping>
+</Mapping>

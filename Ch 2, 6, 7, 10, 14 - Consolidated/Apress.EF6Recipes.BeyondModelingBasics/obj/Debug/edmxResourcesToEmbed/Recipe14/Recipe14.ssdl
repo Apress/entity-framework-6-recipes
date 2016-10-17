@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Apress.EF6Recipes.BeyondModelingBasics.Recipe14.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ApressEF6RecipesBeyondModelingBasicsRecipe14StoreContainer">
+    <EntitySet Name="Users" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe14.Store.Users" store:Type="Tables" Schema="Chapter6" />
+    <EntitySet Name="PasswordHistories" EntityType="Apress.EF6Recipes.BeyondModelingBasics.Recipe14.Store.PasswordHistories" store:Type="Tables" Schema="Chapter6" />
+    <AssociationSet Name="UserPasswordHistory" Association="Apress.EF6Recipes.BeyondModelingBasics.Recipe14.Store.UserPasswordHistory">
+      <End Role="User" EntitySet="Users" />
+      <End Role="PasswordHistory" EntitySet="PasswordHistories" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PasswordHistories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastLogin" Type="datetime" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UserPasswordHistory">
+    <End Role="User" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe14.Store.Users" Multiplicity="1" />
+    <End Role="PasswordHistory" Type="Apress.EF6Recipes.BeyondModelingBasics.Recipe14.Store.PasswordHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PasswordHistory">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

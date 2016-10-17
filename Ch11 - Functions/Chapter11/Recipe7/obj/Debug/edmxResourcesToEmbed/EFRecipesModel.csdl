@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFRecipesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <Function Name="PlatinumSponsors">
+    <ReturnType>
+      <CollectionType>
+        <ReferenceType Type="EFRecipesModel.Sponsor" />
+      </CollectionType>
+    </ReturnType>
+    <DefiningExpression>
+						select value ref(s)
+						from EFRecipesEntities.Sponsors as s
+						where s.SponsorType.Description == 'Platinum'
+					</DefiningExpression>
+  </Function>
+  <EntityContainer Name="EFRecipesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Events" EntityType="EFRecipesModel.Event" />
+    <EntitySet Name="Sponsors" EntityType="EFRecipesModel.Sponsor" />
+    <EntitySet Name="SponsorTypes" EntityType="EFRecipesModel.SponsorType" />
+    <AssociationSet Name="FK_Event_Sponsor" Association="EFRecipesModel.FK_Event_Sponsor">
+      <End Role="Sponsor" EntitySet="Sponsors" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sponsor_SponsorType" Association="EFRecipesModel.FK_Sponsor_SponsorType">
+      <End Role="SponsorType" EntitySet="SponsorTypes" />
+      <End Role="Sponsor" EntitySet="Sponsors" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SponsorId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sponsor" Relationship="EFRecipesModel.FK_Event_Sponsor" FromRole="Event" ToRole="Sponsor" />
+  </EntityType>
+  <EntityType Name="Sponsor">
+    <Key>
+      <PropertyRef Name="SponsorId" />
+    </Key>
+    <Property Name="SponsorId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SponsorTypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Events" Relationship="EFRecipesModel.FK_Event_Sponsor" FromRole="Sponsor" ToRole="Event" />
+    <NavigationProperty Name="SponsorType" Relationship="EFRecipesModel.FK_Sponsor_SponsorType" FromRole="Sponsor" ToRole="SponsorType" />
+  </EntityType>
+  <EntityType Name="SponsorType">
+    <Key>
+      <PropertyRef Name="SponsorTypeId" />
+    </Key>
+    <Property Name="SponsorTypeId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Sponsors" Relationship="EFRecipesModel.FK_Sponsor_SponsorType" FromRole="SponsorType" ToRole="Sponsor" />
+  </EntityType>
+  <Association Name="FK_Event_Sponsor">
+    <End Role="Sponsor" Type="EFRecipesModel.Sponsor" Multiplicity="1" />
+    <End Role="Event" Type="EFRecipesModel.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sponsor">
+        <PropertyRef Name="SponsorId" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="SponsorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sponsor_SponsorType">
+    <End Role="SponsorType" Type="EFRecipesModel.SponsorType" Multiplicity="1" />
+    <End Role="Sponsor" Type="EFRecipesModel.Sponsor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SponsorType">
+        <PropertyRef Name="SponsorTypeId" />
+      </Principal>
+      <Dependent Role="Sponsor">
+        <PropertyRef Name="SponsorTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

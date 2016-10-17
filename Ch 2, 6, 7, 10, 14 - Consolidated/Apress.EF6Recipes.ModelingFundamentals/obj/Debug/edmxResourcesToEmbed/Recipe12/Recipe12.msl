@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApressEF6RecipesModelingFundamentalsRecipe12StoreContainer" CdmEntityContainer="Recipe12Context">
+    <EntitySetMapping Name="Agents">
+      <EntityTypeMapping TypeName="Apress.EF6Recipes.ModelingFundamentals.Recipe12.Agent">
+        <MappingFragment StoreEntitySet="Agent">
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ComplexProperty Name="Name">
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          </ComplexProperty>
+          <ComplexProperty Name="Address">
+            <ScalarProperty Name="ZIPCode" ColumnName="ZIPCode" />
+            <ScalarProperty Name="State" ColumnName="State" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+            <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

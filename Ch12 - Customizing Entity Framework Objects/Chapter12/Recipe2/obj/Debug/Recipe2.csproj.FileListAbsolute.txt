@@ -1,0 +1,12 @@
+C:\Users\Nitin\Downloads\Chapter12\Recipe2\bin\Debug\CustomEFRecipe2.exe.config
+C:\Users\Nitin\Downloads\Chapter12\Recipe2\obj\Debug\CustomEFRecipe2.exe
+C:\Users\Nitin\Downloads\Chapter12\Recipe2\obj\Debug\CustomEFRecipe2.pdb
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe2\bin\Debug\CustomEFRecipe2.exe.config
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe2\obj\Debug\CustomEFRecipe2.exe
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe2\obj\Debug\CustomEFRecipe2.pdb
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe2\bin\Debug\CustomEFRecipe2.exe
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe2\bin\Debug\CustomEFRecipe2.pdb
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe2\bin\Debug\EntityFramework.dll
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe2\bin\Debug\EntityFramework.xml
+C:\Users\NitinGupta\Downloads\Chapter12\Chapter12\Recipe2\bin\Debug\EntityFramework.SqlServer.xml
